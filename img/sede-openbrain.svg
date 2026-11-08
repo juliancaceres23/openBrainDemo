@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Espacio de la sede de Open Brain en Cúcuta: ambiente pedagógico seguro, sin menores">
+  <!-- Fondo y cielo suave -->
+  <rect width="800" height="500" fill="#F7F9FC" rx="16" />
+  
+  <!-- Patrón decorativo suave de fondo -->
+  <circle cx="720" cy="80" r="60" fill="#FEAFCF" opacity="0.3" />
+  <circle cx="80" cy="420" r="80" fill="#5EC3CC" opacity="0.15" />
+
+  <!-- Fachada / Instalación de la sede -->
+  <g transform="translate(100, 100)">
+    <!-- Edificación institucional -->
+    <rect x="50" y="80" width="500" height="260" rx="12" fill="#FFFFFF" stroke="#2F438C" stroke-width="4" />
+    
+    <!-- Techo / Cornisa -->
+    <path d="M30 80 L300 20 L570 80 Z" fill="#2F438C" />
+    
+    <!-- Ventanales de luz natural -->
+    <rect x="90" y="120" width="80" height="90" rx="8" fill="#E2F7F9" stroke="#5EC3CC" stroke-width="3" />
+    <line x1="130" y1="120" x2="130" y2="210" stroke="#5EC3CC" stroke-width="2" />
+    <line x1="90" y1="165" x2="170" y2="165" stroke="#5EC3CC" stroke-width="2" />
+
+    <rect x="430" y="120" width="80" height="90" rx="8" fill="#E2F7F9" stroke="#5EC3CC" stroke-width="3" />
+    <line x1="470" y1="120" x2="470" y2="210" stroke="#5EC3CC" stroke-width="2" />
+    <line x1="430" y1="165" x2="510" y2="165" stroke="#5EC3CC" stroke-width="2" />
+
+    <!-- Puerta de acceso inclusiva -->
+    <rect x="250" y="180" width="100" height="160" rx="6" fill="#F86DC1" opacity="0.15" stroke="#2F438C" stroke-width="3" />
+    <rect x="260" y="195" width="80" height="145" rx="4" fill="#FFFFFF" stroke="#2F438C" stroke-width="2" />
+    <circle cx="325" cy="270" r="4" fill="#2F438C" />
+
+    <!-- Rótulo sobre la entrada -->
+    <rect x="210" y="120" width="180" height="40" rx="8" fill="#2F438C" />
+    <text x="300" y="145" font-family="'Nunito', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF" text-anchor="middle">SEDE OPEN BRAIN</text>
+
+    <!-- Vegetación / Jardineras decorativas -->
+    <path d="M30 330 Q45 280 65 340 Q85 270 105 340 Z" fill="#5EC3CC" />
+    <path d="M495 340 Q515 270 535 340 Q555 285 570 340 Z" fill="#5EC3CC" />
+    
+    <!-- Piso / Acceso -->
+    <line x1="20" y1="340" x2="580" y2="340" stroke="#2F438C" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Cartel informativo central / Marcador visible -->
+  <g transform="translate(180, 20)">
+    <rect x="0" y="0" width="440" height="44" rx="8" fill="#FFF3CD" stroke="#FFEEBA" stroke-width="2" />
+    <text x="220" y="27" font-family="'Nunito', sans-serif" font-weight="700" font-size="14" fill="#856404" text-anchor="middle">
+      [PENDIENTE: Foto real de la sede sin menores]
+    </text>
+  </g>
+
+  <!-- Dirección al pie de la imagen -->
+  <text x="400" y="475" font-family="'Nunito', sans-serif" font-weight="600" font-size="15" fill="#414D6B" text-anchor="middle">
+    CL 2N N.º 14E-102, barrio Villa Prado, Cúcuta
+  </text>
+</svg>
