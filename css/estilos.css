@@ -957,3 +957,336 @@ ol {
     font-size: var(--font-size-2xl);
   }
 }
+
+
+/* --- 12. Componentes de Servicios y Horarios (servicios.html) --- */
+
+/* Banner de cabecera de página */
+.page-banner {
+  background: linear-gradient(135deg, #F0F4FF 0%, #FFFFFF 100%);
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.page-banner__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-banner__text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: var(--line-height-relaxed);
+}
+
+@media (min-width: 768px) {
+  .page-banner {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+  }
+
+  .page-banner__title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* Layout de la sección de servicios */
+.services-section-container {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+.services-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.services-layout__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  width: 100%;
+}
+
+.services-layout__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .services-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+    align-items: start;
+    gap: var(--spacing-2xl);
+  }
+
+  .services-layout__sidebar {
+    position: sticky;
+    top: 96px;
+  }
+}
+
+/* Tarjetas de detalle de servicio */
+.service-detail-card {
+  background-color: #FFFFFF;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.service-detail-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.service-detail-card--highlight {
+  border-color: var(--color-accent-teal);
+  background: linear-gradient(180deg, #F5FCFD 0%, #FFFFFF 100%);
+}
+
+.service-detail-card__header {
+  margin-bottom: var(--spacing-md);
+}
+
+.service-detail-card__badge {
+  display: inline-block;
+  background-color: var(--color-card-pink-subtle);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: var(--font-size-sm);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-xs);
+}
+
+.service-detail-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+}
+
+.service-detail-card__description {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Cajas de metadatos (Edades y Modalidades) */
+.service-detail-card__meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+@media (min-width: 600px) {
+  .service-detail-card__meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.meta-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-box__label {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-accent-teal-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meta-box__value {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Bloque de tarifas del servicio */
+.service-detail-card__pricing {
+  margin-bottom: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.pricing-label {
+  display: block;
+  font-weight: 800;
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.pricing-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.service-detail-card__actions {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .service-detail-card__actions {
+    flex-direction: row;
+  }
+}
+
+/* Tarjetas de la Barra Lateral */
+.sidebar-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-card--rates {
+  background: linear-gradient(180deg, #F8FAFD 0%, #FFFFFF 100%);
+  border-color: var(--color-primary);
+}
+
+.sidebar-card__header {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.sidebar-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+.sidebar-card__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Lista de Horarios */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px dashed var(--color-border);
+  font-size: var(--font-size-base);
+}
+
+.schedule-item__days {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.schedule-item__hours {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.schedule-item--closed .schedule-item__hours {
+  color: var(--color-accent-coral-dark);
+}
+
+.schedule-note {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+  margin-top: var(--spacing-xs);
+}
+
+.sidebar-card__notice {
+  margin-top: var(--spacing-sm);
+}
+
+/* Lista de Tarifas */
+.rates-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
+}
+
+.rates-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.rates-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+}
+
+.rates-item strong {
+  color: var(--color-primary);
+}
+
+.sidebar-card__cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+/* Tarjeta de Nota Informativa (no matricula) */
+.info-note-card {
+  background-color: var(--color-card-pink-subtle);
+  border: 1px solid var(--color-card-pink-light);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.info-note-card__title {
+  font-size: var(--font-size-base);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.info-note-card__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-base);
+}

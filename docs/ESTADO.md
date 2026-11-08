@@ -11,7 +11,7 @@
 |---|---|---|---|---|
 | **Fase 1** | Arquitectura Base, Sistema de Diseño y Transversal | RF-01, RF-02 | `css/estilos.css`, `js/menu.js`, `img/` | ✅ Completada |
 | **Fase 2** | Módulo de Inicio | RF-03 a RF-08 | `index.html` | ✅ Completada |
-| **Fase 3** | Módulo de Servicios y Horarios | RF-09 a RF-13 | `servicios.html` | ⏳ Pendiente |
+| **Fase 3** | Módulo de Servicios y Horarios | RF-09 a RF-13 | `servicios.html` | ✅ Completada |
 | **Fase 4** | Módulo de Equipo y Testimonios | RF-14 a RF-16 | `equipo.html` | ⏳ Pendiente |
 | **Fase 5** | Módulo de Contacto, Formulario y Legal | RF-17 a RF-24 | `contacto.html`, `politica-datos.html`, `js/formulario.js` | ⏳ Pendiente |
 | **Fase 6** | Canales Institucionales, Folleto y SEO | RF-25, RF-26, RF-27 | `assets/`, `robots.txt`, `sitemap.xml`, meta tags | ⏳ Pendiente |
@@ -36,11 +36,11 @@
 | **RF-06** | Inicio | Botón "Ver servicios" hacia Servicios y horarios | Fase 2 | ✅ Completado | Enlace principal destacado hacia `servicios.html` |
 | **RF-07** | Inicio | Teléfono y correo visibles de la organización | Fase 2 | ✅ Completado | Canales visibles con marcadores `[PENDIENTE: ...]` |
 | **RF-08** | Inicio | Accesos directos a los tres servicios | Fase 2 | ✅ Completado | Tarjetas interactivas con anclas a `servicios.html` |
-| **RF-09** | Servicios | Tres servicios con descripción | Fase 3 | ⏳ Pendiente | Pedagógico, terapéutico, estimulación |
-| **RF-10** | Servicios | Edades y modalidades de cada servicio | Fase 3 | ⏳ Pendiente | Badges claros y accesibles |
-| **RF-11** | Servicios | Horarios de atención | Fase 3 | ⏳ Pendiente | Horarios organizados |
-| **RF-12** | Servicios | Tarifas por servicio | Fase 3 | ⏳ Pendiente | `[PENDIENTE: Tarifas]` |
-| **RF-13** | Servicios | Botón para solicitar información | Fase 3 | ⏳ Pendiente | Redirige a `contacto.html` |
+| **RF-09** | Servicios | Tres servicios con descripción | Fase 3 | ✅ Completado | Pedagógico, terapéutico y estimulación con detalle |
+| **RF-10** | Servicios | Edades y modalidades de cada servicio | Fase 3 | ✅ Completado | Badges accesibles y descriptivos por servicio |
+| **RF-11** | Servicios | Horarios de atención | Fase 3 | ✅ Completado | Lista estructurada en barra lateral y móvil |
+| **RF-12** | Servicios | Tarifas por servicio | Fase 3 | ✅ Completado | Detalle de inversión y marcador `[PENDIENTE: Tarifas]` |
+| **RF-13** | Servicios | Botón para solicitar información | Fase 3 | ✅ Completado | Botón accesible en cada tarjeta hacia `contacto.html` |
 | **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ⏳ Pendiente | Perfiles profesionales |
 | **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ⏳ Pendiente | Ley 1581 / Ley 1098 |
 | **RF-16** | Equipo | Preguntas frecuentes desplegables | Fase 4 | ⏳ Pendiente | Implementado con `<details>` sin JS |
