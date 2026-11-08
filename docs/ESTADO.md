@@ -9,7 +9,7 @@
 
 | Fase | Descripción | RF Cubiertos | Archivos Principales | Estado |
 |---|---|---|---|---|
-| **Fase 1** | Arquitectura Base, Sistema de Diseño y Transversal | RF-01, RF-02 | `css/estilos.css`, `js/menu.js`, `img/` | ⏳ Pendiente |
+| **Fase 1** | Arquitectura Base, Sistema de Diseño y Transversal | RF-01, RF-02 | `css/estilos.css`, `js/menu.js`, `img/` | ✅ Completada |
 | **Fase 2** | Módulo de Inicio | RF-03 a RF-08 | `index.html` | ⏳ Pendiente |
 | **Fase 3** | Módulo de Servicios y Horarios | RF-09 a RF-13 | `servicios.html` | ⏳ Pendiente |
 | **Fase 4** | Módulo de Equipo y Testimonios | RF-14 a RF-16 | `equipo.html` | ⏳ Pendiente |
@@ -28,8 +28,8 @@
 
 | ID | Módulo | Requerimiento | Fase | Estado | Comentarios / Marcador |
 |---|---|---|:---:|:---:|---|
-| **RF-01** | Transversal | Barra de navegación con logo y 4 módulos | Fase 1 | ⏳ Pendiente | Menú semántico con soporte móvil accesible |
-| **RF-02** | Transversal | Botón de WhatsApp a conversación directa | Fase 1 | ⏳ Pendiente | Enlace `https://wa.me/57[PENDIENTE]` |
+| **RF-01** | Transversal | Barra de navegación con logo y 4 módulos | Fase 1 | ✅ Implementado base | Estructura en estilos y script menú móvil accesible |
+| **RF-02** | Transversal | Botón de WhatsApp a conversación directa | Fase 1 | ✅ Implementado base | Componente accesible con `https://wa.me/57[PENDIENTE]` |
 | **RF-03** | Inicio | Bienvenida sobre dificultades de aprendizaje en Cúcuta | Fase 2 | ⏳ Pendiente | Tono cercano y profesional |
 | **RF-04** | Inicio | Presentación de Open Brain (quiénes son y qué hacen) | Fase 2 | ⏳ Pendiente | Enfoque institucional |
 | **RF-05** | Inicio | Espacio con imagen de la sede (sin menores) | Fase 2 | ⏳ Pendiente | Imagen con width, height y alt |

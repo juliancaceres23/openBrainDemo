@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Mascota de Open Brain: un cerebro sonriente con gafas">
+  <!-- Fondo circular suave decorativo -->
+  <circle cx="120" cy="120" r="105" fill="#FEAFCF" opacity="0.3" />
+
+  <!-- Cuerpo del cerebro en rosa vivo -->
+  <path d="M70 120 C55 120 45 105 45 92 C45 76 58 65 72 65 C75 55 88 45 105 45 C115 45 121 48 124 54 C130 48 140 45 150 45 C167 45 180 55 183 65 C197 65 210 76 210 92 C210 105 200 120 185 120 C188 128 188 138 182 148 C176 160 162 170 148 170 C145 170 142 170 139 167 C133 176 124 182 115 182 C106 182 97 176 91 167 C88 170 85 170 82 170 C68 170 54 160 48 148 C42 138 42 128 45 120 Z" fill="#F86DC1" />
+
+  <!-- Pliegues y surcos del cerebro -->
+  <path d="M115 65 Q115 110 115 155" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6" />
+  <path d="M80 88 Q95 95 105 110" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.5" />
+  <path d="M150 88 Q135 95 125 110" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.5" />
+  <path d="M80 140 Q95 130 105 135" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.4" />
+  <path d="M150 140 Q135 130 125 135" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.4" />
+
+  <!-- Lentes redondos con marco turquesa -->
+  <circle cx="92" cy="112" r="22" fill="#FFFFFF" stroke="#5EC3CC" stroke-width="8" />
+  <circle cx="138" cy="112" r="22" fill="#FFFFFF" stroke="#5EC3CC" stroke-width="8" />
+  <!-- Puente de los lentes -->
+  <path d="M114 112 L116 112" stroke="#5EC3CC" stroke-width="8" stroke-linecap="round" />
+  <!-- Patillas -->
+  <path d="M70 112 L56 109" stroke="#5EC3CC" stroke-width="6" stroke-linecap="round" />
+  <path d="M160 112 L174 109" stroke="#5EC3CC" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Pupilas / Ojos expresivos -->
+  <circle cx="94" cy="112" r="8" fill="#1B2340" />
+  <circle cx="140" cy="112" r="8" fill="#1B2340" />
+  <!-- Brillos -->
+  <circle cx="91" cy="109" r="3" fill="#FFFFFF" />
+  <circle cx="137" cy="109" r="3" fill="#FFFFFF" />
+
+  <!-- Sonrisa alegre -->
+  <path d="M102 144 Q115 158 128 144" stroke="#1B2340" stroke-width="5" stroke-linecap="round" fill="none" />
+  <!-- Mejillas sonrosadas -->
+  <circle cx="68" cy="132" r="9" fill="#FEAFCF" />
+  <circle cx="162" cy="132" r="9" fill="#FEAFCF" />
+</svg>
