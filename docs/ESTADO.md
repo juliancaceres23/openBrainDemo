@@ -1,0 +1,74 @@
+# Tablero de Estado del Proyecto: Open Brain
+
+> Este archivo registra el progreso de implementación, el estado de cada una de las 7 fases, la cobertura de los 27 requerimientos funcionales y los datos pendientes de confirmación.
+> Última actualización: Planificación inicial aprobada.
+
+---
+
+## 1. Estado Global de las Fases
+
+| Fase | Descripción | RF Cubiertos | Archivos Principales | Estado |
+|---|---|---|---|---|
+| **Fase 1** | Arquitectura Base, Sistema de Diseño y Transversal | RF-01, RF-02 | `css/estilos.css`, `js/menu.js`, `img/` | ⏳ Pendiente |
+| **Fase 2** | Módulo de Inicio | RF-03 a RF-08 | `index.html` | ⏳ Pendiente |
+| **Fase 3** | Módulo de Servicios y Horarios | RF-09 a RF-13 | `servicios.html` | ⏳ Pendiente |
+| **Fase 4** | Módulo de Equipo y Testimonios | RF-14 a RF-16 | `equipo.html` | ⏳ Pendiente |
+| **Fase 5** | Módulo de Contacto, Formulario y Legal | RF-17 a RF-24 | `contacto.html`, `politica-datos.html`, `js/formulario.js` | ⏳ Pendiente |
+| **Fase 6** | Canales Institucionales, Folleto y SEO | RF-25, RF-26, RF-27 | `assets/`, `robots.txt`, `sitemap.xml`, meta tags | ⏳ Pendiente |
+| **Fase 7** | Auditoría WCAG 2.1 AA, Responsive y Documentación | Verificación total | `README.md` | ⏳ Pendiente |
+
+*Convenciones de estado:*
+- ⏳ Pendiente
+- 🟡 En progreso
+- ✅ Completada
+
+---
+
+## 2. Matriz de Requerimientos Funcionales (RF-01 a RF-27)
+
+| ID | Módulo | Requerimiento | Fase | Estado | Comentarios / Marcador |
+|---|---|---|:---:|:---:|---|
+| **RF-01** | Transversal | Barra de navegación con logo y 4 módulos | Fase 1 | ⏳ Pendiente | Menú semántico con soporte móvil accesible |
+| **RF-02** | Transversal | Botón de WhatsApp a conversación directa | Fase 1 | ⏳ Pendiente | Enlace `https://wa.me/57[PENDIENTE]` |
+| **RF-03** | Inicio | Bienvenida sobre dificultades de aprendizaje en Cúcuta | Fase 2 | ⏳ Pendiente | Tono cercano y profesional |
+| **RF-04** | Inicio | Presentación de Open Brain (quiénes son y qué hacen) | Fase 2 | ⏳ Pendiente | Enfoque institucional |
+| **RF-05** | Inicio | Espacio con imagen de la sede (sin menores) | Fase 2 | ⏳ Pendiente | Imagen con width, height y alt |
+| **RF-06** | Inicio | Botón "Ver servicios" hacia Servicios y horarios | Fase 2 | ⏳ Pendiente | Enlace a `servicios.html` |
+| **RF-07** | Inicio | Teléfono y correo visibles de la organización | Fase 2 | ⏳ Pendiente | Enlaces `tel:` y `mailto:` |
+| **RF-08** | Inicio | Accesos directos a los tres servicios | Fase 2 | ⏳ Pendiente | Enlazan a secciones con anclas |
+| **RF-09** | Servicios | Tres servicios con descripción | Fase 3 | ⏳ Pendiente | Pedagógico, terapéutico, estimulación |
+| **RF-10** | Servicios | Edades y modalidades de cada servicio | Fase 3 | ⏳ Pendiente | Badges claros y accesibles |
+| **RF-11** | Servicios | Horarios de atención | Fase 3 | ⏳ Pendiente | Horarios organizados |
+| **RF-12** | Servicios | Tarifas por servicio | Fase 3 | ⏳ Pendiente | `[PENDIENTE: Tarifas]` |
+| **RF-13** | Servicios | Botón para solicitar información | Fase 3 | ⏳ Pendiente | Redirige a `contacto.html` |
+| **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ⏳ Pendiente | Perfiles profesionales |
+| **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ⏳ Pendiente | Ley 1581 / Ley 1098 |
+| **RF-16** | Equipo | Preguntas frecuentes desplegables | Fase 4 | ⏳ Pendiente | Implementado con `<details>` sin JS |
+| **RF-17** | Contacto | Formulario: nombre acudiente, teléfono/correo, servicio, mensaje | Fase 5 | ⏳ Pendiente | Labels vinculados y campos obligatorios |
+| **RF-18** | Contacto | Casilla obligatoria de tratamiento de datos | Fase 5 | ⏳ Pendiente | Enlace a `politica-datos.html` |
+| **RF-19** | Contacto | Envío de solicitud a medio de contacto | Fase 5 | ⏳ Pendiente | Web3Forms (`fetch`/POST) |
+| **RF-20** | Contacto | Mapa con la ubicación de la sede | Fase 5 | ⏳ Pendiente | iframe accesible con enlace "Cómo llegar" |
+| **RF-21** | Contacto | Dirección, teléfono, correo y horarios visibles | Fase 5 | ⏳ Pendiente | Barrio Villa Prado, Cúcuta |
+| **RF-22** | Contacto | Pasos para inscribirse | Fase 5 | ⏳ Pendiente | Proceso de orientación (no matrícula en línea) |
+| **RF-23** | Contacto | Mensaje para consultar cupos por WhatsApp | Fase 5 | ⏳ Pendiente | Invitación a consultar cupos |
+| **RF-24** | Contacto | Respuesta automática en pantalla al enviar formulario | Fase 5 | ⏳ Pendiente | Feedback visual inmediato |
+| **RF-25** | Transversal | Enlaces a redes sociales existentes de Open Brain | Fase 6 | ⏳ Pendiente | `[PENDIENTE: URL]` |
+| **RF-26** | Transversal | Código QR que dirija al sitio para usar en sede | Fase 6 | ⏳ Pendiente | Asset vectorial en `assets/` |
+| **RF-27** | Transversal | Folleto digital descargable | Fase 6 | ⏳ Pendiente | Documento PDF en `assets/` |
+
+---
+
+## 3. Datos Pendientes de Entrega por Open Brain
+
+| Dato | Marcador asignado | Ubicación afectada |
+|---|---|---|
+| Teléfono, correo y WhatsApp oficiales | `[PENDIENTE: Teléfono / Correo / WhatsApp]` | Header, Inicio, Contacto, Footer |
+| Clave de acceso Web3Forms | `[PENDIENTE: WEB3FORMS_ACCESS_KEY]` | `js/formulario.js` |
+| Tarifas exactas por servicio | `[PENDIENTE: Tarifas]` | `servicios.html` |
+| Horarios oficiales definitivos | `[PENDIENTE: Horarios]` | `servicios.html`, `contacto.html` |
+| Fotos reales de la sede sin menores | `[PENDIENTE: Foto de la sede sin menores]` | `index.html`, `img/` |
+| Nombres y perfiles definitivos de los 3 profesores | `[PENDIENTE: Perfiles del equipo]` | `equipo.html` |
+| Testimonios reales autorizados (sin nombres de menores) | `[PENDIENTE: Testimonios autorizados]` | `equipo.html` |
+| Enlaces definitivos de redes sociales | `[PENDIENTE: URL redes sociales]` | Footer en todas las páginas |
+| Folleto institucional final (PDF) | `[PENDIENTE: Folleto oficial]` | `assets/folleto-open-brain.pdf` |
+| Logo y mascota en alta resolución | `[PENDIENTE: Logo oficial]` | `img/` |
