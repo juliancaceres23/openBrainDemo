@@ -979,3 +979,342 @@ ol {
     text-align: left;
   }
 }
+
+
+/* --- 13. Módulo de Equipo y Testimonios (equipo.html) --- */
+
+.section-heading-center {
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.container--narrow {
+  max-width: 820px;
+}
+
+/* Sección Equipo (RF-14) */
+.team-section {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-3xl);
+  background-color: #FFFFFF;
+}
+
+.team-section__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.team-section__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .team-section__title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+@media (min-width: 680px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+/* Círculos con letra inicial según el prototipo */
+.team-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: var(--spacing-md);
+  background-color: #FFFFFF;
+}
+
+.team-avatar--pink {
+  border: 4px solid var(--color-decor-pink-vivid); /* #F86DC1 */
+  color: var(--color-decor-pink-vivid);
+}
+
+.team-avatar--indigo {
+  border: 4px solid var(--color-primary); /* #2F438C */
+  color: var(--color-primary);
+}
+
+.team-avatar--teal {
+  border: 4px solid var(--color-accent-teal); /* #5EC3CC */
+  color: var(--color-accent-teal-dark);
+}
+
+.team-card__name {
+  font-size: var(--font-size-lg);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.team-card__role {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-accent-teal-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.team-card__bio {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+.team-note {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Sección Testimonios (RF-15) */
+.testimonials-section {
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.testimonials-section__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.testimonials-section__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Tarjetas rosas suaves de testimonios según prototipo */
+.testimonial-card {
+  background-color: #FFF5F8; /* Rosa suave de la paleta */
+  border: 2px solid var(--color-card-pink-light); /* #FEAFCF */
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.testimonial-card__quote-mark {
+  font-size: 3.5rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+  color: var(--color-accent-coral);
+  margin-bottom: -15px;
+}
+
+.testimonial-card__quote {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+}
+
+.testimonial-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid rgba(227, 107, 111, 0.2);
+  padding-top: var(--spacing-sm);
+}
+
+.testimonial-card__author {
+  font-style: normal;
+  font-weight: 800;
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+}
+
+.testimonial-card__legal {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.privacy-disclaimer {
+  background-color: #FFFFFF;
+  border: 1px dashed var(--color-accent-teal);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Sección Preguntas Frecuentes (RF-16 con <details> nativo) */
+.faq-section {
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  background-color: #FFFFFF;
+}
+
+.faq-section__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.faq-section__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.faq-item {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.faq-item:hover {
+  border-color: var(--color-primary);
+}
+
+.faq-item[open] {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  background-color: #F8FAFD;
+}
+
+.faq-item__question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-weight: 800;
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  cursor: pointer;
+  min-height: 52px;
+  list-style: none;
+}
+
+.faq-item__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.faq-item[open] .faq-item__icon {
+  transform: rotate(45deg);
+  color: var(--color-accent-coral);
+}
+
+.faq-item__answer {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-sm);
+}
+
+.faq-cta {
+  text-align: center;
+  background-color: var(--color-card-pink-subtle);
+  border: 1px solid var(--color-card-pink-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+}
+
+.faq-cta__text {
+  font-size: var(--font-size-md);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.faq-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  .faq-cta__actions {
+    flex-direction: row;
+  }
+}

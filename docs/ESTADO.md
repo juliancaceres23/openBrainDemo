@@ -12,7 +12,7 @@
 | **Fase 1** | Arquitectura Base, Sistema de Diseño y Transversal | RF-01, RF-02 | `css/estilos.css`, `js/menu.js`, `img/` | ✅ Completada |
 | **Fase 2** | Módulo de Inicio | RF-03 a RF-08 | `index.html` | ✅ Completada |
 | **Fase 3** | Módulo de Servicios y Horarios | RF-09 a RF-13 | `servicios.html` | ✅ Completada |
-| **Fase 4** | Módulo de Equipo y Testimonios | RF-14 a RF-16 | `equipo.html` | ⏳ Pendiente |
+| **Fase 4** | Módulo de Equipo y Testimonios | RF-14 a RF-16 | `equipo.html` | ✅ Completada |
 | **Fase 5** | Módulo de Contacto, Formulario y Legal | RF-17 a RF-24 | `contacto.html`, `politica-datos.html`, `js/formulario.js` | ⏳ Pendiente |
 | **Fase 6** | Canales Institucionales, Folleto y SEO | RF-25, RF-26, RF-27 | `assets/`, `robots.txt`, `sitemap.xml`, meta tags | ⏳ Pendiente |
 | **Fase 7** | Auditoría WCAG 2.1 AA, Responsive y Documentación | Verificación total | `README.md` | ⏳ Pendiente |
@@ -41,9 +41,9 @@
 | **RF-11** | Servicios | Horarios de atención | Fase 3 | ✅ Completado | Lista estructurada en barra lateral y móvil |
 | **RF-12** | Servicios | Tarifas por servicio | Fase 3 | ✅ Completado | Detalle de inversión y marcador `[PENDIENTE: Tarifas]` |
 | **RF-13** | Servicios | Botón para solicitar información | Fase 3 | ✅ Completado | Botón accesible en cada tarjeta hacia `contacto.html` |
-| **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ⏳ Pendiente | Perfiles profesionales |
-| **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ⏳ Pendiente | Ley 1581 / Ley 1098 |
-| **RF-16** | Equipo | Preguntas frecuentes desplegables | Fase 4 | ⏳ Pendiente | Implementado con `<details>` sin JS |
+| **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ✅ Completado | Avatares circulares del prototipo con perfiles y marcadores |
+| **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ✅ Completado | Tarjetas rosas del prototipo, autorización Ley 1581 |
+| **RF-16** | Equipo | Preguntas frecuentes desplegables | Fase 4 | ✅ Completado | Implementado con `<details>` y `<summary>` nativos sin JS |
 | **RF-17** | Contacto | Formulario: nombre acudiente, teléfono/correo, servicio, mensaje | Fase 5 | ⏳ Pendiente | Labels vinculados y campos obligatorios |
 | **RF-18** | Contacto | Casilla obligatoria de tratamiento de datos | Fase 5 | ⏳ Pendiente | Enlace a `politica-datos.html` |
 | **RF-19** | Contacto | Envío de solicitud a medio de contacto | Fase 5 | ⏳ Pendiente | Web3Forms (`fetch`/POST) |

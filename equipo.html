@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipo y Testimonios | Open Brain - Club de Aprendizaje</title>
+  <meta name="description" content="Conoce a nuestro equipo docente y terapéutico en Cúcuta, testimonios autorizados de familias y respuestas a preguntas frecuentes sobre Open Brain.">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Salto accesible al contenido principal (WCAG 2.1 AA) -->
+  <a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ======================================================================
+       RF-01: Barra de navegación transversal en Azul Índigo (#2F438C)
+       ====================================================================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo-link" aria-label="Página de inicio de Open Brain">
+        <img src="img/logo-openbrain-header.svg" alt="Logo de Open Brain - Club de Aprendizaje" class="header__logo-img" width="200" height="50">
+      </a>
+
+      <!-- Botón de apertura/cierre de navegación móvil -->
+      <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú de navegación">
+        <svg class="nav__toggle-icon nav__toggle-icon--menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="nav__toggle-icon nav__toggle-icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Navegación con acceso a los 4 módulos (RF-01) -->
+      <nav id="main-nav" class="header__nav nav" aria-label="Navegación principal">
+        <ul class="nav__menu">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Inicio</a>
+          </li>
+          <li class="nav__item">
+            <a href="servicios.html" class="nav__link">Servicios</a>
+          </li>
+          <li class="nav__item">
+            <a href="equipo.html" class="nav__link nav__link--active" aria-current="page">Equipo</a>
+          </li>
+          <li class="nav__item">
+            <a href="contacto.html" class="nav__link">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="main-content">
+    <!-- ======================================================================
+         RF-14: Presentación del equipo profesional (según Figura 7 y Figura 8)
+         ====================================================================== -->
+    <section class="team-section" aria-labelledby="team-page-title">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="tag-label tag-label--center">PERSONAS QUE CUIDAN</span>
+          <!-- Único H1 de la página -->
+          <h1 id="team-page-title" class="team-section__title">Un equipo cercano a tu familia</h1>
+          <p class="team-section__subtitle">
+            Profesionales que unen experiencia, escucha y mucho corazón.
+          </p>
+        </div>
+
+        <!-- Tres círculos de profesionales como en el prototipo -->
+        <div class="team-grid">
+          <!-- Profesional 1: Laura / Pedagogía -->
+          <article class="team-card" aria-label="Perfil profesional de Pedagogía">
+            <div class="team-avatar team-avatar--pink">
+              <span>L</span>
+            </div>
+            <h2 class="team-card__name">Laura <span class="pending-badge">[PENDIENTE]</span></h2>
+            <p class="team-card__role">Pedagogía</p>
+            <p class="team-card__bio">
+              Acompañamiento especializado en procesos escolares, lectoescritura y diseño de estrategias pedagógicas adaptativas.
+            </p>
+          </article>
+
+          <!-- Profesional 2: Diana / Psicología -->
+          <article class="team-card" aria-label="Perfil profesional de Psicología">
+            <div class="team-avatar team-avatar--indigo">
+              <span>D</span>
+            </div>
+            <h2 class="team-card__name">Diana <span class="pending-badge">[PENDIENTE]</span></h2>
+            <p class="team-card__role">Psicología</p>
+            <p class="team-card__bio">
+              Fortalecimiento de funciones ejecutivas, autorregulación, apoyo socioemocional y orientación afectiva para familias.
+            </p>
+          </article>
+
+          <!-- Profesional 3: Sofía / Terapia -->
+          <article class="team-card" aria-label="Perfil profesional de Terapia y Estimulación">
+            <div class="team-avatar team-avatar--teal">
+              <span>S</span>
+            </div>
+            <h2 class="team-card__name">Sofía <span class="pending-badge">[PENDIENTE]</span></h2>
+            <p class="team-card__role">Terapia y Estimulación</p>
+            <p class="team-card__bio">
+              Estimulación neurosensorial, psicomotricidad y acompañamiento en hitos tempranos del neurodesarrollo.
+            </p>
+          </article>
+        </div>
+
+        <p class="team-note">
+          Open Brain cuenta con tres profesores dedicados, uno de ellos como representante legal, que asumen la atención pedagógica y la orientación directa a las familias en Cúcuta.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         RF-15: Testimonios de familias autorizados (sin nombres de menores)
+         ====================================================================== -->
+    <section class="testimonials-section" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-heading-center">
+          <span class="tag-label tag-label--center">EXPERIENCIAS REALES</span>
+          <h2 id="testimonials-title" class="testimonials-section__title">La voz de las familias que acompañamos</h2>
+          <p class="testimonials-section__subtitle">
+            Caminar juntos genera tranquilidad, confianza y avances escolares significativos.
+          </p>
+        </div>
+
+        <!-- Tarjetas rosas suaves de testimonios según prototipo -->
+        <div class="testimonials-grid">
+          <!-- Testimonio 1 -->
+          <article class="testimonial-card">
+            <div class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote class="testimonial-card__quote">
+              <p>
+                Nos explicaron todo con calma. Por fin sentimos que no estábamos solos en el proceso y que entendían el ritmo de aprendizaje en casa.
+              </p>
+            </blockquote>
+            <footer class="testimonial-card__footer">
+              <cite class="testimonial-card__author">&mdash; Familia acudiente <span class="pending-badge">[PENDIENTE: Testimonio autorizado]</span></cite>
+              <span class="testimonial-card__legal">Autorización previa expresa (Ley 1581 de 2012)</span>
+            </footer>
+          </article>
+
+          <!-- Testimonio 2 -->
+          <article class="testimonial-card">
+            <div class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</div>
+            <blockquote class="testimonial-card__quote">
+              <p>
+                Vuelve con una sonrisa de cada encuentro y en el colegio ya notamos grandes cambios en su seguridad, autonomía y hábitos de estudio.
+              </p>
+            </blockquote>
+            <footer class="testimonial-card__footer">
+              <cite class="testimonial-card__author">&mdash; Madre de familia <span class="pending-badge">[PENDIENTE: Testimonio autorizado]</span></cite>
+              <span class="testimonial-card__legal">Autorización previa expresa (Ley 1581 de 2012)</span>
+            </footer>
+          </article>
+        </div>
+
+        <div class="privacy-disclaimer">
+          <p>
+            <strong>Protección de la privacidad infantil:</strong> Conforme al Artículo 7 de la Ley 1581 de 2012 y el Código de la Infancia y la Adolescencia (Ley 1098 de 2006), todos los testimonios cuentan con autorización expresa de los representantes legales y protegen la identidad de niños, niñas y adolescentes prescindiendo de sus nombres o datos sensibles.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         RF-16: Preguntas frecuentes en secciones desplegables nativas (<details>)
+         ====================================================================== -->
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section-heading-center">
+          <span class="tag-label tag-label--center">RESOLVEMOS TUS DUDAS</span>
+          <h2 id="faq-title" class="faq-section__title">Preguntas frecuentes</h2>
+          <p class="faq-section__subtitle">
+            Información clara para ayudarte a tomar la mejor decisión para tu familia.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <!-- Pregunta 1 (del prototipo) -->
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>¿Cómo sé cuál servicio necesitamos?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>
+                En Open Brain realizamos una primera sesión de valoración y escucha atenta con los acudientes. Evaluamos las dificultades manifestadas en la escuela o en casa (lectura, atención, estimulación o funciones ejecutivas) y te orientamos con total claridad sobre si el camino más oportuno es pedagógico, terapéutico o de estimulación adecuada.
+              </p>
+            </div>
+          </details>
+
+          <!-- Pregunta 2 (del prototipo) -->
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>¿Atienden de manera presencial?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>
+                Sí. Todas las actividades y acompañamientos se brindan de manera presencial en nuestra sede física ubicada en la CL 2N N.º 14E-102, barrio Villa Prado, Cúcuta. Contamos con espacios acondicionados, tranquilos y libres de distractores para asegurar una atención personalizada y respetuosa.
+              </p>
+            </div>
+          </details>
+
+          <!-- Pregunta 3 -->
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>¿Cómo solicito una inscripción o consulto la disponibilidad de cupos?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>
+                Puedes diligenciar el formulario en nuestro módulo de Contacto o escribirnos directamente al canal de WhatsApp. Esta plataforma digital recibe y orienta tu solicitud. La disponibilidad de cupos y la asignación final de horarios se acuerda directamente con el equipo docente.
+              </p>
+            </div>
+          </details>
+
+          <!-- Pregunta 4 -->
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              <span>¿Cuáles son los horarios de atención y cómo se fijan las sesiones?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>
+                Atendemos de lunes a viernes entre 8:00 a.m. y 6:00 p.m., y los sábados de 8:00 a.m. a 1:00 p.m. Las frecuencias y jornadas se acuerdan de mutuo acuerdo con la familia según el plan recomendado para cada estudiante.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Llamado a la acción inferior -->
+        <div class="faq-cta">
+          <p class="faq-cta__text">¿Tienes otra inquietud particular sobre tu caso?</p>
+          <div class="faq-cta__actions">
+            <a href="contacto.html" class="btn btn--primary">Escribir un mensaje</a>
+            <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20tengo%20una%20pregunta" class="btn btn--coral" target="_blank" rel="noopener noreferrer">
+              Preguntar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       RF-02: Botón flotante accesible de WhatsApp en todas las pantallas
+       ====================================================================== -->
+  <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20deseo%20solicitar%20informaci%C3%B3n" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a Open Brain (abre conversación)">
+    <svg class="whatsapp-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.13.82.83-3.05-.2-.32a8.19 8.19 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.69 8.23-8.23 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.23-.19-.48-.31z"/>
+    </svg>
+  </a>
+
+  <!-- ======================================================================
+       Pie de página transversal en Azul Índigo (#2F438C)
+       ====================================================================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <!-- Columna 1: Presentación breve -->
+      <div class="footer__brand">
+        <h2 class="footer__brand-title">Open Brain</h2>
+        <p class="footer__brand-text">
+          Acompáñanos a descubrir el genio que hay en ti. Club de aprendizaje en Cúcuta.
+        </p>
+      </div>
+
+      <!-- Columna 2: Navegación del sitio -->
+      <nav class="footer__nav" aria-label="Enlaces rápidos del pie de página">
+        <h3 class="footer__section-title">Módulos</h3>
+        <ul class="footer__links-list">
+          <li><a href="index.html" class="footer__link">Inicio</a></li>
+          <li><a href="servicios.html" class="footer__link">Servicios</a></li>
+          <li><a href="equipo.html" class="footer__link">Equipo</a></li>
+          <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Columna 3: Información institucional y legal -->
+      <div class="footer__legal">
+        <h3 class="footer__section-title">Información</h3>
+        <ul class="footer__links-list">
+          <li><a href="politica-datos.html" class="footer__link">Tratamiento de datos personales</a></li>
+          <li><span class="footer__link">Cúcuta, Norte de Santander</span></li>
+          <li><span class="pending-badge">[PENDIENTE: Redes sociales]</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>&copy; 2026 Open Brain - Club de Aprendizaje. Todos los derechos reservados.</p>
+      <p>Diseño accesible e inclusivo conforme a la Ley 1581 de 2012.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts funcionales -->
+  <script src="js/menu.js" defer></script>
+</body>
+</html>
