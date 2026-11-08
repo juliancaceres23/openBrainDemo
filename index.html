@@ -12,12 +12,12 @@
   <a href="#main" class="skip-link">Saltar al contenido principal</a>
 
   <!-- ======================================================================
-       RF-01: Barra de navegación transversal presente en todas las pantallas
+       RF-01: Barra de navegación transversal en Azul Índigo (#2F438C)
        ====================================================================== -->
   <header class="header">
     <div class="container header__inner">
       <a href="index.html" class="header__logo-link" aria-label="Página de inicio de Open Brain">
-        <img src="img/logo-openbrain.svg" alt="Logo de Open Brain - Club de Aprendizaje" class="header__logo-img" width="200" height="50">
+        <img src="img/logo-openbrain-header.svg" alt="Logo de Open Brain - Club de Aprendizaje" class="header__logo-img" width="200" height="50">
       </a>
 
       <!-- Botón de apertura/cierre de navegación móvil -->
@@ -33,20 +33,20 @@
         </svg>
       </button>
 
-      <!-- Navegación con acceso a los 4 módulos -->
+      <!-- Navegación con acceso a los 4 módulos (RF-01) -->
       <nav id="main-nav" class="header__nav nav" aria-label="Navegación principal">
         <ul class="nav__menu">
           <li class="nav__item">
             <a href="index.html" class="nav__link nav__link--active" aria-current="page">Inicio</a>
           </li>
           <li class="nav__item">
-            <a href="servicios.html" class="nav__link">Servicios y horarios</a>
+            <a href="servicios.html" class="nav__link">Servicios</a>
           </li>
           <li class="nav__item">
-            <a href="equipo.html" class="nav__link">Equipo y testimonios</a>
+            <a href="equipo.html" class="nav__link">Equipo</a>
           </li>
           <li class="nav__item">
-            <a href="contacto.html" class="nav__link">Contacto e inscripción</a>
+            <a href="contacto.html" class="nav__link">Contacto</a>
           </li>
         </ul>
       </nav>
@@ -55,31 +55,61 @@
 
   <main id="main" class="main-content">
     <!-- ======================================================================
-         RF-03, RF-06: Mensaje de bienvenida, contextualización y botón Ver servicios
+         RF-03, RF-06: Hero de Inicio fiel a la pantalla 1 del prototipo
          ====================================================================== -->
     <section class="hero-section" aria-labelledby="hero-title">
       <div class="container hero-section__inner">
         <div class="hero-section__content">
-          <span class="badge-tag">Club de aprendizaje en Cúcuta</span>
-          <!-- Único H1 de la página -->
-          <h1 id="hero-title" class="hero-section__title">Acompáñanos a descubrir el genio que hay en ti</h1>
+          <span class="tag-label">Club de aprendizaje en Cúcuta</span>
+          <!-- Único H1 de la página con acento coral en "genio que hay en ti" -->
+          <h1 id="hero-title" class="hero-section__title">
+            Acompáñanos a descubrir el <span class="text-coral">genio que hay en ti</span>
+          </h1>
           <p class="hero-section__text">
-            Acompañamos a niñas, niños y sus familias con atención cercana, profesional y a su propio ritmo. Promovemos la inclusión y el fortalecimiento de habilidades frente a dificultades específicas de aprendizaje en Cúcuta.
+            Acompañamos a niñas, niños y sus familias con atención cercana, profesional y a su propio ritmo.
           </p>
 
           <div class="hero-section__actions">
-            <!-- RF-06: Botón "Ver servicios" hacia Servicios y horarios -->
-            <a href="servicios.html" class="btn btn--primary">Ver servicios</a>
+            <!-- RF-06: Botón Conocer servicios > en Azul Índigo -->
+            <a href="servicios.html" class="btn btn--primary">
+              Conocer servicios &gt;
+            </a>
 
-            <!-- RF-02 (Acción directa en Hero): Enlace a WhatsApp -->
+            <!-- RF-02: Botón Escribir por WhatsApp en Coral -->
             <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20deseo%20solicitar%20informaci%C3%B3n" class="btn btn--coral" target="_blank" rel="noopener noreferrer">
               Escribir por WhatsApp
             </a>
           </div>
+
+          <!-- RF-07: Teléfono y correo en línea directa bajo los botones -->
+          <div class="hero-contact-line">
+            <a href="tel:+570000000000" class="hero-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>(300) 000 0000 <span class="pending-badge">[PENDIENTE]</span></span>
+            </a>
+
+            <a href="mailto:hola@openbrain.co" class="hero-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>hola@openbrain.co <span class="pending-badge">[PENDIENTE]</span></span>
+            </a>
+          </div>
+
+          <!-- RF-08: Accesos directos tipo píldoras a los 3 servicios con los colores del moodboard -->
+          <div class="hero-service-pills" aria-label="Accesos rápidos a servicios">
+            <a href="servicios.html#pedagogico" class="service-pill service-pill--pink">Pedagógico</a>
+            <a href="servicios.html#terapeutico" class="service-pill service-pill--teal">Terapéutico</a>
+            <a href="servicios.html#estimulacion" class="service-pill service-pill--coral">Estimulación</a>
+          </div>
         </div>
 
+        <!-- Ilustración circular turquesa con cerebro rosa del prototipo -->
         <div class="hero-section__visual">
-          <img src="img/mascota-openbrain.svg" alt="Mascota amigable de Open Brain: cerebro sonriente con gafas" class="hero-section__mascot" width="280" height="280" fetchpriority="high">
+          <img src="img/ilustracion-hero.svg" alt="Ilustración de Open Brain con cerebro alegre con gafas sobre círculo turquesa" class="hero-section__mascot" width="340" height="340" fetchpriority="high">
         </div>
       </div>
     </section>
@@ -91,8 +121,8 @@
       <div class="container">
         <div class="about-section__grid">
           <div class="about-section__content">
-            <span class="section-tag">Conócenos</span>
-            <!-- RF-04: Presentación de quiénes son y qué hacen -->
+            <span class="tag-label">Conócenos</span>
+            <!-- RF-04: Presentación institucional -->
             <h2 id="about-title" class="about-section__title">Un espacio de apoyo integral para el aprendizaje</h2>
             <p class="about-section__paragraph">
               <strong>Open Brain</strong> es una organización de carácter pluralista en Cúcuta dedicada a mejorar el entendimiento y manejo de las dificultades de aprendizaje en niños, niñas y adolescentes.
@@ -100,12 +130,6 @@
             <p class="about-section__paragraph">
               Contamos con un equipo de tres profesores y especialistas comprometidos en brindar acompañamiento pedagógico, terapéutico y estimulación adecuada, orientando además a las familias en cada etapa escolar y formativa.
             </p>
-            
-            <div class="about-section__badges">
-              <span class="feature-pill">Enfoque personalizado</span>
-              <span class="feature-pill">Ambiente seguro</span>
-              <span class="feature-pill">Orientación a familias</span>
-            </div>
           </div>
 
           <!-- RF-05: Espacio con la imagen de la sede (sin menores) -->
@@ -113,113 +137,9 @@
             <figure class="site-image-card">
               <img src="img/sede-openbrain.svg" alt="Fachada e instalaciones de la sede de Open Brain en el barrio Villa Prado de Cúcuta" class="site-image-card__img" width="800" height="500" loading="lazy">
               <figcaption class="site-image-card__caption">
-                <strong>Sede Open Brain:</strong> CL 2N N.º 14E-102, barrio Villa Prado, Cúcuta. Espacio adaptado y seguro, sin presencia de menores en fotografías institucionales.
+                <strong>Sede Open Brain:</strong> CL 2N N.º 14E-102, barrio Villa Prado, Cúcuta. Espacio adaptado y seguro, sin menores de edad en fotografías institucionales.
               </figcaption>
             </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         RF-08: Accesos directos a cada uno de los tres servicios
-         ====================================================================== -->
-    <section class="services-preview" aria-labelledby="services-preview-title">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Nuestra oferta</span>
-          <h2 id="services-preview-title" class="section-header__title">Acompañamiento adaptado a cada persona</h2>
-          <p class="section-header__subtitle">
-            Escuchamos las necesidades de cada familia para construir juntos un camino claro, amable y respetuoso.
-          </p>
-        </div>
-
-        <div class="services-preview__grid">
-          <!-- Tarjeta 1: Acompañamiento pedagógico -->
-          <article class="service-card">
-            <div class="service-card__number">01</div>
-            <h3 class="service-card__title">Acompañamiento pedagógico</h3>
-            <p class="service-card__description">
-              Estrategias personalizadas para fortalecer los procesos de lectura, escritura, matemáticas y hábitos de estudio efectivos.
-            </p>
-            <a href="servicios.html#pedagogico" class="service-card__link">
-              <span>Conocer este servicio</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-          </article>
-
-          <!-- Tarjeta 2: Acompañamiento terapéutico -->
-          <article class="service-card service-card--highlight">
-            <div class="service-card__number">02</div>
-            <h3 class="service-card__title">Acompañamiento terapéutico</h3>
-            <p class="service-card__description">
-              Un espacio seguro y guiado para desarrollar habilidades socioemocionales, concentración, autorregulación y autonomía personal.
-            </p>
-            <a href="servicios.html#terapeutico" class="service-card__link">
-              <span>Conocer este servicio</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-          </article>
-
-          <!-- Tarjeta 3: Estimulación adecuada -->
-          <article class="service-card">
-            <div class="service-card__number">03</div>
-            <h3 class="service-card__title">Estimulación adecuada</h3>
-            <p class="service-card__description">
-              Experiencias respetuosas y lúdicas que potencian el desarrollo motriz, cognitivo y sensorial en cada etapa del crecimiento.
-            </p>
-            <a href="servicios.html#estimulacion" class="service-card__link">
-              <span>Conocer este servicio</span>
-              <span aria-hidden="true">&rarr;</span>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         RF-07: Teléfono y correo de la organización visibles
-         ====================================================================== -->
-    <section class="quick-contact" aria-labelledby="quick-contact-title">
-      <div class="container">
-        <div class="quick-contact__box">
-          <div class="quick-contact__info">
-            <span class="badge-tag badge-tag--light">Atención directa</span>
-            <h2 id="quick-contact-title" class="quick-contact__title">¿Tienes preguntas o deseas orientarte?</h2>
-            <p class="quick-contact__text">
-              Estamos listos para escucharte y resolver tus dudas sobre nuestro club de aprendizaje.
-            </p>
-
-            <div class="quick-contact__channels">
-              <!-- Teléfono visible -->
-              <div class="contact-channel">
-                <span class="contact-channel__label">Teléfono de atención:</span>
-                <a href="tel:+570000000000" class="contact-channel__value">
-                  <span class="pending-badge">[PENDIENTE: Teléfono oficial]</span>
-                </a>
-              </div>
-
-              <!-- Correo visible -->
-              <div class="contact-channel">
-                <span class="contact-channel__label">Correo electrónico:</span>
-                <a href="mailto:info@openbrain.com" class="contact-channel__value">
-                  <span class="pending-badge">[PENDIENTE: Correo oficial]</span>
-                </a>
-              </div>
-
-              <!-- Horarios y Ubicación -->
-              <div class="contact-channel">
-                <span class="contact-channel__label">Ubicación de la sede:</span>
-                <span class="contact-channel__text">CL 2N N.º 14E-102, barrio Villa Prado, Cúcuta</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="quick-contact__actions">
-            <a href="contacto.html" class="btn btn--primary btn--full">Ir al formulario de solicitud</a>
-            <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20deseo%20consultar%20sobre%20los%20servicios" class="btn btn--coral btn--full" target="_blank" rel="noopener noreferrer">
-              Consultar por WhatsApp
-            </a>
           </div>
         </div>
       </div>
@@ -229,23 +149,22 @@
   <!-- ======================================================================
        RF-02: Botón flotante accesible de WhatsApp en todas las pantallas
        ====================================================================== -->
-  <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20deseo%20solicitar%20informaci%C3%B3n" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a Open Brain (abre chat en pestaña nueva)">
+  <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20deseo%20solicitar%20informaci%C3%B3n" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a Open Brain (abre conversación)">
     <svg class="whatsapp-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.13.82.83-3.05-.2-.32a8.19 8.19 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.69 8.23-8.23 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.23-.19-.48-.31z"/>
     </svg>
-    <span class="whatsapp-btn__text">WhatsApp</span>
   </a>
 
   <!-- ======================================================================
-       Pie de página transversal directamente en el HTML
+       Pie de página transversal en Azul Índigo (#2F438C)
        ====================================================================== -->
   <footer class="footer">
     <div class="container footer__grid">
-      <!-- Columna 1: Marca y presentación breve -->
+      <!-- Columna 1: Presentación breve -->
       <div class="footer__brand">
         <h2 class="footer__brand-title">Open Brain</h2>
         <p class="footer__brand-text">
-          Club de aprendizaje en Cúcuta. Acompañamos a niñas, niños y adolescentes en su proceso escolar con afecto, respeto y rigor profesional.
+          Acompáñanos a descubrir el genio que hay en ti. Club de aprendizaje en Cúcuta.
         </p>
       </div>
 
@@ -254,9 +173,9 @@
         <h3 class="footer__section-title">Módulos</h3>
         <ul class="footer__links-list">
           <li><a href="index.html" class="footer__link">Inicio</a></li>
-          <li><a href="servicios.html" class="footer__link">Servicios y horarios</a></li>
-          <li><a href="equipo.html" class="footer__link">Equipo y testimonios</a></li>
-          <li><a href="contacto.html" class="footer__link">Contacto e inscripción</a></li>
+          <li><a href="servicios.html" class="footer__link">Servicios</a></li>
+          <li><a href="equipo.html" class="footer__link">Equipo</a></li>
+          <li><a href="contacto.html" class="footer__link">Contacto</a></li>
         </ul>
       </nav>
 

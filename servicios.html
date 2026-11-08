@@ -12,12 +12,12 @@
   <a href="#main" class="skip-link">Saltar al contenido principal</a>
 
   <!-- ======================================================================
-       RF-01: Barra de navegación transversal presente en todas las pantallas
+       RF-01: Barra de navegación transversal en Azul Índigo (#2F438C)
        ====================================================================== -->
   <header class="header">
     <div class="container header__inner">
       <a href="index.html" class="header__logo-link" aria-label="Página de inicio de Open Brain">
-        <img src="img/logo-openbrain.svg" alt="Logo de Open Brain - Club de Aprendizaje" class="header__logo-img" width="200" height="50">
+        <img src="img/logo-openbrain-header.svg" alt="Logo de Open Brain - Club de Aprendizaje" class="header__logo-img" width="200" height="50">
       </a>
 
       <!-- Botón de apertura/cierre de navegación móvil -->
@@ -40,13 +40,13 @@
             <a href="index.html" class="nav__link">Inicio</a>
           </li>
           <li class="nav__item">
-            <a href="servicios.html" class="nav__link nav__link--active" aria-current="page">Servicios y horarios</a>
+            <a href="servicios.html" class="nav__link nav__link--active" aria-current="page">Servicios</a>
           </li>
           <li class="nav__item">
-            <a href="equipo.html" class="nav__link">Equipo y testimonios</a>
+            <a href="equipo.html" class="nav__link">Equipo</a>
           </li>
           <li class="nav__item">
-            <a href="contacto.html" class="nav__link">Contacto e inscripción</a>
+            <a href="contacto.html" class="nav__link">Contacto</a>
           </li>
         </ul>
       </nav>
@@ -54,231 +54,146 @@
   </header>
 
   <main id="main" class="main-content">
-    <!-- Encabezado de página -->
-    <section class="page-banner" aria-labelledby="services-page-title">
+    <!-- ======================================================================
+         Cabecera de Servicios según prototipo (Figura 7 y Figura 8)
+         ====================================================================== -->
+    <section class="services-header" aria-labelledby="services-page-title">
       <div class="container">
-        <span class="badge-tag">Oferta académica y formativa</span>
+        <span class="tag-label tag-label--center">CÓMO PODEMOS AYUDARTE</span>
         <!-- Único H1 de la página -->
-        <h1 id="services-page-title" class="page-banner__title">Acompañamiento que se adapta a cada persona</h1>
-        <p class="page-banner__text">
-          Te escuchamos primero. Después construimos juntos un camino claro, amable y respetuoso para fortalecer el potencial de tu hijo o hija.
+        <h1 id="services-page-title" class="services-header__title">
+          Acompañamiento que se adapta a cada persona
+        </h1>
+        <p class="services-header__subtitle">
+          Te escuchamos primero. Después construimos juntos un camino claro y amable.
         </p>
       </div>
     </section>
 
-    <!-- Disposición principal: Contenido de servicios + Barra lateral de Horarios y Tarifas -->
-    <div class="container services-section-container">
+    <!-- Disposición de 2 columnas en escritorio / 1 columna en móvil -->
+    <div class="container">
       <div class="services-layout">
 
         <!-- ==================================================================
-             RF-09, RF-10, RF-12, RF-13: Catálogo detallado de los tres servicios
+             RF-09, RF-10, RF-12, RF-13: Columna de Tarjetas de Servicios
              ================================================================== -->
-        <div class="services-layout__main">
+        <div class="services-layout__cards">
 
           <!-- SERVICIO 1: Acompañamiento Pedagógico (Ancla RF-08) -->
-          <article id="pedagogico" class="service-detail-card" aria-labelledby="service-pedagogico-title">
-            <div class="service-detail-card__header">
-              <span class="service-detail-card__badge">Servicio 01</span>
-              <!-- RF-09: Título y descripción -->
-              <h2 id="service-pedagogico-title" class="service-detail-card__title">Acompañamiento pedagógico</h2>
+          <article id="pedagogico" class="service-item-card" aria-labelledby="pedagogico-title">
+            <div class="service-item-card__top">
+              <span class="service-item-card__number service-item-card__number--coral">01</span>
+              <span class="service-item-card__dot service-item-card__dot--pink" aria-hidden="true"></span>
             </div>
-            
-            <p class="service-detail-card__description">
-              Estrategias de aprendizaje personalizadas para superar dificultades en lectura, escritura, comprensión y matemáticas. Fomentamos la autonomía escolar, la motivación intrínseca y técnicas de estudio adaptadas a las características particulares de cada estudiante.
+
+            <!-- RF-09: Título y descripción -->
+            <h2 id="pedagogico-title" class="service-item-card__title">Acompañamiento pedagógico</h2>
+            <p class="service-item-card__desc">
+              Estrategias personalizadas para fortalecer los procesos de aprendizaje. Acompañamos dificultades en lectura, escritura, cálculo y fortalecimiento de hábitos de estudio.
             </p>
 
             <!-- RF-10: Edades y modalidades -->
-            <div class="service-detail-card__meta">
-              <div class="meta-box">
-                <span class="meta-box__label">Edades de atención:</span>
-                <span class="meta-box__value">6 a 17 años (Educación básica y media)</span>
-              </div>
-              <div class="meta-box">
-                <span class="meta-box__label">Modalidad:</span>
-                <span class="meta-box__value">Presencial en sede (Sesiones individuales o en grupos reducidos)</span>
-              </div>
+            <div class="service-item-card__meta">
+              <span class="meta-chip"><strong>Edades:</strong> 6 a 17 años</span>
+              <span class="meta-chip"><strong>Modalidad:</strong> Presencial (individual o grupos pequeños)</span>
             </div>
 
-            <!-- RF-12: Tarifa del servicio -->
-            <div class="service-detail-card__pricing">
-              <span class="pricing-label">Inversión y tarifas:</span>
-              <p class="pricing-text">
-                El valor varía según la frecuencia semanal y la intensidad acordada tras la valoración inicial.
-              </p>
-              <span class="pending-badge">[PENDIENTE: Tarifa oficial de acompañamiento pedagógico]</span>
-            </div>
-
-            <!-- RF-13: Botón para solicitar información -->
-            <div class="service-detail-card__actions">
+            <!-- RF-12, RF-13: Tarifa y Botón solicitar información -->
+            <div class="service-item-card__footer">
+              <span class="pending-badge">[PENDIENTE: Tarifa pedagógico]</span>
               <a href="contacto.html" class="btn btn--primary">
-                Solicitar información de acompañamiento pedagógico
+                Solicitar información
               </a>
             </div>
           </article>
 
           <!-- SERVICIO 2: Acompañamiento Terapéutico (Ancla RF-08) -->
-          <article id="terapeutico" class="service-detail-card service-detail-card--highlight" aria-labelledby="service-terapeutico-title">
-            <div class="service-detail-card__header">
-              <span class="service-detail-card__badge">Servicio 02</span>
-              <!-- RF-09: Título y descripción -->
-              <h2 id="service-terapeutico-title" class="service-detail-card__title">Acompañamiento terapéutico</h2>
+          <article id="terapeutico" class="service-item-card" aria-labelledby="terapeutico-title">
+            <div class="service-item-card__top">
+              <span class="service-item-card__number service-item-card__number--teal">02</span>
+              <span class="service-item-card__dot service-item-card__dot--teal" aria-hidden="true"></span>
             </div>
-            
-            <p class="service-detail-card__description">
-              Un espacio seguro, cálido y confidencial enfocado en el desarrollo de funciones ejecutivas, autorregulación emocional, habilidades de atención y fortalecimiento de la autoestima ante retos escolares y de adaptación social.
+
+            <!-- RF-09: Título y descripción -->
+            <h2 id="terapeutico-title" class="service-item-card__title">Acompañamiento terapéutico</h2>
+            <p class="service-item-card__desc">
+              Un espacio seguro para desarrollar habilidades y ganar autonomía. Orientado a la autorregulación emocional, atención, funciones ejecutivas y acompañamiento a familias.
             </p>
 
             <!-- RF-10: Edades y modalidades -->
-            <div class="service-detail-card__meta">
-              <div class="meta-box">
-                <span class="meta-box__label">Edades de atención:</span>
-                <span class="meta-box__value">4 a 17 años (Niñez y adolescencia)</span>
-              </div>
-              <div class="meta-box">
-                <span class="meta-box__label">Modalidad:</span>
-                <span class="meta-box__value">Presencial personalizada con sesiones de orientación a padres</span>
-              </div>
+            <div class="service-item-card__meta">
+              <span class="meta-chip"><strong>Edades:</strong> 4 a 17 años</span>
+              <span class="meta-chip"><strong>Modalidad:</strong> Presencial personalizada</span>
             </div>
 
-            <!-- RF-12: Tarifa del servicio -->
-            <div class="service-detail-card__pricing">
-              <span class="pricing-label">Inversión y tarifas:</span>
-              <p class="pricing-text">
-                Planes terapéuticos estructurados según la frecuencia requerida.
-              </p>
-              <span class="pending-badge">[PENDIENTE: Tarifa oficial de acompañamiento terapéutico]</span>
-            </div>
-
-            <!-- RF-13: Botón para solicitar información -->
-            <div class="service-detail-card__actions">
+            <!-- RF-12, RF-13: Tarifa y Botón solicitar información -->
+            <div class="service-item-card__footer">
+              <span class="pending-badge">[PENDIENTE: Tarifa terapéutico]</span>
               <a href="contacto.html" class="btn btn--coral">
-                Solicitar información de acompañamiento terapéutico
+                Solicitar información
               </a>
             </div>
           </article>
 
           <!-- SERVICIO 3: Estimulación Adecuada (Ancla RF-08) -->
-          <article id="estimulacion" class="service-detail-card" aria-labelledby="service-estimulacion-title">
-            <div class="service-detail-card__header">
-              <span class="service-detail-card__badge">Servicio 03</span>
-              <!-- RF-09: Título y descripción -->
-              <h2 id="service-estimulacion-title" class="service-detail-card__title">Estimulación adecuada</h2>
+          <article id="estimulacion" class="service-item-card" aria-labelledby="estimulacion-title">
+            <div class="service-item-card__top">
+              <span class="service-item-card__number service-item-card__number--pink">03</span>
+              <span class="service-item-card__dot service-item-card__dot--coral" aria-hidden="true"></span>
             </div>
-            
-            <p class="service-detail-card__description">
-              Experiencias lúdicas, afectivas y sensoriales diseñadas para acompañar y potenciar cada hito del desarrollo motriz, cognitivo y de comunicación temprana, respetando rigurosamente los ritmos biológicos individuales de cada niño o niña.
+
+            <!-- RF-09: Título y descripción -->
+            <h2 id="estimulacion-title" class="service-item-card__title">Estimulación adecuada</h2>
+            <p class="service-item-card__desc">
+              Experiencias respetuosas que acompañan cada etapa del desarrollo. Actividades lúdicas y neurosensoriales que potencian la psicomotricidad, el lenguaje y la exploración cognitiva.
             </p>
 
             <!-- RF-10: Edades y modalidades -->
-            <div class="service-detail-card__meta">
-              <div class="meta-box">
-                <span class="meta-box__label">Edades de atención:</span>
-                <span class="meta-box__value">2 a 6 años (Primera infancia)</span>
-              </div>
-              <div class="meta-box">
-                <span class="meta-box__label">Modalidad:</span>
-                <span class="meta-box__value">Presencial guiada en espacios adaptados con materiales didácticos</span>
-              </div>
+            <div class="service-item-card__meta">
+              <span class="meta-chip"><strong>Edades:</strong> 2 a 6 años</span>
+              <span class="meta-chip"><strong>Modalidad:</strong> Presencial personalizada</span>
             </div>
 
-            <!-- RF-12: Tarifa del servicio -->
-            <div class="service-detail-card__pricing">
-              <span class="pricing-label">Inversión y tarifas:</span>
-              <p class="pricing-text">
-                Planes mensuales o módulos temáticos según necesidad.
-              </p>
-              <span class="pending-badge">[PENDIENTE: Tarifa oficial de estimulación adecuada]</span>
-            </div>
-
-            <!-- RF-13: Botón para solicitar información -->
-            <div class="service-detail-card__actions">
+            <!-- RF-12, RF-13: Tarifa y Botón solicitar información -->
+            <div class="service-item-card__footer">
+              <span class="pending-badge">[PENDIENTE: Tarifa estimulación]</span>
               <a href="contacto.html" class="btn btn--primary">
-                Solicitar información de estimulación adecuada
+                Solicitar información
               </a>
             </div>
           </article>
+
         </div>
 
         <!-- ==================================================================
-             RF-11, RF-12: Barra lateral en escritorio con Horarios y Tarifas
+             RF-11, RF-12: Tarjeta rosa de Horarios y Tarifas (Sidebar)
              ================================================================== -->
-        <aside class="services-layout__sidebar" aria-label="Información complementaria de horarios y tarifas">
-          
-          <!-- RF-11: Horarios de atención -->
-          <div class="sidebar-card">
-            <div class="sidebar-card__header">
-              <h2 class="sidebar-card__title">Horarios de atención</h2>
-              <p class="sidebar-card__subtitle">Atención en nuestra sede en Cúcuta</p>
+        <aside class="services-layout__sidebar" aria-label="Horarios y tarifas">
+          <div class="schedule-sidebar-card">
+            <span class="schedule-sidebar-card__tag">HORARIOS</span>
+            <!-- RF-11: Horarios de atención -->
+            <h2 class="schedule-sidebar-card__title">Estamos para acompañarte</h2>
+
+            <div class="schedule-sidebar-card__block">
+              <span class="schedule-day-title">Lunes a viernes</span>
+              <span class="schedule-day-hours">8:00 a.m. – 6:00 p.m.</span>
             </div>
 
-            <ul class="schedule-list">
-              <li class="schedule-item">
-                <span class="schedule-item__days">Lunes a viernes:</span>
-                <span class="schedule-item__hours">8:00 a.m. – 6:00 p.m.</span>
-              </li>
-              <li class="schedule-item">
-                <span class="schedule-item__days">Sábados:</span>
-                <span class="schedule-item__hours">8:00 a.m. – 1:00 p.m.</span>
-              </li>
-              <li class="schedule-item schedule-item--closed">
-                <span class="schedule-item__days">Domingos y festivos:</span>
-                <span class="schedule-item__hours">Cerrado</span>
-              </li>
-            </ul>
-
-            <div class="sidebar-card__notice">
-              <span class="pending-badge">[PENDIENTE: Confirmación oficial de horarios]</span>
-              <p class="schedule-note">
-                Las sesiones se programan previamente para garantizar la atención personalizada sin aglomeraciones.
-              </p>
-            </div>
-          </div>
-
-          <!-- RF-12: Resumen de Tarifas y Nota aclaratoria -->
-          <div class="sidebar-card sidebar-card--rates">
-            <div class="sidebar-card__header">
-              <h2 class="sidebar-card__title">Tarifas e inversión</h2>
-              <p class="sidebar-card__subtitle">Claridad para las familias</p>
+            <div class="schedule-sidebar-card__block">
+              <span class="schedule-day-title">Sábados</span>
+              <span class="schedule-day-hours">8:00 a.m. – 1:00 p.m.</span>
             </div>
 
-            <p class="rates-description">
-              En Open Brain valoramos la particularidad de cada caso. Las tarifas definitivas se estructuran según el servicio, el número de sesiones semanales recomendadas y el plan formativo.
+            <!-- RF-12: Nota de tarifas y marcador -->
+            <p class="schedule-sidebar-card__note">
+              Las tarifas dependen del servicio y la frecuencia que necesites.
             </p>
+            <span class="pending-badge">[PENDIENTE: Tarifas oficiales]</span>
 
-            <ul class="rates-list">
-              <li class="rates-item">
-                <strong>Pedagógico:</strong>
-                <span>Frecuencia adaptable</span>
-              </li>
-              <li class="rates-item">
-                <strong>Terapéutico:</strong>
-                <span>Planes individuales</span>
-              </li>
-              <li class="rates-item">
-                <strong>Estimulación:</strong>
-                <span>Módulos de desarrollo</span>
-              </li>
-            </ul>
-
-            <div class="sidebar-card__notice">
-              <span class="pending-badge">[PENDIENTE: Tarifas definitivas por servicio]</span>
-            </div>
-
-            <!-- RF-02 / RF-13: Contacto rápido -->
-            <div class="sidebar-card__cta">
-              <a href="contacto.html" class="btn btn--primary btn--full">Solicitar cotización</a>
-              <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20deseo%20consultar%20tarifas%20y%20horarios" class="btn btn--coral btn--full" target="_blank" rel="noopener noreferrer">
-                Consultar por WhatsApp
-              </a>
-            </div>
-          </div>
-
-          <!-- Nota informativa de transparencia (la web no matricula) -->
-          <div class="info-note-card">
-            <h3 class="info-note-card__title">¿Cómo reservar tu cupo?</h3>
-            <p class="info-note-card__text">
-              Nuestra plataforma web recibe solicitudes informativas y de inscripción. La asignación y confirmación de cupos se realiza directamente por WhatsApp o llamada con nuestro equipo docente.
-            </p>
+            <!-- RF-13: Botón Solicitar información en Coral -->
+            <a href="contacto.html" class="btn btn--coral btn--full">
+              Solicitar información
+            </a>
           </div>
         </aside>
 
@@ -289,15 +204,14 @@
   <!-- ======================================================================
        RF-02: Botón flotante accesible de WhatsApp en todas las pantallas
        ====================================================================== -->
-  <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20deseo%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a Open Brain (abre conversación)">
+  <a href="https://wa.me/57[PENDIENTE: WhatsApp]?text=Hola%20Open%20Brain,%20deseo%20solicitar%20informaci%C3%B3n" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a Open Brain (abre conversación)">
     <svg class="whatsapp-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.13.82.83-3.05-.2-.32a8.19 8.19 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.69 8.23-8.23 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.23-.19-.48-.31z"/>
     </svg>
-    <span class="whatsapp-btn__text">WhatsApp</span>
   </a>
 
   <!-- ======================================================================
-       Pie de página transversal escrito directamente en el HTML
+       Pie de página transversal en Azul Índigo (#2F438C)
        ====================================================================== -->
   <footer class="footer">
     <div class="container footer__grid">
@@ -305,7 +219,7 @@
       <div class="footer__brand">
         <h2 class="footer__brand-title">Open Brain</h2>
         <p class="footer__brand-text">
-          Club de aprendizaje en Cúcuta. Acompañamos a niñas, niños y adolescentes en su proceso escolar con afecto, respeto y rigor profesional.
+          Acompáñanos a descubrir el genio que hay en ti. Club de aprendizaje en Cúcuta.
         </p>
       </div>
 
@@ -314,9 +228,9 @@
         <h3 class="footer__section-title">Módulos</h3>
         <ul class="footer__links-list">
           <li><a href="index.html" class="footer__link">Inicio</a></li>
-          <li><a href="servicios.html" class="footer__link">Servicios y horarios</a></li>
-          <li><a href="equipo.html" class="footer__link">Equipo y testimonios</a></li>
-          <li><a href="contacto.html" class="footer__link">Contacto e inscripción</a></li>
+          <li><a href="servicios.html" class="footer__link">Servicios</a></li>
+          <li><a href="equipo.html" class="footer__link">Equipo</a></li>
+          <li><a href="contacto.html" class="footer__link">Contacto</a></li>
         </ul>
       </nav>
 

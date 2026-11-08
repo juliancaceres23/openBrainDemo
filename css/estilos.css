@@ -1,35 +1,37 @@
 /* ==========================================================================
    Plataforma Web Informativa de Open Brain
    Hoja de estilos principal (Mobile-first, WCAG 2.1 AA, BEM)
+   Identidad visual basada en docs/04-identidad-visual.md y prototipo Figma
    ========================================================================== */
 
 /* --- 1. Importación de tipografía accesible --- */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 
-/* --- 2. Variables CSS (Paleta de identidad visual del moodboard) --- */
+/* --- 2. Variables CSS (Paleta de identidad visual del moodboard, Figura 9) --- */
 :root {
-  /* Paleta institucional */
-  --color-primary: #2F438C;         /* Azul índigo: barras, botones principales, títulos */
-  --color-primary-dark: #213063;    /* Azul índigo oscuro para estados hover y contrastes */
-  --color-accent-teal: #5EC3CC;     /* Turquesa: acentos, bordes, estados de foco */
-  --color-accent-teal-dark: #2A838C;/* Turquesa oscuro para texto accesible */
-  --color-accent-coral: #E36B6F;    /* Coral: WhatsApp, llamadas a la acción */
-  --color-accent-coral-dark: #B93E43;/* Coral oscuro con contraste AA */
-  --color-card-pink-light: #FEAFCF; /* Rosa claro: fondos suaves de tarjetas */
-  --color-card-pink-subtle: #FFF0F5;/* Rosa muy suave para fondos */
-  --color-decor-pink-vivid: #F86DC1;/* Rosa vivo: detalles decorativos */
-  --color-text: #1B2340;            /* Azul oscuro: texto principal (contraste 14:1 en blanco) */
-  --color-text-muted: #414D6B;      /* Texto secundario con contraste superior a 4.5:1 */
-  --color-text-light: #FFFFFF;      /* Texto blanco sobre fondos oscuros */
+  /* Paleta institucional del moodboard */
+  --color-primary: #2F438C;          /* Azul índigo: Barra de navegación, botón principal, títulos */
+  --color-primary-dark: #202F63;     /* Azul índigo oscuro para hover */
+  --color-accent-teal: #5EC3CC;      /* Turquesa: Acentos, ilustraciones, tarjetas */
+  --color-accent-teal-dark: #257D86; /* Turquesa oscuro para contraste AA sobre fondo blanco */
+  --color-accent-coral: #E36B6F;     /* Coral: Botón de WhatsApp y llamadas a la acción, acentos */
+  --color-accent-coral-dark: #C94C50;/* Coral oscuro para estados hover */
+  --color-card-pink-light: #FEAFCF;  /* Rosa claro: Fondos suaves de tarjetas */
+  --color-card-pink-subtle: #FFF0F6; /* Rosa muy sutil para fondos de testimonios y horarios */
+  --color-decor-pink-vivid: #F86DC1; /* Rosa vivo: Detalles decorativos */
+  --color-text: #1B2340;             /* Azul oscuro: Texto principal (contraste 14.5:1 en blanco) */
+  --color-text-muted: #4A5568;       /* Texto secundario accesible */
+  --color-text-light: #FFFFFF;       /* Texto blanco */
 
-  /* Fondos y superficies */
+  /* Superficies y bordes */
   --color-bg-page: #FFFFFF;
-  --color-bg-alt: #F7F9FC;
+  --color-bg-alt: #F8FAFD;
   --color-border: #E2E8F0;
-  --color-border-focus: #2F438C;
+  --color-border-card: #E8EDF5;
 
   /* Tipografía */
-  --font-family-base: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-base: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;    /* 12px */
   --font-size-sm: 0.875rem;   /* 14px */
   --font-size-base: 1rem;     /* 16px */
   --font-size-md: 1.125rem;   /* 18px */
@@ -37,9 +39,9 @@
   --font-size-xl: 1.5rem;     /* 24px */
   --font-size-2xl: 2rem;      /* 32px */
   --font-size-3xl: 2.5rem;    /* 40px */
-  --line-height-tight: 1.25;
+  --line-height-tight: 1.2;
   --line-height-base: 1.55;
-  --line-height-relaxed: 1.7;
+  --line-height-relaxed: 1.65;
 
   /* Espaciado */
   --spacing-xs: 0.25rem;  /* 4px */
@@ -50,23 +52,19 @@
   --spacing-2xl: 3rem;    /* 48px */
   --spacing-3xl: 4rem;    /* 64px */
 
-  /* Radios de borde */
+  /* Radios de borde según estilo de interfaz amigable */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-full: 9999px;
 
-  /* Sombras suaves */
-  --shadow-sm: 0 2px 6px rgba(27, 35, 64, 0.06);
-  --shadow-md: 0 6px 16px rgba(27, 35, 64, 0.08);
-  --shadow-lg: 0 12px 28px rgba(27, 35, 64, 0.12);
+  /* Sombras sutiles */
+  --shadow-sm: 0 2px 6px rgba(27, 35, 64, 0.05);
+  --shadow-md: 0 6px 18px rgba(27, 35, 64, 0.08);
+  --shadow-lg: 0 12px 30px rgba(27, 35, 64, 0.12);
 
-  /* Transición estándar */
   --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-
-  /* Contenedor máximo */
-  --container-max-width: 1200px;
+  --container-max-width: 1140px;
 }
 
 /* --- 3. Reseteo y normalización accesible --- */
@@ -122,10 +120,6 @@ a {
   transition: color var(--transition-fast);
 }
 
-a:hover {
-  color: var(--color-primary-dark);
-}
-
 button {
   font-family: inherit;
   font-size: inherit;
@@ -141,7 +135,7 @@ ol {
 
 /* --- 4. Accesibilidad y Foco visible (WCAG 2.1 AA) --- */
 :focus-visible {
-  outline: 3px solid var(--color-accent-teal-dark);
+  outline: 3px solid var(--color-accent-teal);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
@@ -150,12 +144,13 @@ ol {
   position: absolute;
   top: -999px;
   left: var(--spacing-md);
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
+  background-color: #FFFFFF;
+  color: var(--color-primary);
   padding: var(--spacing-sm) var(--spacing-md);
   z-index: 9999;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
   transition: top var(--transition-fast);
 }
 
@@ -175,7 +170,7 @@ ol {
   border: 0;
 }
 
-/* --- 5. Contenedor y estructura común --- */
+/* --- 5. Contenedor y utilidades de texto --- */
 .container {
   width: 100%;
   max-width: var(--container-max-width);
@@ -187,8 +182,8 @@ ol {
 
 @media (min-width: 768px) {
   .container {
-    padding-left: var(--spacing-xl);
-    padding-right: var(--spacing-xl);
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
   }
 }
 
@@ -196,21 +191,63 @@ ol {
   flex: 1 0 auto;
 }
 
-/* --- 6. Botones y Llamadas a la acción (Área táctil mínima >= 44px) --- */
+.text-coral {
+  color: var(--color-accent-coral);
+}
+
+.text-indigo {
+  color: var(--color-primary);
+}
+
+.text-teal {
+  color: var(--color-accent-teal-dark);
+}
+
+/* Marcadores visibles [PENDIENTE: ...] */
+.pending-badge {
+  display: inline-block;
+  background-color: #FFF3CD;
+  color: #856404;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed #FFEEBA;
+  margin: 2px 0;
+}
+
+/* Etiquetas de categoría según prototipo */
+.tag-label {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 900;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.tag-label--center {
+  display: block;
+  text-align: center;
+}
+
+/* --- 6. Botones (Área táctil mínima >= 44px, estilo redondeado del prototipo) --- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 48px;
   min-width: 48px;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  font-weight: 700;
+  padding: 12px 28px;
+  font-weight: 800;
   font-size: var(--font-size-base);
   border-radius: var(--radius-full);
   text-align: center;
   cursor: pointer;
   transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
   text-decoration: none;
+  line-height: 1.2;
 }
 
 .btn:hover {
@@ -222,35 +259,26 @@ ol {
   transform: translateY(0);
 }
 
+/* Botón principal: Azul índigo (#2F438C) */
 .btn--primary {
   background-color: var(--color-primary);
-  color: var(--color-text-light);
+  color: #FFFFFF;
 }
 
 .btn--primary:hover {
   background-color: var(--color-primary-dark);
-  color: var(--color-text-light);
+  color: #FFFFFF;
 }
 
+/* Botón secundario / CTA: Coral (#E36B6F) */
 .btn--coral {
   background-color: var(--color-accent-coral);
-  color: var(--color-text-light);
+  color: #FFFFFF;
 }
 
 .btn--coral:hover {
   background-color: var(--color-accent-coral-dark);
-  color: var(--color-text-light);
-}
-
-.btn--outline {
-  background-color: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-}
-
-.btn--outline:hover {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
+  color: #FFFFFF;
 }
 
 .btn--full {
@@ -263,12 +291,11 @@ ol {
   }
 }
 
-/* --- 7. Barra de navegación transversal (RF-01) --- */
+/* --- 7. Barra de navegación transversal (RF-01 - Azul Índigo según prototipo) --- */
 .header {
   position: sticky;
   top: 0;
-  background-color: #FFFFFF;
-  border-bottom: 2px solid var(--color-border);
+  background-color: var(--color-primary); /* Azul índigo #2F438C como en prototipo */
   box-shadow: var(--shadow-sm);
   z-index: 1000;
 }
@@ -284,15 +311,15 @@ ol {
 .header__logo-link {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
   min-height: 44px;
 }
 
 .header__logo-img {
-  height: 52px;
+  height: 44px;
   width: auto;
 }
 
+/* Botón de menú móvil */
 .nav__toggle {
   display: flex;
   align-items: center;
@@ -300,13 +327,12 @@ ol {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-sm);
-  background-color: var(--color-bg-alt);
-  color: var(--color-primary);
+  color: #FFFFFF;
   transition: background-color var(--transition-fast);
 }
 
 .nav__toggle:hover {
-  background-color: var(--color-card-pink-light);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .nav__toggle-icon {
@@ -326,13 +352,14 @@ ol {
   display: block;
 }
 
+/* Menú de navegación */
 .nav__menu {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  background-color: #FFFFFF;
-  border-bottom: 3px solid var(--color-primary);
+  background-color: var(--color-primary); /* Fondo índigo como pantalla 0. Navegación */
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: var(--shadow-lg);
   display: none;
   flex-direction: column;
@@ -351,20 +378,20 @@ ol {
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   font-weight: 700;
-  font-size: var(--font-size-md);
-  color: var(--color-text);
+  font-size: var(--font-size-base);
+  color: #FFFFFF;
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .nav__link:hover {
-  background-color: var(--color-bg-alt);
-  color: var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-accent-teal);
 }
 
 .nav__link--active {
-  background-color: var(--color-card-pink-subtle);
-  color: var(--color-primary);
-  border-left: 4px solid var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  font-weight: 900;
 }
 
 @media (min-width: 768px) {
@@ -377,23 +404,20 @@ ol {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: none;
+    border-top: none;
     box-shadow: none;
     padding: 0;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
   }
 
   .nav__link {
-    font-size: var(--font-size-base);
     padding: var(--spacing-xs) var(--spacing-md);
     min-height: 44px;
+    border-radius: var(--radius-full);
   }
 
   .nav__link--active {
-    background-color: var(--color-bg-alt);
-    border-left: none;
-    border-bottom: 3px solid var(--color-primary);
-    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    background-color: rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -405,64 +429,474 @@ ol {
   z-index: 990;
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  background-color: #25D366; /* Verde oficial WhatsApp de alta visibilidad */
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  background-color: #25D366; /* Verde oficial WhatsApp */
   color: #FFFFFF;
-  font-weight: 800;
-  font-size: var(--font-size-base);
-  padding: 12px 18px;
-  min-height: 52px;
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
   text-decoration: none;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .whatsapp-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
-  background-color: #20BA5A;
-  color: #FFFFFF;
+  transform: scale(1.08);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.6);
 }
 
 .whatsapp-btn__icon {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   fill: currentColor;
+}
+
+/* --- 9. Módulo de Inicio: Hero fiel al prototipo (RF-03, RF-06, RF-08) --- */
+.hero-section {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-2xl);
+  background-color: #FFFFFF;
+}
+
+.hero-section__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.hero-section__content {
+  width: 100%;
+}
+
+.hero-section__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 900;
+  color: var(--color-primary); /* Azul índigo */
+  line-height: var(--line-height-tight);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-section__text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+  max-width: 520px;
+}
+
+.hero-section__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Línea de contacto directo en hero (teléfono y correo según prototipo) */
+.hero-contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.hero-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.hero-contact-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
-.whatsapp-btn__text {
-  display: inline-block;
-  line-height: 1.2;
+/* Píldoras de colores para los 3 servicios al pie del hero (según prototipo) */
+.hero-service-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
 }
 
-@media (max-width: 480px) {
-  .whatsapp-btn {
-    padding: 12px 16px;
-    font-size: var(--font-size-sm);
-    bottom: var(--spacing-md);
-    right: var(--spacing-md);
+.service-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  min-height: 44px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.service-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Píldora 1: Pedagógico (Rosa claro del moodboard #FEAFCF) */
+.service-pill--pink {
+  background-color: var(--color-card-pink-light);
+  color: var(--color-text);
+}
+
+/* Píldora 2: Terapéutico (Turquesa del moodboard #5EC3CC) */
+.service-pill--teal {
+  background-color: var(--color-accent-teal);
+  color: var(--color-text);
+}
+
+/* Píldora 3: Estimulación (Coral del moodboard #E36B6F) */
+.service-pill--coral {
+  background-color: var(--color-accent-coral);
+  color: #FFFFFF;
+}
+
+.hero-section__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-section__mascot {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-3xl);
+  }
+
+  .hero-section__inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .hero-section__content {
+    flex: 1 1 54%;
+  }
+
+  .hero-section__visual {
+    flex: 1 1 42%;
+  }
+
+  .hero-section__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .hero-section__actions {
+    flex-direction: row;
+    align-items: center;
   }
 }
 
-/* --- 9. Marcadores visibles [PENDIENTE: ...] --- */
-.pending-badge {
-  display: inline-block;
-  background-color: #FFF3CD;
-  color: #856404;
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--radius-sm);
-  border: 1px dashed #FFEEBA;
-  margin: var(--spacing-xs) 0;
+/* --- 10. Sección Presentación y Sede (RF-04, RF-05) --- */
+.about-section {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
-/* --- 10. Pie de página institucional base --- */
+.about-section__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.about-section__title {
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.about-section__paragraph {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+.site-image-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-image-card__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.site-image-card__caption {
+  padding: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .about-section__grid {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .about-section__content {
+    flex: 1 1 50%;
+  }
+
+  .about-section__media {
+    flex: 1 1 50%;
+  }
+}
+
+/* --- 11. Módulo de Servicios y Horarios fiel al prototipo (servicios.html) --- */
+.services-header {
+  text-align: center;
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.services-header__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.services-header__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: var(--line-height-relaxed);
+}
+
+@media (min-width: 768px) {
+  .services-header__title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* Disposición general de Servicios (3 tarjetas a la izquierda, tarjeta rosa a la derecha) */
+.services-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+.services-layout__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.services-layout__sidebar {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .services-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(320px, 1fr);
+    align-items: start;
+    gap: var(--spacing-xl);
+  }
+
+  .services-layout__sidebar {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+/* Tarjeta de servicio según prototipo */
+.service-item-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  position: relative;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.service-item-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-item-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.service-item-card__number {
+  font-size: var(--font-size-base);
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.service-item-card__number--coral {
+  background-color: #FFF0F2;
+  color: var(--color-accent-coral);
+}
+
+.service-item-card__number--teal {
+  background-color: #EEF9FA;
+  color: var(--color-accent-teal-dark);
+}
+
+.service-item-card__number--pink {
+  background-color: var(--color-card-pink-subtle);
+  color: var(--color-decor-pink-vivid);
+}
+
+/* Indicador circular de color a la derecha de la tarjeta */
+.service-item-card__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.service-item-card__dot--pink {
+  background-color: var(--color-card-pink-light);
+}
+
+.service-item-card__dot--teal {
+  background-color: var(--color-accent-teal);
+}
+
+.service-item-card__dot--coral {
+  background-color: var(--color-accent-coral);
+}
+
+.service-item-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+.service-item-card__desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Detalles complementarios accesibles dentro de la tarjeta */
+.service-item-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  border-top: 1px dashed var(--color-border);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.meta-chip {
+  background-color: var(--color-bg-alt);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+.service-item-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-xs);
+}
+
+/* Tarjeta rosa de Horarios y Tarifas (Sidebar del prototipo) */
+.schedule-sidebar-card {
+  background-color: #FFF5F8; /* Rosa muy suave de tarjeta del prototipo */
+  border: 2px solid var(--color-card-pink-light); /* Borde rosa claro #FEAFCF */
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.schedule-sidebar-card__tag {
+  font-size: var(--font-size-xs);
+  font-weight: 900;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.schedule-sidebar-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+}
+
+.schedule-sidebar-card__block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.schedule-day-title {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.schedule-day-hours {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.schedule-sidebar-card__note {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+}
+
+/* --- 12. Pie de página institucional transversal (Azul Índigo #2F438C) --- */
 .footer {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
+  background-color: var(--color-primary); /* Azul índigo #2F438C como en prototipo */
+  color: #FFFFFF;
   margin-top: auto;
   padding-top: var(--spacing-2xl);
   padding-bottom: var(--spacing-xl);
@@ -471,7 +905,7 @@ ol {
 .footer a {
   color: #FFFFFF;
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: 3px;
 }
 
 .footer a:hover {
@@ -494,37 +928,37 @@ ol {
 .footer__brand-title {
   font-size: var(--font-size-xl);
   font-weight: 900;
-  margin-bottom: var(--spacing-sm);
   color: #FFFFFF;
+  margin-bottom: var(--spacing-xs);
 }
 
 .footer__brand-text {
   color: #E2E8F0;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   line-height: var(--line-height-relaxed);
-  max-width: 400px;
+  max-width: 380px;
 }
 
 .footer__section-title {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   font-weight: 800;
   margin-bottom: var(--spacing-md);
   color: var(--color-accent-teal);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .footer__links-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
 }
 
 .footer__link {
   display: inline-block;
   min-height: 44px;
   line-height: 44px;
-  color: #E2E8F0;
+  color: #FFFFFF;
 }
 
 .footer__bottom {
@@ -532,9 +966,9 @@ ol {
   padding-top: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   text-align: center;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: #CBD5E1;
 }
 
@@ -544,749 +978,4 @@ ol {
     justify-content: space-between;
     text-align: left;
   }
-}
-
-
-/* --- 11. Componentes de Módulos (Hero, Presentación, Servicios, Contacto rápido) --- */
-
-/* Etiquetas y distintivos */
-.badge-tag {
-  display: inline-block;
-  background-color: var(--color-card-pink-light);
-  color: var(--color-primary);
-  font-size: var(--font-size-sm);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  margin-bottom: var(--spacing-sm);
-}
-
-.badge-tag--light {
-  background-color: #FFFFFF;
-  color: var(--color-primary);
-}
-
-.section-tag {
-  display: inline-block;
-  color: var(--color-accent-teal-dark);
-  font-size: var(--font-size-sm);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: var(--spacing-xs);
-}
-
-.feature-pill {
-  display: inline-flex;
-  align-items: center;
-  background-color: var(--color-bg-alt);
-  color: var(--color-text);
-  font-weight: 700;
-  font-size: var(--font-size-sm);
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border);
-}
-
-/* Encabezados de sección */
-.section-header {
-  text-align: center;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: var(--spacing-2xl);
-}
-
-.section-header__title {
-  font-size: var(--font-size-2xl);
-  font-weight: 900;
-  color: var(--color-primary);
-  line-height: var(--line-height-tight);
-  margin-bottom: var(--spacing-sm);
-}
-
-.section-header__subtitle {
-  font-size: var(--font-size-md);
-  color: var(--color-text-muted);
-  line-height: var(--line-height-relaxed);
-}
-
-/* --- Hero Section (Inicio RF-03, RF-06) --- */
-.hero-section {
-  background: linear-gradient(135deg, #F0F4FF 0%, #FFFFFF 100%);
-  padding-top: var(--spacing-2xl);
-  padding-bottom: var(--spacing-2xl);
-  overflow: hidden;
-}
-
-.hero-section__inner {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
-  align-items: center;
-}
-
-.hero-section__content {
-  width: 100%;
-}
-
-.hero-section__title {
-  font-size: var(--font-size-2xl);
-  font-weight: 900;
-  color: var(--color-primary);
-  line-height: 1.2;
-  margin-bottom: var(--spacing-md);
-}
-
-.hero-section__text {
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text);
-  margin-bottom: var(--spacing-xl);
-}
-
-.hero-section__actions {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.hero-section__visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.hero-section__mascot {
-  max-width: 260px;
-  height: auto;
-  filter: drop-shadow(0 10px 20px rgba(47, 67, 140, 0.15));
-}
-
-@media (min-width: 768px) {
-  .hero-section {
-    padding-top: var(--spacing-3xl);
-    padding-bottom: var(--spacing-3xl);
-  }
-
-  .hero-section__inner {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .hero-section__content {
-    flex: 1 1 55%;
-  }
-
-  .hero-section__visual {
-    flex: 1 1 40%;
-  }
-
-  .hero-section__title {
-    font-size: var(--font-size-3xl);
-  }
-
-  .hero-section__actions {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-/* --- Presentación y Sede (RF-04, RF-05) --- */
-.about-section {
-  padding-top: var(--spacing-3xl);
-  padding-bottom: var(--spacing-3xl);
-  background-color: #FFFFFF;
-}
-
-.about-section__grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-2xl);
-}
-
-.about-section__content {
-  width: 100%;
-}
-
-.about-section__title {
-  font-size: var(--font-size-xl);
-  font-weight: 900;
-  color: var(--color-primary);
-  line-height: var(--line-height-tight);
-  margin-bottom: var(--spacing-md);
-}
-
-.about-section__paragraph {
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text);
-  margin-bottom: var(--spacing-md);
-}
-
-.about-section__badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-lg);
-}
-
-.about-section__media {
-  width: 100%;
-}
-
-.site-image-card {
-  background-color: var(--color-bg-alt);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 2px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
-}
-
-.site-image-card__img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-}
-
-.site-image-card__caption {
-  padding: var(--spacing-md);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-base);
-  color: var(--color-text-muted);
-  background-color: #FFFFFF;
-  border-top: 1px solid var(--color-border);
-}
-
-@media (min-width: 1024px) {
-  .about-section__grid {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .about-section__content {
-    flex: 1 1 50%;
-  }
-
-  .about-section__media {
-    flex: 1 1 50%;
-  }
-
-  .about-section__title {
-    font-size: var(--font-size-2xl);
-  }
-}
-
-/* --- Servicios Destacados (RF-08) --- */
-.services-preview {
-  padding-top: var(--spacing-3xl);
-  padding-bottom: var(--spacing-3xl);
-  background-color: var(--color-bg-alt);
-}
-
-.services-preview__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
-}
-
-@media (min-width: 768px) {
-  .services-preview__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.service-card {
-  background-color: #FFFFFF;
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-xl);
-  border: 2px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-primary);
-}
-
-.service-card--highlight {
-  border-color: var(--color-accent-teal);
-  background: linear-gradient(180deg, #F0FBFC 0%, #FFFFFF 100%);
-}
-
-.service-card__number {
-  font-size: var(--font-size-xl);
-  font-weight: 900;
-  color: var(--color-accent-teal-dark);
-  margin-bottom: var(--spacing-sm);
-}
-
-.service-card__title {
-  font-size: var(--font-size-lg);
-  font-weight: 800;
-  color: var(--color-primary);
-  line-height: var(--line-height-tight);
-  margin-bottom: var(--spacing-sm);
-}
-
-.service-card__description {
-  font-size: var(--font-size-base);
-  color: var(--color-text-muted);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--spacing-lg);
-  flex-grow: 1;
-}
-
-.service-card__link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  font-weight: 800;
-  font-size: var(--font-size-base);
-  color: var(--color-primary);
-  min-height: 44px;
-}
-
-.service-card__link:hover {
-  color: var(--color-primary-dark);
-  text-decoration: underline;
-}
-
-/* --- Contacto Rápido en Inicio (RF-07) --- */
-.quick-contact {
-  padding-top: var(--spacing-2xl);
-  padding-bottom: var(--spacing-3xl);
-  background-color: #FFFFFF;
-}
-
-.quick-contact__box {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: var(--color-text-light);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-lg);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
-}
-
-.quick-contact__title {
-  font-size: var(--font-size-xl);
-  font-weight: 900;
-  margin-top: var(--spacing-xs);
-  margin-bottom: var(--spacing-xs);
-  color: #FFFFFF;
-}
-
-.quick-contact__text {
-  font-size: var(--font-size-base);
-  color: #E2E8F0;
-  margin-bottom: var(--spacing-lg);
-}
-
-.quick-contact__channels {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.contact-channel {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.contact-channel__label {
-  font-size: var(--font-size-sm);
-  color: var(--color-card-pink-light);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.contact-channel__value {
-  color: #FFFFFF;
-  font-size: var(--font-size-md);
-  font-weight: 800;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-}
-
-.contact-channel__value:hover {
-  color: var(--color-accent-teal);
-}
-
-.contact-channel__text {
-  color: #FFFFFF;
-  font-size: var(--font-size-base);
-}
-
-.quick-contact__actions {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .quick-contact__box {
-    padding: var(--spacing-2xl);
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .quick-contact__info {
-    flex: 1 1 60%;
-  }
-
-  .quick-contact__actions {
-    flex: 1 1 35%;
-  }
-
-  .quick-contact__title {
-    font-size: var(--font-size-2xl);
-  }
-}
-
-
-/* --- 12. Componentes de Servicios y Horarios (servicios.html) --- */
-
-/* Banner de cabecera de página */
-.page-banner {
-  background: linear-gradient(135deg, #F0F4FF 0%, #FFFFFF 100%);
-  padding-top: var(--spacing-2xl);
-  padding-bottom: var(--spacing-2xl);
-  border-bottom: 1px solid var(--color-border);
-  text-align: center;
-}
-
-.page-banner__title {
-  font-size: var(--font-size-2xl);
-  font-weight: 900;
-  color: var(--color-primary);
-  line-height: var(--line-height-tight);
-  margin-top: var(--spacing-xs);
-  margin-bottom: var(--spacing-sm);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.page-banner__text {
-  font-size: var(--font-size-md);
-  color: var(--color-text-muted);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: var(--line-height-relaxed);
-}
-
-@media (min-width: 768px) {
-  .page-banner {
-    padding-top: var(--spacing-3xl);
-    padding-bottom: var(--spacing-3xl);
-  }
-
-  .page-banner__title {
-    font-size: var(--font-size-3xl);
-  }
-}
-
-/* Layout de la sección de servicios */
-.services-section-container {
-  padding-top: var(--spacing-2xl);
-  padding-bottom: var(--spacing-3xl);
-}
-
-.services-layout {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-2xl);
-}
-
-.services-layout__main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
-  width: 100%;
-}
-
-.services-layout__sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xl);
-  width: 100%;
-}
-
-@media (min-width: 1024px) {
-  .services-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
-    align-items: start;
-    gap: var(--spacing-2xl);
-  }
-
-  .services-layout__sidebar {
-    position: sticky;
-    top: 96px;
-  }
-}
-
-/* Tarjetas de detalle de servicio */
-.service-detail-card {
-  background-color: #FFFFFF;
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.service-detail-card:hover {
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-md);
-}
-
-.service-detail-card--highlight {
-  border-color: var(--color-accent-teal);
-  background: linear-gradient(180deg, #F5FCFD 0%, #FFFFFF 100%);
-}
-
-.service-detail-card__header {
-  margin-bottom: var(--spacing-md);
-}
-
-.service-detail-card__badge {
-  display: inline-block;
-  background-color: var(--color-card-pink-subtle);
-  color: var(--color-primary);
-  font-weight: 800;
-  font-size: var(--font-size-sm);
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  margin-bottom: var(--spacing-xs);
-}
-
-.service-detail-card__title {
-  font-size: var(--font-size-xl);
-  font-weight: 900;
-  color: var(--color-primary);
-  line-height: var(--line-height-tight);
-}
-
-.service-detail-card__description {
-  font-size: var(--font-size-base);
-  color: var(--color-text);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--spacing-lg);
-}
-
-/* Cajas de metadatos (Edades y Modalidades) */
-.service-detail-card__meta {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
-  padding: var(--spacing-md);
-  background-color: var(--color-bg-alt);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-}
-
-@media (min-width: 600px) {
-  .service-detail-card__meta {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.meta-box {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.meta-box__label {
-  font-size: var(--font-size-sm);
-  font-weight: 800;
-  color: var(--color-accent-teal-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.meta-box__value {
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-/* Bloque de tarifas del servicio */
-.service-detail-card__pricing {
-  margin-bottom: var(--spacing-lg);
-  padding-top: var(--spacing-md);
-  border-top: 1px solid var(--color-border);
-}
-
-.pricing-label {
-  display: block;
-  font-weight: 800;
-  font-size: var(--font-size-sm);
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-}
-
-.pricing-text {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  margin-bottom: var(--spacing-xs);
-}
-
-.service-detail-card__actions {
-  display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 600px) {
-  .service-detail-card__actions {
-    flex-direction: row;
-  }
-}
-
-/* Tarjetas de la Barra Lateral */
-.sidebar-card {
-  background-color: #FFFFFF;
-  border-radius: var(--radius-lg);
-  border: 2px solid var(--color-border);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-sm);
-}
-
-.sidebar-card--rates {
-  background: linear-gradient(180deg, #F8FAFD 0%, #FFFFFF 100%);
-  border-color: var(--color-primary);
-}
-
-.sidebar-card__header {
-  margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--color-border);
-}
-
-.sidebar-card__title {
-  font-size: var(--font-size-lg);
-  font-weight: 900;
-  color: var(--color-primary);
-}
-
-.sidebar-card__subtitle {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-}
-
-/* Lista de Horarios */
-.schedule-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-}
-
-.schedule-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-sm) 0;
-  border-bottom: 1px dashed var(--color-border);
-  font-size: var(--font-size-base);
-}
-
-.schedule-item__days {
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-.schedule-item__hours {
-  color: var(--color-primary);
-  font-weight: 800;
-}
-
-.schedule-item--closed .schedule-item__hours {
-  color: var(--color-accent-coral-dark);
-}
-
-.schedule-note {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  line-height: var(--line-height-base);
-  margin-top: var(--spacing-xs);
-}
-
-.sidebar-card__notice {
-  margin-top: var(--spacing-sm);
-}
-
-/* Lista de Tarifas */
-.rates-description {
-  font-size: var(--font-size-sm);
-  color: var(--color-text);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--spacing-md);
-}
-
-.rates-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-}
-
-.rates-item {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-xs) 0;
-  border-bottom: 1px solid var(--color-border);
-  font-size: var(--font-size-sm);
-}
-
-.rates-item strong {
-  color: var(--color-primary);
-}
-
-.sidebar-card__cta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-lg);
-}
-
-/* Tarjeta de Nota Informativa (no matricula) */
-.info-note-card {
-  background-color: var(--color-card-pink-subtle);
-  border: 1px solid var(--color-card-pink-light);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-md);
-}
-
-.info-note-card__title {
-  font-size: var(--font-size-base);
-  font-weight: 800;
-  color: var(--color-primary);
-  margin-bottom: 4px;
-}
-
-.info-note-card__text {
-  font-size: var(--font-size-sm);
-  color: var(--color-text);
-  line-height: var(--line-height-base);
 }

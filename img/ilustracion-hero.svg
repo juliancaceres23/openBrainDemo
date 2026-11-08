@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 380" width="380" height="380" role="img" aria-label="Ilustración de Open Brain: cerebro alegre con gafas sobre círculo turquesa con elementos educativos">
+  <!-- Círculo grande turquesa central -->
+  <circle cx="190" cy="190" r="140" fill="#69CBD3" />
+
+  <!-- Círculo interior más suave -->
+  <circle cx="190" cy="190" r="132" fill="#75D2DA" />
+
+  <!-- Burbuja decorativa rosa claro arriba a la derecha -->
+  <circle cx="300" cy="120" r="45" fill="#FEAFCF" />
+
+  <!-- Letra "A" en azul índigo arriba a la izquierda -->
+  <text x="90" y="145" font-family="'Nunito', sans-serif" font-weight="900" font-size="54" fill="#2F438C" text-anchor="middle">A</text>
+
+  <!-- Signo "+" en coral abajo a la izquierda -->
+  <text x="90" y="275" font-family="'Nunito', sans-serif" font-weight="900" font-size="44" fill="#E36B6F" text-anchor="middle">+</text>
+
+  <!-- Signo "+" pequeño en coral a la derecha -->
+  <text x="305" y="235" font-family="'Nunito', sans-serif" font-weight="900" font-size="30" fill="#E36B6F" text-anchor="middle">+</text>
+
+  <!-- Mascota / Cerebro en rosa vivo -->
+  <g transform="translate(190, 195)">
+    <!-- Forma del cerebro -->
+    <path d="M-60 -10 C-75 -10 -85 -25 -85 -38 C-85 -54 -72 -65 -58 -65 C-55 -75 -42 -85 -25 -85 C-15 -85 -9 -82 -6 -76 C0 -82 10 -85 20 -85 C37 -85 50 -75 53 -65 C67 -65 80 -54 80 -38 C80 -25 70 -10 55 -10 C58 -2 58 8 52 18 C46 30 32 40 18 40 C15 40 12 40 9 37 C3 46 -6 52 -15 52 C-24 52 -33 46 -39 37 C-42 40 -45 40 -48 40 C-62 40 -76 30 -82 18 C-88 8 -88 -2 -85 -10 Z" fill="#E36B6F" />
+    
+    <!-- Detalle superior más vivo -->
+    <path d="M-55 -15 C-68 -15 -76 -28 -76 -40 C-76 -53 -64 -62 -52 -62 C-49 -71 -38 -80 -22 -80 C-13 -80 -8 -77 -5 -72 C0 -77 9 -80 18 -80 C33 -80 44 -71 47 -62 C59 -62 71 -53 71 -40 C71 -28 63 -15 50 -15 Z" fill="#F86DC1" />
+
+    <!-- Lentes redondos con marco blanco y puente -->
+    <circle cx="-25" cy="-15" r="26" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3" />
+    <circle cx="25" cy="-15" r="26" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3" />
+    <path d="M-2 -15 L2 -15" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+
+    <!-- Ojos negros amigables -->
+    <circle cx="-25" cy="-15" r="11" fill="#1B2340" />
+    <circle cx="25" cy="-15" r="11" fill="#1B2340" />
+
+    <!-- Brillos de los ojos -->
+    <circle cx="-28" cy="-18" r="4" fill="#FFFFFF" />
+    <circle cx="22" cy="-18" r="4" fill="#FFFFFF" />
+
+    <!-- Sonrisa amigable -->
+    <path d="M-12 18 Q0 30 12 18" stroke="#1B2340" stroke-width="4.5" stroke-linecap="round" fill="none" />
+  </g>
+</svg>
