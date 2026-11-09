@@ -643,12 +643,12 @@ ol {
 }
 
 .site-image-card__img {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
-
 .site-image-card__caption {
   padding: var(--spacing-md);
   font-size: var(--font-size-sm);
