@@ -1,0 +1,15 @@
+# ============================================================
+# robots.txt — Open Brain / Club de Aprendizaje
+# Instrucciones para rastreadores e indexadores web (SEO)
+# Dominio definitivo: [PENDIENTE: URL de Cloudflare Pages]
+# ============================================================
+
+# Permitir que todos los rastreadores indexen el sitio completo
+User-agent: *
+Allow: /
+
+# Excluir la carpeta de documentación interna del proyecto
+Disallow: /docs/
+
+# Ubicación del mapa del sitio para facilitar el rastreo
+Sitemap: https://[PENDIENTE: dominio].pages.dev/sitemap.xml

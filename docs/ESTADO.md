@@ -14,7 +14,7 @@
 | **Fase 3** | Módulo de Servicios y Horarios | RF-09 a RF-13 | `servicios.html` | ✅ Completada |
 | **Fase 4** | Módulo de Equipo y Testimonios | RF-14 a RF-16 | `equipo.html` | ✅ Completada |
 | **Fase 5** | Módulo de Contacto, Formulario y Legal | RF-17 a RF-24 | `contacto.html`, `politica-datos.html`, `js/formulario.js` | ✅ Completada |
-| **Fase 6** | Canales Institucionales, Folleto y SEO | RF-25, RF-26, RF-27 | `assets/`, `robots.txt`, `sitemap.xml`, meta tags | ⏳ Pendiente |
+| **Fase 6** | Canales Institucionales, Folleto y SEO | RF-25, RF-26, RF-27 | `assets/`, `robots.txt`, `sitemap.xml`, meta tags | ✅ Completada |
 | **Fase 7** | Auditoría WCAG 2.1 AA, Responsive y Documentación | Verificación total | `README.md` | ⏳ Pendiente |
 
 *Convenciones de estado:*
@@ -52,9 +52,9 @@
 | **RF-22** | Contacto | Pasos para inscribirse | Fase 5 | ✅ Completado | 4 pasos claros que explican que no hay matrícula en línea |
 | **RF-23** | Contacto | Mensaje para consultar cupos por WhatsApp | Fase 5 | ✅ Completado | Bloque CTA destacado con enlace directo a WhatsApp |
 | **RF-24** | Contacto | Respuesta automática en pantalla al enviar formulario | Fase 5 | ✅ Completado | Feedback accesible con `aria-live="polite"` |
-| **RF-25** | Transversal | Enlaces a redes sociales existentes de Open Brain | Fase 6 | ⏳ Pendiente | `[PENDIENTE: URL]` |
-| **RF-26** | Transversal | Código QR que dirija al sitio para usar en sede | Fase 6 | ⏳ Pendiente | Asset vectorial en `assets/` |
-| **RF-27** | Transversal | Folleto digital descargable | Fase 6 | ⏳ Pendiente | Documento PDF en `assets/` |
+| **RF-25** | Transversal | Enlaces a redes sociales existentes de Open Brain | Fase 6 | ✅ Completado | Enlaces en footer con SVG y marcador `[PENDIENTE: URL]` |
+| **RF-26** | Transversal | Código QR que dirija al sitio para usar en sede | Fase 6 | ✅ Completado | Asset vectorial `assets/qr-openbrain.svg` en footer |
+| **RF-27** | Transversal | Folleto digital descargable | Fase 6 | ✅ Completado | Enlace con atributo download a `assets/folleto-open-brain.pdf` |
 
 ---
 

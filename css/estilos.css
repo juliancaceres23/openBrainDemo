@@ -1781,3 +1781,82 @@ ol {
 .legal-back {
   margin-top: var(--spacing-2xl);
 }
+
+
+/* --- 16. Footer extendido: Redes sociales, QR y Folleto (RF-25, RF-26, RF-27) --- */
+
+.footer__social {
+  margin-top: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer__social-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-accent-teal);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.footer__social-links {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  text-decoration: none;
+}
+
+.footer__social-link:hover {
+  background-color: var(--color-accent-teal);
+  color: var(--color-primary);
+}
+
+.footer__brochure-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  min-height: 44px;
+  flex-wrap: wrap;
+}
+
+.footer__brochure-link:hover {
+  color: var(--color-accent-teal);
+}
+
+.footer__qr {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer__qr-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-accent-teal);
+  font-weight: 700;
+}
+
+.footer__qr img {
+  border-radius: var(--radius-sm);
+  background-color: #FFFFFF;
+  padding: 4px;
+}
