@@ -1318,3 +1318,466 @@ ol {
     flex-direction: row;
   }
 }
+
+
+/* --- 14. Módulo de Contacto e Inscripción (contacto.html) --- */
+
+/* Cabecera de la página según prototipo */
+.contact-banner {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  text-align: center;
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.contact-banner__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.contact-banner__text {
+  font-size: var(--font-size-base);
+  color: #E2E8F0;
+}
+
+/* Pasos del proceso de inscripción (RF-22) */
+.enrollment-steps {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  background-color: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.enrollment-steps__title {
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.enrollment-steps__intro {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xl);
+  max-width: 640px;
+}
+
+.steps-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  list-style: none;
+  counter-reset: none;
+}
+
+@media (min-width: 768px) {
+  .steps-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .steps-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.steps-list__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.steps-list__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-size: var(--font-size-base);
+  font-weight: 900;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.steps-list__content {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+.steps-list__content strong {
+  display: block;
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+/* CTA para consultar cupos por WhatsApp (RF-23) */
+.whatsapp-cupos-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  background-color: #FFF5F8;
+  border: 2px solid var(--color-card-pink-light);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+}
+
+.whatsapp-cupos-cta__text {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+@media (min-width: 600px) {
+  .whatsapp-cupos-cta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Layout principal de Contacto: Formulario + Mapa */
+.contact-section {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-3xl);
+  background-color: #FFFFFF;
+}
+
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 1024px) {
+  .contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+    align-items: start;
+    gap: var(--spacing-xl);
+  }
+}
+
+/* Formulario (RF-17 a RF-19, RF-24) */
+.contact-form-title {
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Campo honeypot oculto */
+.contact-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Campos del formulario */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.form-field__label {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.form-field__required {
+  color: var(--color-accent-coral);
+  margin-left: 2px;
+}
+
+.form-field__input,
+.form-field__select,
+.form-field__textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  appearance: none;
+}
+
+.form-field__input:focus,
+.form-field__select:focus,
+.form-field__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(47, 67, 140, 0.15);
+}
+
+.form-field__input::placeholder,
+.form-field__textarea::placeholder {
+  color: #A0AEC0;
+}
+
+.form-field__select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232F438C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 44px;
+}
+
+.form-field__textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* Checkbox de consentimiento (RF-18) */
+.form-field--checkbox {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.form-field__checkbox {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 3px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.form-field__checkbox-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+}
+
+.form-field__checkbox-label a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Botón de envío deshabilitado */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Feedback del formulario (RF-24) con aria-live */
+.form-feedback {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-feedback--sending {
+  background-color: #EBF8FF;
+  color: #2B6CB0;
+  border: 1px solid #BEE3F8;
+}
+
+.form-feedback--success {
+  background-color: #F0FFF4;
+  color: #276749;
+  border: 1px solid #9AE6B4;
+}
+
+.form-feedback--error {
+  background-color: #FFF5F5;
+  color: #C53030;
+  border: 1px solid #FEB2B2;
+}
+
+/* Tarjeta del Mapa (RF-20) */
+.map-card {
+  background-color: var(--color-accent-teal); /* Turquesa del moodboard #5EC3CC */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--spacing-lg);
+}
+
+.map-card__title {
+  font-size: var(--font-size-base);
+  font-weight: 900;
+  color: #FFFFFF;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-accent-teal-dark);
+}
+
+.map-card__frame-wrapper {
+  width: 100%;
+}
+
+.map-card__iframe {
+  display: block;
+  width: 100%;
+}
+
+.map-card__address {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: var(--line-height-base);
+}
+
+.map-card__directions-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.map-card__directions-link:hover {
+  color: var(--color-card-pink-light);
+}
+
+/* Tarjeta de información de contacto (RF-21) */
+.contact-info-card {
+  background-color: #F8FAFD;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.contact-info-card__title {
+  font-size: var(--font-size-base);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: var(--font-size-sm);
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.contact-info-item__icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.contact-info-item__label {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-info-item__value {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* --- 15. Página de apoyo: Política de datos (politica-datos.html) --- */
+
+.legal-content {
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+.legal-block {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal-block:last-of-type {
+  border-bottom: none;
+}
+
+.legal-block__title {
+  font-size: var(--font-size-lg);
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.legal-block p {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-sm);
+}
+
+.legal-block p a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.legal-block__notice {
+  margin-top: var(--spacing-sm);
+}
+
+.legal-list {
+  list-style: disc;
+  padding-left: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+  margin: var(--spacing-sm) 0;
+}
+
+.legal-back {
+  margin-top: var(--spacing-2xl);
+}

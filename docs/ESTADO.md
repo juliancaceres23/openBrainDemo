@@ -13,7 +13,7 @@
 | **Fase 2** | Módulo de Inicio | RF-03 a RF-08 | `index.html` | ✅ Completada |
 | **Fase 3** | Módulo de Servicios y Horarios | RF-09 a RF-13 | `servicios.html` | ✅ Completada |
 | **Fase 4** | Módulo de Equipo y Testimonios | RF-14 a RF-16 | `equipo.html` | ✅ Completada |
-| **Fase 5** | Módulo de Contacto, Formulario y Legal | RF-17 a RF-24 | `contacto.html`, `politica-datos.html`, `js/formulario.js` | ⏳ Pendiente |
+| **Fase 5** | Módulo de Contacto, Formulario y Legal | RF-17 a RF-24 | `contacto.html`, `politica-datos.html`, `js/formulario.js` | ✅ Completada |
 | **Fase 6** | Canales Institucionales, Folleto y SEO | RF-25, RF-26, RF-27 | `assets/`, `robots.txt`, `sitemap.xml`, meta tags | ⏳ Pendiente |
 | **Fase 7** | Auditoría WCAG 2.1 AA, Responsive y Documentación | Verificación total | `README.md` | ⏳ Pendiente |
 
@@ -44,14 +44,14 @@
 | **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ✅ Completado | Avatares circulares del prototipo con perfiles y marcadores |
 | **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ✅ Completado | Tarjetas rosas del prototipo, autorización Ley 1581 |
 | **RF-16** | Equipo | Preguntas frecuentes desplegables | Fase 4 | ✅ Completado | Implementado con `<details>` y `<summary>` nativos sin JS |
-| **RF-17** | Contacto | Formulario: nombre acudiente, teléfono/correo, servicio, mensaje | Fase 5 | ⏳ Pendiente | Labels vinculados y campos obligatorios |
-| **RF-18** | Contacto | Casilla obligatoria de tratamiento de datos | Fase 5 | ⏳ Pendiente | Enlace a `politica-datos.html` |
-| **RF-19** | Contacto | Envío de solicitud a medio de contacto | Fase 5 | ⏳ Pendiente | Web3Forms (`fetch`/POST) |
-| **RF-20** | Contacto | Mapa con la ubicación de la sede | Fase 5 | ⏳ Pendiente | iframe accesible con enlace "Cómo llegar" |
-| **RF-21** | Contacto | Dirección, teléfono, correo y horarios visibles | Fase 5 | ⏳ Pendiente | Barrio Villa Prado, Cúcuta |
-| **RF-22** | Contacto | Pasos para inscribirse | Fase 5 | ⏳ Pendiente | Proceso de orientación (no matrícula en línea) |
-| **RF-23** | Contacto | Mensaje para consultar cupos por WhatsApp | Fase 5 | ⏳ Pendiente | Invitación a consultar cupos |
-| **RF-24** | Contacto | Respuesta automática en pantalla al enviar formulario | Fase 5 | ⏳ Pendiente | Feedback visual inmediato |
+| **RF-17** | Contacto | Formulario: nombre acudiente, teléfono/correo, servicio, mensaje | Fase 5 | ✅ Completado | Labels vinculados, campos obligatorios y semántica accesible |
+| **RF-18** | Contacto | Casilla obligatoria de tratamiento de datos | Fase 5 | ✅ Completado | Bloquea envío; enlace a `politica-datos.html` |
+| **RF-19** | Contacto | Envío de solicitud a medio de contacto | Fase 5 | ✅ Completado | Web3Forms vía `fetch`; `MODO_SIMULACION = false` |
+| **RF-20** | Contacto | Mapa con la ubicación de la sede | Fase 5 | ✅ Completado | iframe accesible en tarjeta turquesa con enlace "Cómo llegar" |
+| **RF-21** | Contacto | Dirección, teléfono, correo y horarios visibles | Fase 5 | ✅ Completado | Bloque de información de contacto completo |
+| **RF-22** | Contacto | Pasos para inscribirse | Fase 5 | ✅ Completado | 4 pasos claros que explican que no hay matrícula en línea |
+| **RF-23** | Contacto | Mensaje para consultar cupos por WhatsApp | Fase 5 | ✅ Completado | Bloque CTA destacado con enlace directo a WhatsApp |
+| **RF-24** | Contacto | Respuesta automática en pantalla al enviar formulario | Fase 5 | ✅ Completado | Feedback accesible con `aria-live="polite"` |
 | **RF-25** | Transversal | Enlaces a redes sociales existentes de Open Brain | Fase 6 | ⏳ Pendiente | `[PENDIENTE: URL]` |
 | **RF-26** | Transversal | Código QR que dirija al sitio para usar en sede | Fase 6 | ⏳ Pendiente | Asset vectorial en `assets/` |
 | **RF-27** | Transversal | Folleto digital descargable | Fase 6 | ⏳ Pendiente | Documento PDF en `assets/` |
