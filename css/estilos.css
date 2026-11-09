@@ -1860,3 +1860,79 @@ ol {
   background-color: #FFFFFF;
   padding: 4px;
 }
+
+
+html.page-home {
+  --alto-header: 60px;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: var(--alto-header);
+}
+
+.page-home .snap-section {
+  min-height: calc(100vh - var(--alto-header));
+  min-height: calc(100svh - var(--alto-header));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.page-home .snap-section > .container {
+  width: 100%;
+}
+
+.page-home .footer {
+  scroll-snap-align: end;
+}
+
+/* Píldoras de servicios centradas */
+.hero-service-pills {
+  justify-content: center;
+  margin-top: var(--spacing-xl);
+}
+
+/* Animación de entrada (sin movimiento si el usuario lo desactiva en su sistema) */
+@media (prefers-reduced-motion: no-preference) {
+  .anim-ready .hero-section__content > *,
+  .anim-ready .hero-section__visual,
+  .anim-ready .hero-service-pills,
+  .anim-ready .about-section__content > *,
+  .anim-ready .about-section__media {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .anim-ready .snap-section.is-visible .hero-section__content > *,
+  .anim-ready .snap-section.is-visible .hero-section__visual,
+  .anim-ready .snap-section.is-visible .hero-service-pills,
+  .anim-ready .snap-section.is-visible .about-section__content > *,
+  .anim-ready .snap-section.is-visible .about-section__media {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Aparición escalonada */
+  .anim-ready .hero-section__content > :nth-child(2),
+  .anim-ready .about-section__content > :nth-child(2) { transition-delay: 0.08s; }
+  .anim-ready .hero-section__content > :nth-child(3),
+  .anim-ready .about-section__content > :nth-child(3) { transition-delay: 0.16s; }
+  .anim-ready .hero-section__content > :nth-child(4) { transition-delay: 0.24s; }
+  .anim-ready .hero-section__content > :nth-child(5) { transition-delay: 0.32s; }
+  .anim-ready .hero-section__visual,
+  .anim-ready .about-section__media { transition-delay: 0.15s; }
+  .anim-ready .hero-service-pills { transition-delay: 0.4s; }
+}
+
+/* Inicio: aprovechar mejor la pantalla en escritorio */
+@media (min-width: 1024px) {
+  .page-home .hero-section__title { font-size: 3.5rem; }
+  .page-home .hero-section__text { font-size: 1.25rem; max-width: 560px; }
+  .page-home .hero-section__mascot { max-width: 460px; }
+  .page-home .hero-section__actions { gap: var(--spacing-md); }
+  .page-home .hero-service-pills { margin-top: var(--spacing-2xl); }
+
+  .page-home .about-section__title { font-size: 2.5rem; }
+  .page-home .about-section__paragraph { font-size: 1.125rem; }
+}
