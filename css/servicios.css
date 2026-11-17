@@ -1,0 +1,225 @@
+/* ==========================================================================
+   Estilos de la Página de Servicios (servicios.html)
+   Tarjetas de Servicios, Disposición y Sidebar de Horarios/Tarifas
+   ========================================================================== */
+
+.services-header {
+  text-align: center;
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.services-header__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.services-header__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: var(--line-height-relaxed);
+}
+
+@media (min-width: 768px) {
+  .services-header__title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* Disposición general de Servicios (3 tarjetas a la izquierda, tarjeta rosa a la derecha) */
+.services-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding-bottom: var(--spacing-3xl);
+}
+
+.services-layout__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.services-layout__sidebar {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .services-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(320px, 1fr);
+    align-items: start;
+    gap: var(--spacing-xl);
+  }
+
+  .services-layout__sidebar {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+/* Tarjeta de servicio según prototipo */
+.service-item-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  position: relative;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.service-item-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-item-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.service-item-card__number {
+  font-size: var(--font-size-base);
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.service-item-card__number--coral {
+  background-color: #FFF0F2;
+  color: var(--color-accent-coral);
+}
+
+.service-item-card__number--teal {
+  background-color: #EEF9FA;
+  color: var(--color-accent-teal-dark);
+}
+
+.service-item-card__number--pink {
+  background-color: var(--color-card-pink-subtle);
+  color: var(--color-decor-pink-vivid);
+}
+
+/* Indicador circular de color a la derecha de la tarjeta */
+.service-item-card__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.service-item-card__dot--pink {
+  background-color: var(--color-card-pink-light);
+}
+
+.service-item-card__dot--teal {
+  background-color: var(--color-accent-teal);
+}
+
+.service-item-card__dot--coral {
+  background-color: var(--color-accent-coral);
+}
+
+.service-item-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+.service-item-card__desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Detalles complementarios accesibles dentro de la tarjeta */
+.service-item-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  border-top: 1px dashed var(--color-border);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.meta-chip {
+  background-color: var(--color-bg-alt);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+.service-item-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-xs);
+}
+
+/* Tarjeta rosa de Horarios y Tarifas (Sidebar del prototipo) */
+.schedule-sidebar-card {
+  background-color: #FFF5F8; /* Rosa muy suave de tarjeta del prototipo */
+  border: 2px solid var(--color-card-pink-light); /* Borde rosa claro #FEAFCF */
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.schedule-sidebar-card__tag {
+  font-size: var(--font-size-xs);
+  font-weight: 900;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.schedule-sidebar-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+}
+
+.schedule-sidebar-card__block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.schedule-day-title {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.schedule-day-hours {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.schedule-sidebar-card__note {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+}

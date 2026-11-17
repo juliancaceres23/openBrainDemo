@@ -24,7 +24,7 @@ Pagos en línea, diagnósticos médicos o pedagógicos, panel de administración
 - HTML semántico (header, nav, main, section, footer), un solo h1 por página, `lang="es"`, title y meta description únicos por página.
 - Accesibilidad WCAG 2.1 AA: contraste, alt en imágenes, label en cada campo, foco visible, navegación por teclado, áreas táctiles de al menos 44 px.
 - Mobile-first. Puntos de quiebre en 768 px y 1024 px. Sin scroll horizontal desde 320 px.
-- CSS: variables en `:root` con la paleta del moodboard, un solo archivo, nomenclatura BEM, sin estilos en línea ni `!important`.
+- CSS: variables en `:root` con la paleta del moodboard, arquitectura modular por responsabilidades (`variables.css`, `global.css` y estilos específicos por página en `css/`), nomenclatura BEM, sin estilos en línea ni `!important` (salvo accesibilidad en `prefers-reduced-motion`).
 - JS: funciones pequeñas, sin variables globales innecesarias, sin código muerto, sin `console.log` en la entrega.
 - Imágenes comprimidas, con width y height, y `loading="lazy"` salvo la primera.
 
