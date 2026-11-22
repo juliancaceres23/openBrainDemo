@@ -1,7 +1,7 @@
 /**
  * Endpoint del formulario de contacto e inscripción (RF-17 a RF-19 y RF-24).
  *
- * Cloudflare Pages Function: responde en  POST /api/contacto
+ * Cloudflare Pages Function: responde en POST /api/contacto
  *
  * Flujo:
  *   navegador → validación → límite de envíos → guarda en D1 → avisa por correo
@@ -78,6 +78,7 @@ export async function onRequest(context) {
   const ahora = fechaIso(Date.now());
 
   let guardada = false;
+  let solicitudId = null;
 
   if (env.DB) {
     try {
@@ -96,7 +97,7 @@ export async function onRequest(context) {
         }
       }
 
-      await env.DB
+      const resultadoDb = await env.DB
         .prepare(
           'INSERT INTO solicitudes ' +
           '(creado_en, nombre_acudiente, contacto, servicio_interes, mensaje, consentimiento, politica_version, ip_hash) ' +
@@ -104,17 +105,26 @@ export async function onRequest(context) {
         )
         .bind(ahora, solicitud.nombre, solicitud.contacto, solicitud.servicio, solicitud.mensaje, POLITICA_VERSION, huella)
         .run();
+
+      solicitudId = resultadoDb.meta?.last_row_id ?? null;
       guardada = true;
     } catch (error) {
       console.error('D1: no se pudo guardar la solicitud', error);
     }
   }
 
+  const solicitudConId = {
+    ...solicitud,
+    id: solicitudId ?? Date.now(),
+    fecha: ahora,
+    sitioUrl: new URL(request.url).origin,
+  };
+
   const avisoConfigurado = Boolean(env.RESEND_API_KEY && env.NOTIFY_EMAIL);
 
   if (guardada) {
     if (avisoConfigurado) {
-      await enSegundoPlano(context, notificarPorCorreo(env, solicitud));
+      await enSegundoPlano(context, notificarPorCorreo(env, solicitudConId));
     }
     if (env.DB) {
       await enSegundoPlano(context, purgarAntiguas(env));
@@ -123,7 +133,7 @@ export async function onRequest(context) {
   }
 
   /* Respaldo: si no se pudo guardar, al menos que el equipo reciba el aviso. */
-  if (avisoConfigurado && (await notificarPorCorreo(env, solicitud))) {
+  if (avisoConfigurado && (await notificarPorCorreo(env, solicitudConId))) {
     return responder(200, { ok: true });
   }
 
@@ -223,6 +233,30 @@ function limpiarTexto(valor) {
     .trim();
 }
 
+/** Escapa caracteres especiales para evitar inyección HTML/XSS en el correo. */
+function escapeHtml(valor) {
+  return String(valor ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/** Colores oficiales de las insignias de servicio de Open Brain. */
+function estiloServicio(servicio) {
+  switch (servicio) {
+    case 'Acompañamiento pedagógico':
+      return { fondo: '#F7B2CD', texto: '#28397A', borde: '#28397A' };
+    case 'Acompañamiento terapéutico':
+      return { fondo: '#5BC2CB', texto: '#1B2A59', borde: '#28397A' };
+    case 'Estimulación adecuada':
+      return { fondo: '#E36B6E', texto: '#FFFFFF', borde: '#28397A' };
+    default:
+      return { fondo: '#E8EDF8', texto: '#28397A', borde: '#28397A' };
+  }
+}
+
 /* =========================================================
    LECTURA DE LA PETICIÓN
    ========================================================= */
@@ -289,16 +323,24 @@ async function purgarAntiguas(env) {
 
 /**
  * Avisa al equipo por correo con Resend. Nunca lanza error: devuelve true si se envió.
- * El texto va en texto plano (sin HTML) para que nada de lo escrito por el usuario se interprete.
+ * Incluye asunto único por solicitud e identidad visual oficial de Open Brain.
  */
 async function notificarPorCorreo(env, solicitud) {
   try {
+    const badge = estiloServicio(solicitud.servicio);
+    const esEmail = esCorreo(solicitud.contacto);
+    const enlaceContacto = esEmail
+      ? `mailto:${encodeURIComponent(solicitud.contacto)}`
+      : `https://wa.me/57${encodeURIComponent(solicitud.contacto)}`;
+    const textoBoton = esEmail ? 'Responder al correo' : 'Escribir por WhatsApp';
+
     const cuerpo = {
       from: env.NOTIFY_FROM || 'Open Brain Web <onboarding@resend.dev>',
       to: [env.NOTIFY_EMAIL],
-      subject: `Nueva solicitud: ${solicitud.nombre} — ${solicitud.servicio}`,
+      subject: `Nueva solicitud #${solicitud.id}: ${solicitud.nombre} — ${solicitud.servicio}`,
       text: [
-        'Llegó una nueva solicitud desde el sitio web de Open Brain.',
+        'Open Brain — Club de Aprendizaje en Cúcuta',
+        `Nueva solicitud recibida (#${solicitud.id})`,
         '',
         `Acudiente: ${solicitud.nombre}`,
         `Contacto: ${solicitud.contacto}`,
@@ -306,8 +348,138 @@ async function notificarPorCorreo(env, solicitud) {
         '',
         'Mensaje:',
         solicitud.mensaje,
+        '',
+        `Autorización Ley 1581 de 2012 aceptada el ${solicitud.fecha}.`,
       ].join('\n'),
+      html: `
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="utf-8"></head>
+<body style="margin: 0; padding: 0; background-color: #F4F6FB; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #28397A;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #F4F6FB; padding: 32px 16px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 580px; background-color: #FFFFFF; border-radius: 18px; overflow: hidden; border: 2px solid #28397A; box-shadow: 0 8px 24px rgba(40, 57, 122, 0.08);">
+          
+          <!-- Encabezado con el azul marino y marca Open Brain -->
+          <tr>
+            <td style="background-color: #28397A; padding: 24px 28px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="vertical-align: middle;">
+                    <table role="presentation" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="width: 44px; height: 44px; border-radius: 50%; background-color: #4ABBC5; border: 2px solid #FFFFFF; text-align: center; vertical-align: middle; font-size: 22px; line-height: 44px;">
+                          🧠
+                        </td>
+                        <td style="padding-left: 12px; vertical-align: middle;">
+                          <div style="font-size: 22px; font-weight: 800; line-height: 1.05; letter-spacing: -0.3px;">
+                            <span style="color: #FFFFFF;">Open</span><span style="color: #E36B6E;">Brain</span><span style="color: #E36B6E; font-size: 14px;"> ♥</span>
+                          </div>
+                          <div style="font-size: 12px; font-weight: 700; color: #5BC2CB; margin-top: 2px;">
+                            Club de Aprendizaje
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td align="right" style="vertical-align: middle;">
+                    <span style="display: inline-block; background-color: rgba(255,255,255,0.14); color: #FFFFFF; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;">
+                      Solicitud #${escapeHtml(solicitud.id)}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Franja decorativa tricolor (turquesa, rosa, coral) -->
+          <tr>
+            <td style="height: 5px; background: linear-gradient(90deg, #4ABBC5 0%, #F7B2CD 50%, #E36B6E 100%); font-size: 0; line-height: 0;">&nbsp;</td>
+          </tr>
+
+          <!-- Título principal -->
+          <tr>
+            <td style="padding: 28px 28px 12px;">
+              <p style="margin: 0; font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: #4ABBC5;">
+                CLUB DE APRENDIZAJE EN CÚCUTA
+              </p>
+              <h1 style="margin: 6px 0 0; font-size: 22px; font-weight: 800; color: #28397A; line-height: 1.25;">
+                Nueva solicitud de <span style="color: #E36B6E;">inscripción y contacto</span>
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Tabla de datos del acudiente -->
+          <tr>
+            <td style="padding: 12px 28px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #F8FAFC; border-radius: 12px; border: 1px solid #E2E8F0; padding: 6px 16px;">
+                <tr>
+                  <td style="padding: 12px 0; width: 135px; font-size: 13px; font-weight: 700; color: #5A6B9C; border-bottom: 1px solid #E2E8F0;">
+                    Acudiente:
+                  </td>
+                  <td style="padding: 12px 0; font-size: 15px; font-weight: 700; color: #28397A; border-bottom: 1px solid #E2E8F0;">
+                    ${escapeHtml(solicitud.nombre)}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; font-size: 13px; font-weight: 700; color: #5A6B9C; border-bottom: 1px solid #E2E8F0;">
+                    Contacto:
+                  </td>
+                  <td style="padding: 12px 0; font-size: 15px; font-weight: 600; color: #28397A; border-bottom: 1px solid #E2E8F0;">
+                    <a href="${escapeHtml(enlaceContacto)}" style="color: #28397A; text-decoration: underline;">${escapeHtml(solicitud.contacto)}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; font-size: 13px; font-weight: 700; color: #5A6B9C;">
+                    Servicio:
+                  </td>
+                  <td style="padding: 12px 0;">
+                    <span style="display: inline-block; background-color: ${badge.fondo}; color: ${badge.texto}; border: 1.5px solid ${badge.borde}; padding: 5px 14px; border-radius: 999px; font-size: 12px; font-weight: 800;">
+                      ${escapeHtml(solicitud.servicio)}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Mensaje del acudiente -->
+          <tr>
+            <td style="padding: 8px 28px 20px;">
+              <p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: #28397A;">
+                Mensaje de la familia:
+              </p>
+              <div style="background-color: #FFF8F9; border-left: 4px solid #E36B6E; border-radius: 8px; padding: 14px 16px; font-size: 14px; line-height: 1.55; color: #2C365E; white-space: pre-wrap;">${escapeHtml(solicitud.mensaje)}</div>
+            </td>
+          </tr>
+
+          <!-- Botón de acción directa -->
+          <tr>
+            <td align="center" style="padding: 4px 28px 28px;">
+              <a href="${escapeHtml(enlaceContacto)}" style="display: inline-block; background-color: #28397A; color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 700; padding: 12px 26px; border-radius: 999px; border: 2px solid #28397A;">
+                ${escapeHtml(textoBoton)}
+              </a>
+            </td>
+          </tr>
+
+          <!-- Pie institucional -->
+          <tr>
+            <td style="background-color: #F4F6FB; padding: 16px 28px; border-top: 1px solid #E2E8F0; font-size: 11px; line-height: 1.5; color: #5A6B9C; text-align: center;">
+              Autorización de tratamiento de datos personales (Ley 1581 de 2012) aceptada el <strong>${escapeHtml(solicitud.fecha)}</strong>.<br>
+              Open Brain — Club de Aprendizaje • Cúcuta, Colombia
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+      `.trim(),
     };
+
     /* Si dejó un correo, "Responder" contesta directo a la familia. */
     if (esCorreo(solicitud.contacto)) {
       cuerpo.reply_to = solicitud.contacto;
