@@ -42,7 +42,7 @@
 | **RF-12** | Servicios | Tarifas por servicio | Fase 3 | ✅ Completado | Detalle de inversión y marcador `[PENDIENTE: Tarifas]` |
 | **RF-13** | Servicios | Botón para solicitar información | Fase 3 | ✅ Completado | Botón accesible en cada tarjeta hacia `contacto.html` |
 | **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ✅ Completado | Perfiles reales y fotos optimizadas de Catalina López, Jessee Carrero y Jhonatan Villamizar |
-| **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ✅ Completado | Tarjetas rosas del prototipo, autorización Ley 1581 |
+| **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ✅ Completado | Testimonios reales de Jackeline Morales y Jessica Carrillo autorizados según Ley 1581 |
 | **RF-16** | Equipo | Preguntas frecuentes desplegables | Fase 4 | ✅ Completado | Implementado con `<details>` y `<summary>` nativos sin JS |
 | **RF-17** | Contacto | Formulario: nombre acudiente, teléfono/correo, servicio, mensaje | Fase 5 | ✅ Completado | Labels vinculados, campos obligatorios y semántica accesible |
 | **RF-18** | Contacto | Casilla obligatoria de tratamiento de datos | Fase 5 | ✅ Completado | Bloquea envío; enlace a `politica-datos.html` |
