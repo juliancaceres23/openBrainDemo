@@ -86,6 +86,7 @@
   font-size: var(--font-size-xs);
   font-weight: 800;
   border-radius: var(--radius-full);
+  border: 2px solid #202744;
   text-decoration: none;
   min-height: 44px;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
@@ -93,25 +94,25 @@
 
 .service-pill:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 10px rgba(32, 39, 68, 0.16);
 }
 
 /* Píldora 1: Pedagógico (Rosa claro del moodboard #FEAFCF) */
 .service-pill--pink {
   background-color: var(--color-card-pink-light);
-  color: var(--color-text);
+  color: #202744;
 }
 
 /* Píldora 2: Terapéutico (Turquesa del moodboard #5EC3CC) */
 .service-pill--teal {
   background-color: var(--color-accent-teal);
-  color: var(--color-text);
+  color: #202744;
 }
 
 /* Píldora 3: Estimulación (Coral del moodboard #E36B6F) */
 .service-pill--coral {
   background-color: var(--color-accent-coral);
-  color: #FFFFFF;
+  color: #202744;
 }
 
 .hero-section__visual {
