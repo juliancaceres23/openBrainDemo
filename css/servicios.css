@@ -168,9 +168,62 @@
 
 .service-item-card__footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: var(--spacing-xs);
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px dashed var(--color-border);
+}
+
+@media (min-width: 600px) {
+  .service-item-card__footer {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+/* Inversión humanizada y empática en cada tarjeta */
+.service-investment {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.service-investment__label {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.service-investment__value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.service-investment__from {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.service-investment__amount {
+  font-size: var(--font-size-xl);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.service-investment__period {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-accent-teal-dark);
+}
+
+.service-investment__plan {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 600;
 }
 
 /* Tarjeta rosa de Horarios y Tarifas (Sidebar del prototipo) */
@@ -216,6 +269,70 @@
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--color-text);
+}
+
+/* Planes y tarifas humanizadas en Sidebar */
+.schedule-sidebar-card__rates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) 0;
+  border-top: 1px solid rgba(227, 107, 111, 0.2);
+  border-bottom: 1px solid rgba(227, 107, 111, 0.2);
+}
+
+.schedule-sidebar-card__rates-title {
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.schedule-plan-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  border: 1px solid rgba(32, 39, 68, 0.12);
+  transition: transform var(--transition-fast);
+}
+
+.schedule-plan-chip:hover {
+  transform: translateX(3px);
+}
+
+.schedule-plan-chip--pink {
+  border-left: 4px solid var(--color-decor-pink-vivid);
+}
+
+.schedule-plan-chip--teal {
+  border-left: 4px solid var(--color-accent-teal);
+}
+
+.schedule-plan-chip--coral {
+  border-left: 4px solid var(--color-accent-coral);
+}
+
+.schedule-plan-chip__name {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.schedule-plan-chip__price {
+  font-size: var(--font-size-sm);
+  font-weight: 900;
+  color: var(--color-text);
+}
+
+.schedule-plan-chip__price small {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
 }
 
 .schedule-sidebar-card__note {
