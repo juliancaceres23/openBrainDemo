@@ -127,6 +127,34 @@
   }
 }
 
+/* Botón cálido para sección de servicios: sin borde oscuro, sombra suave, tono conversacional */
+.btn--warm {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 16px rgba(47, 67, 140, 0.18);
+}
+
+.btn--warm:hover {
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(47, 67, 140, 0.28);
+}
+
+/* Variante cálida en coral (para sidebar de servicios) */
+.btn--warm-coral {
+  background-color: var(--color-accent-coral);
+  color: #FFFFFF;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 16px rgba(227, 107, 111, 0.22);
+}
+
+.btn--warm-coral:hover {
+  background-color: var(--color-accent-coral-dark);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(227, 107, 111, 0.32);
+}
+
 /* --- 3. Barra de navegación transversal (RF-01 - Azul Índigo según prototipo) --- */
 .header {
   position: sticky;

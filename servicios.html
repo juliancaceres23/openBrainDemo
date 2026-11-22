@@ -93,107 +93,134 @@
         <div class="services-layout__cards">
 
           <!-- SERVICIO 1: Acompañamiento Pedagógico (Ancla RF-08) -->
-          <article id="pedagogico" class="service-item-card" aria-labelledby="pedagogico-title">
-            <div class="service-item-card__top">
-              <span class="service-item-card__number service-item-card__number--coral">01</span>
-              <span class="service-item-card__dot service-item-card__dot--pink" aria-hidden="true"></span>
-            </div>
+          <article id="pedagogico" class="service-card" aria-labelledby="pedagogico-title">
+            <span class="service-card__tag service-card__tag--pink">Acompañamiento pedagógico</span>
 
             <!-- RF-09: Título y descripción -->
-            <h2 id="pedagogico-title" class="service-item-card__title">Acompañamiento pedagógico</h2>
-            <p class="service-item-card__desc">
-              Estrategias personalizadas para fortalecer los procesos de aprendizaje. Acompañamos dificultades en lectura, escritura, cálculo y fortalecimiento de hábitos de estudio.
+            <h2 id="pedagogico-title" class="service-card__title">Programas de aprendizaje a su ritmo</h2>
+            <p class="service-card__desc">
+              Estrategias personalizadas para fortalecer los procesos de aprendizaje. Acompañamos dificultades en lectura, escritura, cálculo, fortalecimiento de hábitos de estudio y colaboración directa con el colegio.
             </p>
 
+            <!-- Sub-planes reales del folleto de Open Brain -->
+            <div class="service-card__plans">
+              <div class="plan-chip plan-chip--light-pink">
+                <div class="plan-chip__info">
+                  <strong class="plan-chip__name">Plan Mentes Creativas</strong>
+                  <span class="plan-chip__detail">3 días · 6 horas semanales de acompañamiento ($87.500/sem · $14.600/h).</span>
+                </div>
+              </div>
+
+              <div class="plan-chip plan-chip--light-blue">
+                <div class="plan-chip__info">
+                  <strong class="plan-chip__name">Plan Premium Mentes Brillantes</strong>
+                  <span class="plan-chip__detail">5 días · 15 horas semanales de lunes a viernes ($125.000/sem · $8.330/h).</span>
+                </div>
+              </div>
+
+              <div class="plan-chip plan-chip--light-teal">
+                <div class="plan-chip__info">
+                  <strong class="plan-chip__name">Plan Mentes Geniales</strong>
+                  <span class="plan-chip__detail">Clases de 2 horas (5 veces por semana), diagnóstico semestral y seguimiento con la institución educativa.</span>
+                </div>
+              </div>
+
+              <div class="plan-chip plan-chip--light-coral">
+                <div class="plan-chip__info">
+                  <strong class="plan-chip__name">Asesorías para Bachillerato</strong>
+                  <span class="plan-chip__detail">Sesiones de refuerzo puntual en Matemáticas, Química y Física ($35.000 por sesión).</span>
+                </div>
+              </div>
+            </div>
+
             <!-- RF-10: Edades y modalidades -->
-            <div class="service-item-card__meta">
+            <div class="service-card__meta">
               <span class="meta-chip"><strong>Edades:</strong> 6 a 17 años</span>
-              <span class="meta-chip"><strong>Modalidad:</strong> Presencial (individual o grupos pequeños)</span>
+              <span class="meta-chip"><strong>Modalidad:</strong> Presencial (individual o semipersonalizado)</span>
             </div>
 
-            <!-- RF-12, RF-13: Tarifa humanizada y Botón solicitar información -->
-            <div class="service-item-card__footer">
-              <div class="service-investment">
-                <span class="service-investment__label">Inversión en su desarrollo:</span>
-                <div class="service-investment__value">
-                  <span class="service-investment__from">Desde</span>
-                  <strong class="service-investment__amount">$87.500</strong>
-                  <span class="service-investment__period">semanales</span>
-                </div>
-                <span class="service-investment__plan">Plan Mentes Creativas · 3 días (6 horas)</span>
+            <span class="service-card__discount">✨ 10% de descuento al cancelar por mensualidad</span>
+
+            <!-- RF-12, RF-13: Tarifa y Botón conversacional -->
+            <div class="service-card__footer">
+              <div class="service-card__price">
+                <span class="service-card__from">Desde</span>
+                <strong class="service-card__amount">$87.500</strong>
+                <span class="service-card__period">semanales</span>
               </div>
-              <a href="contacto.html" class="btn btn--primary">
-                Solicitar información
+              <a href="contacto.html" class="btn btn--warm">
+                Hablemos de tu hijo
               </a>
             </div>
           </article>
 
-          <!-- SERVICIO 2: Acompañamiento Terapéutico (Ancla RF-08) -->
-          <article id="terapeutico" class="service-item-card" aria-labelledby="terapeutico-title">
-            <div class="service-item-card__top">
-              <span class="service-item-card__number service-item-card__number--teal">02</span>
-              <span class="service-item-card__dot service-item-card__dot--teal" aria-hidden="true"></span>
-            </div>
+          <!-- SERVICIO 2: Acompañamiento Terapéutico y Estimulación (Ancla RF-08) -->
+          <article id="terapeutico" class="service-card" aria-labelledby="terapeutico-title">
+            <span id="estimulacion" class="sr-only"></span>
+            <span class="service-card__tag service-card__tag--teal">Acompañamiento terapéutico</span>
 
             <!-- RF-09: Título y descripción -->
-            <h2 id="terapeutico-title" class="service-item-card__title">Acompañamiento terapéutico</h2>
-            <p class="service-item-card__desc">
-              Un espacio seguro para desarrollar habilidades y ganar autonomía. Orientado a la autorregulación emocional, atención, funciones ejecutivas y acompañamiento a familias.
+            <h2 id="terapeutico-title" class="service-card__title">Programas de estimulación y desarrollo</h2>
+            <p class="service-card__desc">
+              Un espacio seguro y respetuoso para desarrollar habilidades, ganar autonomía y potenciar el lenguaje, la autorregulación emocional y la integración neurosensorial.
             </p>
 
+            <!-- Especialidades terapéuticas reales -->
+            <ul class="service-card__specialties" aria-label="Especialidades terapéuticas">
+              <li>Terapia Ocupacional</li>
+              <li>Terapia Pedagógica</li>
+              <li>Terapia Fonoaudiológica</li>
+              <li>Terapia Psicológica</li>
+            </ul>
+
             <!-- RF-10: Edades y modalidades -->
-            <div class="service-item-card__meta">
-              <span class="meta-chip"><strong>Edades:</strong> 4 a 17 años</span>
+            <div class="service-card__meta">
+              <span class="meta-chip"><strong>Edades:</strong> 2 a 17 años</span>
               <span class="meta-chip"><strong>Modalidad:</strong> Presencial personalizada</span>
             </div>
 
-            <!-- RF-12, RF-13: Tarifa humanizada y Botón solicitar información -->
-            <div class="service-item-card__footer">
-              <div class="service-investment">
-                <span class="service-investment__label">Sesión individual personalizada:</span>
-                <div class="service-investment__value">
-                  <strong class="service-investment__amount">$45.000</strong>
-                  <span class="service-investment__period">por sesión</span>
-                </div>
-                <span class="service-investment__plan">Atención fonoaudiológica, psicológica o pedagógica</span>
+            <!-- RF-12, RF-13: Tarifa y Botón conversacional -->
+            <div class="service-card__footer">
+              <div class="service-card__price">
+                <strong class="service-card__amount">$45.000</strong>
+                <span class="service-card__period">por sesión</span>
               </div>
-              <a href="contacto.html" class="btn btn--coral">
-                Solicitar información
+              <a href="contacto.html" class="btn btn--warm">
+                Hablemos de tu hijo
               </a>
             </div>
           </article>
 
-          <!-- SERVICIO 3: Estimulación Adecuada (Ancla RF-08) -->
-          <article id="estimulacion" class="service-item-card" aria-labelledby="estimulacion-title">
-            <div class="service-item-card__top">
-              <span class="service-item-card__number service-item-card__number--pink">03</span>
-              <span class="service-item-card__dot service-item-card__dot--coral" aria-hidden="true"></span>
-            </div>
+          <!-- SERVICIO 3: Valoración Integral (Ancla RF-08) -->
+          <article id="valoracion" class="service-card" aria-labelledby="valoracion-title">
+            <span class="service-card__tag service-card__tag--coral">Diagnóstico y orientación</span>
 
             <!-- RF-09: Título y descripción -->
-            <h2 id="estimulacion-title" class="service-item-card__title">Estimulación adecuada</h2>
-            <p class="service-item-card__desc">
-              Experiencias respetuosas que acompañan cada etapa del desarrollo. Actividades lúdicas y neurosensoriales que potencian la psicomotricidad, el lenguaje y la exploración cognitiva.
+            <h2 id="valoracion-title" class="service-card__title">Valoración integral inicial</h2>
+            <p class="service-card__desc">
+              El primer paso para descubrir y potenciar el talento de tu hijo. Un análisis profundo que brinda claridad a las familias y orienta una ruta pedagógica y terapéutica efectiva.
             </p>
 
+            <!-- Puntos clave del servicio según folleto -->
+            <ul class="service-card__benefits">
+              <li>2 sesiones detalladas de valoración que involucran activamente al niño y a sus padres.</li>
+              <li>Informe completo con recomendaciones personalizadas y una ruta clara tanto para el hogar como para la escuela.</li>
+            </ul>
+
             <!-- RF-10: Edades y modalidades -->
-            <div class="service-item-card__meta">
-              <span class="meta-chip"><strong>Edades:</strong> 2 a 6 años</span>
-              <span class="meta-chip"><strong>Modalidad:</strong> Presencial personalizada</span>
+            <div class="service-card__meta">
+              <span class="meta-chip"><strong>Edades:</strong> Todas las edades atendidas</span>
+              <span class="meta-chip"><strong>Modalidad:</strong> 2 sesiones presenciales personalizadas</span>
             </div>
 
-            <!-- RF-12, RF-13: Tarifa humanizada y Botón solicitar información -->
-            <div class="service-item-card__footer">
-              <div class="service-investment">
-                <span class="service-investment__label">Sesión de estimulación adecuada:</span>
-                <div class="service-investment__value">
-                  <strong class="service-investment__amount">$45.000</strong>
-                  <span class="service-investment__period">por sesión</span>
-                </div>
-                <span class="service-investment__plan">Actividades lúdicas y sensoriales respetuosas</span>
+            <!-- RF-12, RF-13: Tarifa y Botón conversacional -->
+            <div class="service-card__footer">
+              <div class="service-card__price">
+                <strong class="service-card__amount">$100.000</strong>
+                <span class="service-card__period">valoración completa</span>
               </div>
-              <a href="contacto.html" class="btn btn--primary">
-                Solicitar información
+              <a href="contacto.html" class="btn btn--warm">
+                Agendar valoración
               </a>
             </div>
           </article>
@@ -201,7 +228,7 @@
         </div>
 
         <!-- ==================================================================
-             RF-11, RF-12: Tarjeta rosa de Horarios y Tarifas (Sidebar)
+             RF-11, RF-12: Tarjeta de Horarios y Tarifas (Sidebar humanizado)
              ================================================================== -->
         <aside class="services-layout__sidebar" aria-label="Horarios y tarifas">
           <div class="schedule-sidebar-card">
@@ -219,33 +246,47 @@
               <span class="schedule-day-hours">8:00 a.m. – 1:00 p.m.</span>
             </div>
 
-            <!-- RF-12: Planes y tarifas humanizadas -->
+            <!-- RF-12: Planes y tarifas humanizadas con catálogo completo -->
             <div class="schedule-sidebar-card__rates">
               <span class="schedule-sidebar-card__rates-title">Inversión clara y transparente</span>
-              
+
               <div class="schedule-plan-chip schedule-plan-chip--pink">
-                <span class="schedule-plan-chip__name">Pedagógico</span>
-                <strong class="schedule-plan-chip__price">Desde $87.500 <small>/ semana</small></strong>
+                <span class="schedule-plan-chip__name">Mentes Creativas</span>
+                <strong class="schedule-plan-chip__price">Desde $87.500 <small>/ sem</small></strong>
               </div>
 
-              <div class="schedule-plan-chip schedule-plan-chip--teal">
-                <span class="schedule-plan-chip__name">Terapéutico</span>
-                <strong class="schedule-plan-chip__price">$45.000 <small>/ sesión</small></strong>
+              <div class="schedule-plan-chip schedule-plan-chip--blue">
+                <span class="schedule-plan-chip__name">Mentes Brillantes</span>
+                <strong class="schedule-plan-chip__price">$125.000 <small>/ sem</small></strong>
               </div>
 
               <div class="schedule-plan-chip schedule-plan-chip--coral">
-                <span class="schedule-plan-chip__name">Estimulación</span>
+                <span class="schedule-plan-chip__name">Bachillerato</span>
+                <strong class="schedule-plan-chip__price">$35.000 <small>/ sesión</small></strong>
+              </div>
+
+              <div class="schedule-plan-chip schedule-plan-chip--teal">
+                <span class="schedule-plan-chip__name">Terapéutico / Estimulación</span>
                 <strong class="schedule-plan-chip__price">$45.000 <small>/ sesión</small></strong>
               </div>
+
+              <div class="schedule-plan-chip schedule-plan-chip--indigo">
+                <span class="schedule-plan-chip__name">Valoración Integral</span>
+                <strong class="schedule-plan-chip__price">$100.000 <small>total</small></strong>
+              </div>
+            </div>
+
+            <div class="schedule-sidebar-card__discount">
+              ✨ 10% de dto. al cancelar por mensualidad
             </div>
 
             <p class="schedule-sidebar-card__note">
               Cada proceso inicia con una valoración cercana para definir la frecuencia ideal según el ritmo y metas de tu hijo.
             </p>
 
-            <!-- RF-13: Botón Solicitar información en Coral -->
-            <a href="contacto.html" class="btn btn--coral btn--full">
-              Solicitar información
+            <!-- RF-13: Botón de acción con estilo cálido -->
+            <a href="contacto.html" class="btn btn--warm-coral btn--full">
+              Agendar una charla
             </a>
           </div>
         </aside>

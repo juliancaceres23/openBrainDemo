@@ -1,8 +1,9 @@
 /* ==========================================================================
    Estilos de la Página de Servicios (servicios.html)
-   Tarjetas de Servicios, Disposición y Sidebar de Horarios/Tarifas
+   Rediseño humanizado: tarjetas orgánicas, sombras suaves, sin numeración
    ========================================================================== */
 
+/* --- 1. Cabecera de la sección --- */
 .services-header {
   text-align: center;
   padding-top: var(--spacing-2xl);
@@ -33,7 +34,7 @@
   }
 }
 
-/* Disposición general de Servicios (3 tarjetas a la izquierda, tarjeta rosa a la derecha) */
+/* --- 2. Disposición general (tarjetas a la izquierda, sidebar a la derecha) --- */
 .services-layout {
   display: flex;
   flex-direction: column;
@@ -44,7 +45,7 @@
 .services-layout__cards {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
   width: 100%;
 }
 
@@ -66,94 +67,129 @@
   }
 }
 
-/* Tarjeta de servicio según prototipo */
-.service-item-card {
+/* --- 3. Tarjeta de servicio humanizada --- */
+.service-card {
   background-color: #FFFFFF;
-  border: 1px solid var(--color-border-card);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  border-radius: 24px;
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+  box-shadow: 0 8px 32px rgba(47, 67, 140, 0.06);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
   position: relative;
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.service-item-card:hover {
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(47, 67, 140, 0.1);
 }
 
-.service-item-card__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.service-item-card__number {
-  font-size: var(--font-size-base);
-  font-weight: 900;
-  padding: 4px 10px;
+/* Etiqueta de categoría pastel (reemplaza la numeración 01, 02, 03) */
+.service-card__tag {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 6px 16px;
   border-radius: var(--radius-full);
+  width: fit-content;
 }
 
-.service-item-card__number--coral {
-  background-color: #FFF0F2;
-  color: var(--color-accent-coral);
+.service-card__tag--pink {
+  background-color: #FFF0F6;
+  color: var(--color-decor-pink-vivid);
 }
 
-.service-item-card__number--teal {
+.service-card__tag--teal {
   background-color: #EEF9FA;
   color: var(--color-accent-teal-dark);
 }
 
-.service-item-card__number--pink {
-  background-color: var(--color-card-pink-subtle);
-  color: var(--color-decor-pink-vivid);
+.service-card__tag--coral {
+  background-color: #FFF0F2;
+  color: var(--color-accent-coral);
 }
 
-/* Indicador circular de color a la derecha de la tarjeta */
-.service-item-card__dot {
-  width: 14px;
-  height: 14px;
-  border-radius: var(--radius-full);
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-
-.service-item-card__dot--pink {
-  background-color: var(--color-card-pink-light);
-}
-
-.service-item-card__dot--teal {
-  background-color: var(--color-accent-teal);
-}
-
-.service-item-card__dot--coral {
-  background-color: var(--color-accent-coral);
-}
-
-.service-item-card__title {
+.service-card__title {
   font-size: var(--font-size-lg);
   font-weight: 900;
   color: var(--color-primary);
+  line-height: var(--line-height-tight);
 }
 
-.service-item-card__desc {
+.service-card__desc {
   font-size: var(--font-size-base);
   color: var(--color-text-muted);
   line-height: var(--line-height-relaxed);
 }
 
-/* Detalles complementarios accesibles dentro de la tarjeta */
-.service-item-card__meta {
+/* --- 4. Sub-planes dentro de la tarjeta pedagógica --- */
+.service-card__plans {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.plan-chip {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.plan-chip:hover {
+  transform: translateX(3px);
+}
+
+/* Variantes de color para cada plan */
+.plan-chip--light-pink {
+  background-color: #FFF5F8;
+  border-left: 4px solid var(--color-decor-pink-vivid);
+}
+
+.plan-chip--light-blue {
+  background-color: #F0F4FF;
+  border-left: 4px solid var(--color-primary);
+}
+
+.plan-chip--light-teal {
+  background-color: #EEF9FA;
+  border-left: 4px solid var(--color-accent-teal);
+}
+
+.plan-chip--light-coral {
+  background-color: #FFF0F2;
+  border-left: 4px solid var(--color-accent-coral);
+}
+
+.plan-chip__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plan-chip__name {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.plan-chip__detail {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+}
+
+/* --- 5. Meta-chips (edades y modalidades) --- */
+.service-card__meta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) 0;
-  border-top: 1px dashed var(--color-border);
   font-size: var(--font-size-xs);
   font-weight: 700;
   color: var(--color-text);
@@ -161,78 +197,126 @@
 
 .meta-chip {
   background-color: var(--color-bg-alt);
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: var(--radius-full);
   border: 1px solid var(--color-border);
 }
 
-.service-item-card__footer {
+/* --- 6. Pie de tarjeta con precio y botón --- */
+.service-card__footer {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  padding-top: var(--spacing-sm);
-  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-md);
+  border-top: 1px dashed rgba(226, 232, 240, 0.8);
 }
 
 @media (min-width: 600px) {
-  .service-item-card__footer {
+  .service-card__footer {
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
   }
 }
 
-/* Inversión humanizada y empática en cada tarjeta */
-.service-investment {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.service-investment__label {
-  font-size: var(--font-size-xs);
-  font-weight: 700;
-  color: var(--color-text-muted);
-}
-
-.service-investment__value {
+.service-card__price {
   display: flex;
   align-items: baseline;
   gap: 6px;
+  flex-wrap: wrap;
 }
 
-.service-investment__from {
+.service-card__from {
   font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--color-text-muted);
 }
 
-.service-investment__amount {
+.service-card__amount {
   font-size: var(--font-size-xl);
   font-weight: 900;
   color: var(--color-primary);
   line-height: 1.1;
 }
 
-.service-investment__period {
+.service-card__period {
   font-size: var(--font-size-sm);
   font-weight: 800;
   color: var(--color-accent-teal-dark);
 }
 
-.service-investment__plan {
+/* Nota de descuento en la tarjeta */
+.service-card__discount {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--color-accent-teal-dark);
+  background-color: #EEF9FA;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-top: 4px;
 }
 
-/* Tarjeta rosa de Horarios y Tarifas (Sidebar del prototipo) */
+/* Lista de especialidades terapéuticas */
+.service-card__specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  list-style: none;
+}
+
+.service-card__specialties li {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: var(--color-bg-alt);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+/* Lista de beneficios de la valoración */
+.service-card__benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  list-style: none;
+}
+
+.service-card__benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+}
+
+.service-card__benefits li::before {
+  content: "✓";
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-size: var(--font-size-xs);
+  font-weight: 900;
+  color: var(--color-accent-teal-dark);
+  background-color: #EEF9FA;
+  border-radius: var(--radius-full);
+  margin-top: 2px;
+}
+
+/* --- 7. Sidebar de Horarios y Tarifas (tarjeta rosa humanizada) --- */
 .schedule-sidebar-card {
-  background-color: #FFF5F8; /* Rosa muy suave de tarjeta del prototipo */
-  border: 2px solid var(--color-card-pink-light); /* Borde rosa claro #FEAFCF */
-  border-radius: var(--radius-lg);
+  background-color: #FFF5F8;
+  border: 1px solid rgba(254, 175, 207, 0.4);
+  border-radius: 24px;
   padding: var(--spacing-xl);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 32px rgba(248, 109, 193, 0.06);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
@@ -271,14 +355,14 @@
   color: var(--color-text);
 }
 
-/* Planes y tarifas humanizadas en Sidebar */
+/* Planes y tarifas en sidebar */
 .schedule-sidebar-card__rates {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
   padding: var(--spacing-sm) 0;
-  border-top: 1px solid rgba(227, 107, 111, 0.2);
-  border-bottom: 1px solid rgba(227, 107, 111, 0.2);
+  border-top: 1px solid rgba(248, 109, 193, 0.15);
+  border-bottom: 1px solid rgba(248, 109, 193, 0.15);
 }
 
 .schedule-sidebar-card__rates-title {
@@ -295,9 +379,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   background-color: #FFFFFF;
-  border: 1px solid rgba(32, 39, 68, 0.12);
+  border: 1px solid rgba(226, 232, 240, 0.5);
   transition: transform var(--transition-fast);
 }
 
@@ -309,12 +393,20 @@
   border-left: 4px solid var(--color-decor-pink-vivid);
 }
 
+.schedule-plan-chip--blue {
+  border-left: 4px solid var(--color-primary);
+}
+
 .schedule-plan-chip--teal {
   border-left: 4px solid var(--color-accent-teal);
 }
 
 .schedule-plan-chip--coral {
   border-left: 4px solid var(--color-accent-coral);
+}
+
+.schedule-plan-chip--indigo {
+  border-left: 4px solid #6C63FF;
 }
 
 .schedule-plan-chip__name {
@@ -327,6 +419,7 @@
   font-size: var(--font-size-sm);
   font-weight: 900;
   color: var(--color-text);
+  text-align: right;
 }
 
 .schedule-plan-chip__price small {
@@ -335,8 +428,33 @@
   color: var(--color-text-muted);
 }
 
+.schedule-sidebar-card__discount {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-accent-teal-dark);
+  text-align: center;
+  padding: 6px;
+  background-color: #EEF9FA;
+  border-radius: var(--radius-sm);
+}
+
 .schedule-sidebar-card__note {
   font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   line-height: var(--line-height-base);
+}
+
+/* --- 8. Separador decorativo ondulado (SVG sutil entre secciones) --- */
+.services-wave-separator {
+  width: 100%;
+  height: 40px;
+  display: block;
+  margin: var(--spacing-md) 0;
+  opacity: 0.4;
+}
+
+@media (min-width: 768px) {
+  .services-wave-separator {
+    height: 60px;
+  }
 }
