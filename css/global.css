@@ -164,6 +164,9 @@
   height: 48px;
   border-radius: var(--radius-sm);
   color: #FFFFFF;
+  background: transparent;
+  border: none;
+  cursor: pointer;
   transition: background-color var(--transition-fast);
 }
 
@@ -180,10 +183,12 @@
   display: none;
 }
 
+.nav__toggle[aria-expanded="true"] .nav__toggle-icon--menu,
 .nav--open .nav__toggle-icon--menu {
   display: none;
 }
 
+.nav__toggle[aria-expanded="true"] .nav__toggle-icon--close,
 .nav--open .nav__toggle-icon--close {
   display: block;
 }
@@ -201,9 +206,11 @@
   flex-direction: column;
   padding: var(--spacing-md);
   gap: var(--spacing-xs);
+  z-index: 1001;
 }
 
-.nav--open .nav__menu {
+.nav--open .nav__menu,
+.header.nav--open .nav__menu {
   display: flex;
 }
 

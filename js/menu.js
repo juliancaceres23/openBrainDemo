@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Inicializa el comportamiento interactivo del menú móvil
  */
 function initMobileNavigation() {
+  const header = document.querySelector('.header');
   const navContainer = document.querySelector('.header__nav');
   const toggleBtn = document.querySelector('.nav__toggle');
   const navMenu = document.querySelector('.nav__menu');
@@ -19,36 +20,38 @@ function initMobileNavigation() {
     return;
   }
 
-  // Alternar apertura y cierre del menú
-  toggleBtn.addEventListener('click', () => {
+  // Alternar apertura y cierre del menú al hacer clic en el botón
+  toggleBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
     const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-    toggleMenu(!isExpanded, navContainer, toggleBtn);
+    toggleMenu(!isExpanded, header, navContainer, toggleBtn);
   });
 
   // Cerrar menú al presionar la tecla Escape
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && navContainer.classList.contains('nav--open')) {
-      toggleMenu(false, navContainer, toggleBtn);
+      toggleMenu(false, header, navContainer, toggleBtn);
       toggleBtn.focus();
     }
   });
 
-  // Cerrar menú al hacer clic fuera del contenedor de navegación
+  // Cerrar menú al hacer clic fuera del contenedor de navegación y fuera del botón
   document.addEventListener('click', (event) => {
     if (
       navContainer.classList.contains('nav--open') &&
-      !navContainer.contains(event.target)
+      !navContainer.contains(event.target) &&
+      !toggleBtn.contains(event.target)
     ) {
-      toggleMenu(false, navContainer, toggleBtn);
+      toggleMenu(false, header, navContainer, toggleBtn);
     }
   });
 
-  // Cerrar menú al hacer clic en un enlace de navegación
+  // Cerrar menú al hacer clic en un enlace de navegación en vista móvil
   const navLinks = navMenu.querySelectorAll('.nav__link');
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       if (window.innerWidth < 768) {
-        toggleMenu(false, navContainer, toggleBtn);
+        toggleMenu(false, header, navContainer, toggleBtn);
       }
     });
   });
@@ -57,16 +60,23 @@ function initMobileNavigation() {
 /**
  * Aplica el estado visual y atributos ARIA de apertura/cierre
  * @param {boolean} open - Si el menú debe abrirse o cerrarse
+ * @param {HTMLElement|null} header - Elemento de cabecera
  * @param {HTMLElement} container - Contenedor principal de navegación
  * @param {HTMLButtonElement} button - Botón de alternancia
  */
-function toggleMenu(open, container, button) {
+function toggleMenu(open, header, container, button) {
   if (open) {
     container.classList.add('nav--open');
+    if (header) {
+      header.classList.add('nav--open');
+    }
     button.setAttribute('aria-expanded', 'true');
     button.setAttribute('aria-label', 'Cerrar menú de navegación');
   } else {
     container.classList.remove('nav--open');
+    if (header) {
+      header.classList.remove('nav--open');
+    }
     button.setAttribute('aria-expanded', 'false');
     button.setAttribute('aria-label', 'Abrir menú de navegación');
   }
