@@ -225,6 +225,78 @@
   }
 }
 
+/* Misión, Visión y Valores: desplegables con <details> nativo */
+.identity-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.identity-item {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.identity-item:hover,
+.identity-item[open] {
+  border-color: var(--color-primary);
+}
+
+.identity-item[open] {
+  box-shadow: var(--shadow-sm);
+}
+
+.identity-item__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-height: 52px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: 800;
+  font-size: var(--font-size-md);
+  color: var(--color-primary);
+  cursor: pointer;
+  list-style: none;
+}
+
+.identity-item__summary::-webkit-details-marker {
+  display: none;
+}
+
+.identity-item__icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.identity-item[open] .identity-item__icon {
+  transform: rotate(45deg);
+  color: var(--color-accent-coral);
+}
+
+.identity-item__body {
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+}
+
+.identity-item__body p + p,
+.identity-item__list li + li {
+  margin-top: var(--spacing-sm);
+}
+
+.identity-item__list {
+  list-style: disc;
+  padding-left: var(--spacing-lg);
+}
+
 /* --- 3. Scroll Snap y Animaciones de Entrada --- */
 html.page-home {
   --alto-header: 60px;

@@ -22,6 +22,11 @@
   --color-text-muted: #4A5568;       /* Texto secundario accesible */
   --color-text-light: #FFFFFF;       /* Texto blanco */
 
+  /* Colores de marca de las redes sociales (footer). WhatsApp usa un verde más oscuro que el oficial para cumplir contraste AA con el ícono blanco */
+  --color-social-facebook: #1877F2;
+  --color-social-whatsapp: #128C7E;
+  --gradient-social-instagram: linear-gradient(45deg, #E6683C 0%, #DD2A7B 50%, #8134AF 100%);
+
   /* Superficies y bordes */
   --color-bg-page: #FFFFFF;
   --color-bg-alt: #F8FAFD;

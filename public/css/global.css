@@ -461,18 +461,33 @@ figcaption {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.12);
+  border: 2px solid #FFFFFF; /* El borde blanco separa el botón del azul del pie de página */
   border-radius: var(--radius-full);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
   text-decoration: none;
 }
 
-.footer__social-link:hover {
-  background-color: var(--color-accent-teal);
-  color: var(--color-primary);
+.footer__social-link--facebook {
+  background-color: var(--color-social-facebook);
+}
+
+.footer__social-link--instagram {
+  background-image: var(--gradient-social-instagram);
+}
+
+.footer__social-link--whatsapp {
+  background-color: var(--color-social-whatsapp);
+}
+
+.footer .footer__social-link:hover {
+  color: #FFFFFF;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
 .footer__brochure-link {
