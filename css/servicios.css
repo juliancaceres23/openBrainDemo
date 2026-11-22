@@ -126,6 +126,58 @@
   line-height: var(--line-height-relaxed);
 }
 
+/* --- 3.1. Disposición con fotografía humana y cálida dentro de la tarjeta --- */
+.service-card__content-grid {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 680px) {
+  .service-card__content-grid {
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    align-items: start;
+    gap: var(--spacing-lg);
+  }
+}
+
+.service-card__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.service-card__img {
+  width: 100%;
+  max-width: 220px;
+  height: 180px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(47, 67, 140, 0.12);
+  border: 4px solid #FFFFFF;
+  background-color: var(--color-bg-alt);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.service-card:hover .service-card__img {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(47, 67, 140, 0.16);
+}
+
+/* Formas orgánicas suaves tipo blob según identidad visual */
+.service-card__img--blob-1 {
+  border-radius: 28px 44px 28px 44px;
+}
+
+.service-card__img--blob-2 {
+  border-radius: 44px 28px 44px 28px;
+}
+
+.service-card__img--blob-3 {
+  border-radius: 36px 36px 48px 28px;
+}
+
 /* --- 4. Sub-planes dentro de la tarjeta pedagógica --- */
 .service-card__plans {
   display: flex;
