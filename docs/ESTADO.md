@@ -36,11 +36,11 @@
 | **RF-06** | Inicio | Botón "Ver servicios" hacia Servicios y horarios | Fase 2 | ✅ Completado | Enlace principal destacado hacia `servicios.html` |
 | **RF-07** | Inicio | Teléfono y correo visibles de la organización | Fase 2 | ✅ Completado | Canales visibles con marcadores `[PENDIENTE: ...]` |
 | **RF-08** | Inicio | Accesos directos a los tres servicios | Fase 2 | ✅ Completado | Tarjetas interactivas con anclas a `servicios.html` |
-| **RF-09** | Servicios | Tres servicios con descripción | Fase 3 | ✅ Completado | Pedagógico, terapéutico y estimulación con detalle |
+| **RF-09** | Servicios | Tres servicios con descripción | Fase 3 | ✅ Completado | Catálogo humanizado: Pedagógico (Mentes Creativas, Brillantes, Geniales, Bachillerato), Terapéutico (4 terapias) y Valoración Integral |
 | **RF-10** | Servicios | Edades y modalidades de cada servicio | Fase 3 | ✅ Completado | Badges accesibles y descriptivos por servicio |
 | **RF-11** | Servicios | Horarios de atención | Fase 3 | ✅ Completado | Lista estructurada en barra lateral y móvil |
-| **RF-12** | Servicios | Tarifas por servicio | Fase 3 | ✅ Completado | Detalle de inversión y marcador `[PENDIENTE: Tarifas]` |
-| **RF-13** | Servicios | Botón para solicitar información | Fase 3 | ✅ Completado | Botón accesible en cada tarjeta hacia `contacto.html` |
+| **RF-12** | Servicios | Tarifas por servicio | Fase 3 | ✅ Completado | Tarifas reales extraídas de folletos: planes semanales, valor hora, sesiones terapéuticas y valoración completa |
+| **RF-13** | Servicios | Botón para solicitar información | Fase 3 | ✅ Completado | Botones cálidos y conversacionales ("Hablemos de tu hijo", "Agendar valoración", "Agendar una charla") hacia `contacto.html` |
 | **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ✅ Completado | Perfiles reales y fotos optimizadas de Catalina López, Jessee Carrero y Jhonatan Villamizar |
 | **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ✅ Completado | Testimonios reales de Jackeline Morales y Jessica Carrillo autorizados según Ley 1581 |
 | **RF-16** | Equipo | Preguntas frecuentes desplegables | Fase 4 | ✅ Completado | Implementado con `<details>` y `<summary>` nativos sin JS |
