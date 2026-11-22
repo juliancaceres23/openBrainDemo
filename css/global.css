@@ -162,6 +162,7 @@
   justify-content: center;
   width: 48px;
   height: 48px;
+  margin-left: auto;
   border-radius: var(--radius-sm);
   color: #FFFFFF;
   background: transparent;
