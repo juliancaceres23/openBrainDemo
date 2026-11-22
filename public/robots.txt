@@ -3,10 +3,10 @@
 # Instrucciones para rastreadores e indexadores web (SEO).
 # OJO: robots.txt es una petición de cortesía, NO una medida de
 # seguridad. Lo que no deba ser público no se debe desplegar.
-# Dominio definitivo: reemplaza NOMBRE por el de Cloudflare Pages.
+# Dominio: openbraindemo.pages.dev
 # ============================================================
 
 User-agent: *
 Allow: /
 
-Sitemap: https://[PENDIENTE: dominio].pages.dev/sitemap.xml
+Sitemap: https://openbraindemo.pages.dev/sitemap.xml

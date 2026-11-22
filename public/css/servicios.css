@@ -477,3 +477,9 @@
   color: var(--color-primary);
   font-weight: 800;
 }
+
+/* Al llegar desde un enlace con ancla (p. ej. los accesos rápidos del Inicio),
+   deja visible el servicio completo debajo del encabezado fijo */
+.service-card[id] {
+  scroll-margin-top: 90px;
+}

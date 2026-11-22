@@ -497,19 +497,24 @@ figcaption {
   margin-top: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-sm);
 }
 
 .footer__qr-label {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   color: var(--color-accent-teal);
   font-weight: 700;
 }
 
 .footer__qr img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
   border-radius: var(--radius-sm);
   background-color: #FFFFFF;
-  padding: 4px;
+  padding: 8px;
 }
 
 /* --- 7. Página de apoyo legal (politica-datos.html) --- */
@@ -566,4 +571,32 @@ figcaption {
 
 .legal-back {
   margin-top: var(--spacing-2xl);
+}
+
+/* ==========================================================================
+   Animación de entrada (páginas distintas al Inicio)
+   El Inicio usa su propia versión por sección en inicio.css.
+   Se usa "animation" y no "transition" para no interferir con los efectos
+   hover de tarjetas y botones. Sin movimiento si el usuario lo desactiva.
+   ========================================================================== */
+@keyframes anim-subir {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-ready .anim-item:not(.is-visible) {
+    opacity: 0;
+  }
+
+  .anim-ready .anim-item.is-visible {
+    animation: anim-subir 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: calc(var(--anim-i, 0) * 0.08s);
+  }
 }
