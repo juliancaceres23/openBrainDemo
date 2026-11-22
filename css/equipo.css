@@ -5,6 +5,7 @@
 
 .section-heading-center {
   text-align: center;
+  text-align-last: center;
   max-width: 680px;
   margin-left: auto;
   margin-right: auto;
@@ -119,6 +120,7 @@
 }
 
 .team-card__role {
+  text-align: center;
   font-size: var(--font-size-xs);
   font-weight: 800;
   color: var(--color-accent-teal-dark);
@@ -139,6 +141,7 @@
 
 .team-note {
   text-align: center;
+  text-align-last: center;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   max-width: 640px;
@@ -326,6 +329,7 @@
 
 .faq-cta {
   text-align: center;
+  text-align-last: center;
   background-color: var(--color-card-pink-subtle);
   border: 1px solid var(--color-card-pink-light);
   border-radius: var(--radius-lg);

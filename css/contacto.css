@@ -8,12 +8,14 @@
   background-color: var(--color-primary);
   color: #FFFFFF;
   text-align: center;
+  text-align-last: center;
   padding-top: var(--spacing-2xl);
   padding-bottom: var(--spacing-xl);
 }
 
 .contact-banner__title {
-  font-size: var(--font-size-3xl);
+  font-size: clamp(1.75rem, 9vw, 2.5rem); /* Evita que el título se desborde en pantallas de 320 px */
+  overflow-wrap: break-word;
   font-weight: 900;
   color: #FFFFFF;
   letter-spacing: 1px;

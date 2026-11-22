@@ -24,6 +24,30 @@
   flex: 1 0 auto;
 }
 
+/* --- Texto justificado en todo el sitio (bloques "cuadrados", sin desbordes) ---
+   Mismo criterio que las biografías del equipo. Requiere lang="es" en <html>
+   para que el corte automático de palabras (hyphens) use reglas del español. */
+p,
+li,
+blockquote,
+figcaption {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Los textos de los bloques centrados conservan la última línea centrada */
+.footer__bottom {
+  text-align-last: center;
+}
+
+@media (min-width: 768px) {
+  .footer__bottom {
+    text-align-last: auto;
+  }
+}
+
 .text-coral {
   color: var(--color-accent-coral);
 }
