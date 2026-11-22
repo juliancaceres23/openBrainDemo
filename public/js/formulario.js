@@ -19,6 +19,12 @@ const MODO_SIMULACION = false;
 /** Ruta del endpoint que recibe las solicitudes (mismo sitio, sin claves en el navegador). */
 const ENDPOINT_CONTACTO = '/api/contacto';
 
+/** Tiempo en milisegundos que permanece visible la notificación de éxito antes de ocultarse. */
+const TIEMPO_OCULTAR_EXITO_MS = 5000;
+
+/** Referencia al temporizador activo del banner de feedback. */
+let temporizadorFeedback = null;
+
 /* =========================================================
    REGLAS DE VALIDACIÓN ESTRICTAS
    Deben ser iguales a las de functions/api/contacto.js (la del servidor es la que cuenta).
@@ -55,7 +61,7 @@ const VALIDADORES = {
 document.addEventListener('DOMContentLoaded', () => {
   initFormularioInscripcion();
 });
- 
+
 /**
  * Inicializa el formulario de solicitud de inscripción:
  * - Bloquea el envío si no se acepta el tratamiento de datos (RF-18)
@@ -66,11 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initFormularioInscripcion() {
   const form = document.getElementById('form-inscripcion');
   if (!form) return;
- 
+
   const consentCheckbox = document.getElementById('consentimiento');
   const submitBtn = document.getElementById('btn-enviar');
   const feedbackEl = document.getElementById('form-feedback');
- 
+
   /* Habilitar / deshabilitar botón de envío según casilla de consentimiento (RF-18) */
   if (consentCheckbox && submitBtn) {
     actualizarEstadoBoton(consentCheckbox, submitBtn);
@@ -78,35 +84,71 @@ function initFormularioInscripcion() {
       actualizarEstadoBoton(consentCheckbox, submitBtn);
     });
   }
- 
+
   activarCorreccionEnVivo(form);
 
   /* Envío del formulario */
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
- 
+
     if (!validarFormulario(form)) return;
- 
+
     /* Capturar los datos ANTES de deshabilitar los campos:
        los campos disabled no se incluyen en FormData. */
     const datos = new FormData(form);
- 
+
     mostrarEstadoEnvio(feedbackEl, 'enviando');
     deshabilitarFormulario(form, submitBtn, true);
- 
+
+    let enviadoConExito = false;
+
     if (MODO_SIMULACION) {
       await simularEnvio();
       mostrarEstadoEnvio(feedbackEl, 'exito');
-      form.reset();
-      actualizarEstadoBoton(consentCheckbox, submitBtn);
+      enviadoConExito = true;
     } else {
-      await enviarSolicitud(datos, form, feedbackEl, consentCheckbox, submitBtn);
+      enviadoConExito = await enviarSolicitud(datos, feedbackEl, consentCheckbox);
     }
- 
+
+    /* Primero rehabilitamos los campos y luego los limpiamos para asegurar que queden vacíos */
     deshabilitarFormulario(form, submitBtn, false);
+
+    if (enviadoConExito) {
+      limpiarFormularioCompleto(form, consentCheckbox, submitBtn);
+    }
   });
 }
- 
+
+/**
+ * Limpia todos los campos, errores visuales y desmarca la casilla tras un envío exitoso.
+ * @param {HTMLFormElement} form
+ * @param {HTMLInputElement|null} consentCheckbox
+ * @param {HTMLButtonElement|null} submitBtn
+ */
+function limpiarFormularioCompleto(form, consentCheckbox, submitBtn) {
+  form.reset();
+
+  Object.keys(VALIDADORES).forEach((id) => {
+    const campo = form.querySelector(`#${id}`);
+    if (campo) {
+      campo.value = '';
+      campo.removeAttribute('aria-invalid');
+    }
+    const errorEl = document.getElementById(`${id}-error`);
+    if (errorEl) {
+      errorEl.textContent = '';
+      errorEl.hidden = true;
+    }
+  });
+
+  if (consentCheckbox) {
+    consentCheckbox.checked = false;
+  }
+  if (consentCheckbox && submitBtn) {
+    actualizarEstadoBoton(consentCheckbox, submitBtn);
+  }
+}
+
 /**
  * Mientras la persona corrige un campo que ya tenía error, lo vuelve a validar en cada cambio
  * para quitar el aviso en cuanto queda bien. No valida al salir del campo a propósito: un aviso
@@ -215,6 +257,7 @@ function validarMensaje(valor) {
  * @param {HTMLButtonElement} button
  */
 function actualizarEstadoBoton(checkbox, button) {
+  if (!checkbox || !button) return;
   if (checkbox.checked) {
     button.removeAttribute('disabled');
     button.setAttribute('aria-disabled', 'false');
@@ -223,16 +266,15 @@ function actualizarEstadoBoton(checkbox, button) {
     button.setAttribute('aria-disabled', 'true');
   }
 }
- 
+
 /**
  * Envía la solicitud al endpoint del sitio mediante POST asíncrono (JSON).
- * @param {FormData} datos  - Datos del formulario, capturados antes de deshabilitar los campos
- * @param {HTMLFormElement} form
+ * @param {FormData} datos - Datos del formulario, capturados antes de deshabilitar los campos
  * @param {HTMLElement} feedbackEl
  * @param {HTMLInputElement} consentCheckbox
- * @param {HTMLButtonElement} submitBtn
+ * @returns {Promise<boolean>} true si el servidor confirmó la recepción
  */
-async function enviarSolicitud(datos, form, feedbackEl, consentCheckbox, submitBtn) {
+async function enviarSolicitud(datos, feedbackEl, consentCheckbox) {
   const solicitud = {
     nombre_acudiente: normalizarLinea((datos.get('nombre_acudiente') || '').toString()),
     telefono_o_correo: normalizarLinea((datos.get('telefono_o_correo') || '').toString()),
@@ -253,16 +295,18 @@ async function enviarSolicitud(datos, form, feedbackEl, consentCheckbox, submitB
 
     if (respuesta.ok && resultado.ok) {
       mostrarEstadoEnvio(feedbackEl, 'exito');
-      form.reset();
-      actualizarEstadoBoton(consentCheckbox, submitBtn);
+      return true;
     } else if (respuesta.status === 400 || respuesta.status === 429) {
       /* El servidor explica qué corregir (o que espere un momento) */
       mostrarEstadoEnvio(feedbackEl, 'error', resultado.mensaje);
+      return false;
     } else {
       mostrarEstadoEnvio(feedbackEl, 'error');
+      return false;
     }
   } catch {
     mostrarEstadoEnvio(feedbackEl, 'error');
+    return false;
   }
 }
 
@@ -272,18 +316,25 @@ async function enviarSolicitud(datos, form, feedbackEl, consentCheckbox, submitB
 function simularEnvio() {
   return new Promise((resolve) => setTimeout(resolve, 1500));
 }
- 
+
 /**
  * Muestra el estado del formulario al usuario de forma accesible (RF-24).
- * @param {HTMLElement} el  - Contenedor del feedback con aria-live
+ * Si el estado es 'exito', se oculta automáticamente tras 5 segundos.
+ * @param {HTMLElement} el - Contenedor del feedback con aria-live
  * @param {'enviando'|'exito'|'error'} estado
  * @param {string} [textoServidor] - Mensaje del servidor para el estado 'error' (opcional)
  */
 function mostrarEstadoEnvio(el, estado, textoServidor) {
   if (!el) return;
+
+  if (temporizadorFeedback) {
+    clearTimeout(temporizadorFeedback);
+    temporizadorFeedback = null;
+  }
+
   el.className = 'form-feedback';
   el.removeAttribute('hidden');
- 
+
   const mensajes = {
     enviando: {
       clase: 'form-feedback--sending',
@@ -298,13 +349,22 @@ function mostrarEstadoEnvio(el, estado, textoServidor) {
       texto: 'Hubo un inconveniente al enviar tu solicitud. Por favor inténtalo de nuevo o escríbenos directamente por WhatsApp.',
     },
   };
- 
+
   const { clase, texto } = mensajes[estado];
   el.classList.add(clase);
   el.textContent = estado === 'error' && textoServidor ? textoServidor : texto;
   el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  if (estado === 'exito') {
+    temporizadorFeedback = setTimeout(() => {
+      el.setAttribute('hidden', '');
+      el.textContent = '';
+      el.className = 'form-feedback';
+      temporizadorFeedback = null;
+    }, TIEMPO_OCULTAR_EXITO_MS);
+  }
 }
- 
+
 /**
  * Habilita o deshabilita todos los campos y el botón de envío durante el procesamiento.
  * @param {HTMLFormElement} form
@@ -325,4 +385,3 @@ function deshabilitarFormulario(form, button, deshabilitar) {
     actualizarEstadoBoton(checkbox, button);
   }
 }
- 
