@@ -164,13 +164,15 @@
                   id="nombre-acudiente"
                   name="nombre_acudiente"
                   class="form-field__input"
-                  placeholder="¿Cómo te llamas?"
+                  placeholder="Ej: María Fernanda Pérez"
                   required
                   autocomplete="name"
                   minlength="2"
                   maxlength="120"
                   aria-required="true"
+                  aria-describedby="nombre-acudiente-error"
                 >
+                <p id="nombre-acudiente-error" class="form-field__error" hidden></p>
               </div>
 
               <!-- RF-17: Teléfono o correo -->
@@ -178,18 +180,24 @@
                 <label for="telefono-correo" class="form-field__label">
                   Teléfono o correo electrónico <span class="form-field__required" aria-hidden="true">*</span>
                 </label>
+                <p id="telefono-correo-ayuda" class="form-field__hint">
+                  Celular de 10 números, sin espacios ni +57, o un correo electrónico.
+                </p>
                 <input
                   type="text"
                   id="telefono-correo"
                   name="telefono_o_correo"
                   class="form-field__input"
-                  placeholder="Tu número o correo"
+                  placeholder="Ej: 3001234567 o nombre@correo.com"
                   required
                   autocomplete="email"
-                  minlength="6"
+                  autocapitalize="none"
+                  spellcheck="false"
                   maxlength="120"
                   aria-required="true"
+                  aria-describedby="telefono-correo-ayuda telefono-correo-error"
                 >
+                <p id="telefono-correo-error" class="form-field__error" hidden></p>
               </div>
 
               <!-- RF-17: Servicio de interés -->
@@ -203,6 +211,7 @@
                   class="form-field__select"
                   required
                   aria-required="true"
+                  aria-describedby="servicio-interes-error"
                 >
                   <option value="" disabled selected>Selecciona una opción</option>
                   <option value="Acompañamiento pedagógico">Acompañamiento pedagógico</option>
@@ -210,6 +219,7 @@
                   <option value="Estimulación adecuada">Estimulación adecuada</option>
                   <option value="No sé cuál necesito">No sé cuál necesito — necesito orientación</option>
                 </select>
+                <p id="servicio-interes-error" class="form-field__error" hidden></p>
               </div>
 
               <!-- RF-17: Mensaje -->
@@ -221,13 +231,15 @@
                   id="mensaje"
                   name="mensaje"
                   class="form-field__textarea"
-                  placeholder="Cuéntanos brevemente qué necesitas"
+                  placeholder="Ej: Quisiera información sobre horarios y cupos disponibles"
                   required
                   rows="4"
                   minlength="10"
                   maxlength="1000"
                   aria-required="true"
+                  aria-describedby="mensaje-error"
                 ></textarea>
+                <p id="mensaje-error" class="form-field__error" hidden></p>
               </div>
 
               <!-- RF-18: Casilla obligatoria de aceptación del tratamiento de datos -->
@@ -364,7 +376,7 @@
 
   <!-- ======================================================================
        Pie de página transversal en Azul Índigo (#2F438C)
-       RF-25: Redes sociales | RF-26: Código QR | RF-27: Folleto descargable
+       RF-25: Redes sociales | RF-27: Folleto descargable
        ====================================================================== -->
   <footer class="footer">
     <div class="container footer__grid">
@@ -409,19 +421,13 @@
         </ul>
       </nav>
 
-      <!-- Columna 3: Información institucional, legal y QR (RF-26) -->
+      <!-- Columna 3: Información institucional y legal -->
       <div class="footer__legal">
         <h3 class="footer__section-title">Información</h3>
         <ul class="footer__links-list">
           <li><a href="politica-datos.html" class="footer__link">Tratamiento de datos personales</a></li>
           <li><span class="footer__link">Cúcuta, Norte de Santander</span></li>
         </ul>
-
-        <!-- RF-26: Código QR para usar en la sede física -->
-        <div class="footer__qr">
-          <span class="footer__qr-label">Visítanos desde tu celular:</span>
-          <img src="assets/qr-openbrain.svg" alt="Código QR que dirige al sitio web de Open Brain" width="180" height="180" loading="lazy">
-        </div>
       </div>
     </div>
 

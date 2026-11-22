@@ -33,7 +33,11 @@ const MAX_BYTES_CUERPO = 8 * 1024;
 const MAX_SOLICITUDES_POR_HORA = 5;
 const RETENCION_DIAS_POR_DEFECTO = 365;
 
-const REGEX_CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+/* Reglas estrictas de formato. Mantenerlas iguales a las de public/js/formulario.js */
+const REGEX_NOMBRE = /^\p{L}[\p{L}' .-]*$/u;
+/** Celular colombiano: 10 dígitos y empieza por 3. Fijo: 10 dígitos con indicativo 60 + (1 a 8). Solo números. */
+const REGEX_TELEFONO = /^(?:3\d{9}|60[1-8]\d{7})$/;
+const MINIMO_LETRAS_MENSAJE = 5;
 
 /* =========================================================
    PUNTO DE ENTRADA
@@ -142,13 +146,13 @@ export async function onRequest(context) {
  */
 function validarSolicitud(datos) {
   const nombre = limpiarLinea(datos.nombre_acudiente);
-  if (nombre.length < 2 || nombre.length > 120) {
-    return rechazo('nombre_acudiente', 'Escribe el nombre del acudiente (entre 2 y 120 caracteres).');
+  if (!esNombre(nombre)) {
+    return rechazo('nombre_acudiente', 'Escribe tu nombre usando solo letras, sin números ni símbolos. Ejemplo: María Fernanda Pérez.');
   }
 
   const contacto = limpiarLinea(datos.telefono_o_correo);
-  if (contacto.length < 6 || contacto.length > 120 || !(REGEX_CORREO.test(contacto) || esTelefono(contacto))) {
-    return rechazo('telefono_o_correo', 'Escribe un teléfono o un correo electrónico válido.');
+  if (!(esCorreo(contacto) || REGEX_TELEFONO.test(contacto))) {
+    return rechazo('telefono_o_correo', mensajeContactoInvalido(contacto));
   }
 
   const servicio = typeof datos.servicio_interes === 'string' ? datos.servicio_interes.trim() : '';
@@ -157,8 +161,8 @@ function validarSolicitud(datos) {
   }
 
   const mensaje = limpiarTexto(datos.mensaje);
-  if (mensaje.length < 10 || mensaje.length > 1000) {
-    return rechazo('mensaje', 'Cuéntanos brevemente qué necesitas (entre 10 y 1000 caracteres).');
+  if (mensaje.length < 10 || mensaje.length > 1000 || contarLetras(mensaje) < MINIMO_LETRAS_MENSAJE) {
+    return rechazo('mensaje', 'Cuéntanos con tus palabras qué necesitas (entre 10 y 1000 caracteres, con letras).');
   }
 
   if (datos.consentimiento !== true) {
@@ -172,11 +176,34 @@ function rechazo(campo, mensaje) {
   return { ok: false, campo, mensaje };
 }
 
-/** Teléfono: dígitos con +, espacios, guiones o paréntesis; entre 7 y 15 dígitos. */
-function esTelefono(valor) {
-  if (!/^[+(\d][\d\s().-]*$/.test(valor)) return false;
-  const digitos = valor.replace(/\D/g, '').length;
-  return digitos >= 7 && digitos <= 15;
+/** Nombre: solo letras (con tildes y ñ), espacios, apóstrofo, punto y guion; entre 2 y 120 caracteres. */
+function esNombre(valor) {
+  return valor.length >= 2 && valor.length <= 120 && REGEX_NOMBRE.test(valor) && contarLetras(valor) >= 2;
+}
+
+/** Correo: parte local con letras, números y . _ % + -; dominio con etiquetas válidas y extensión de letras. */
+function esCorreo(valor) {
+  if (valor.length > 120 || (valor.match(/@/g) || []).length !== 1) return false;
+  const [local, dominio] = valor.split('@');
+  if (!/^[A-Za-z0-9._%+-]+$/.test(local) || /^\.|\.$|\.\./.test(local)) return false;
+  const etiquetas = dominio.split('.');
+  return (
+    etiquetas.length >= 2 &&
+    etiquetas.every((e) => /^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/.test(e)) &&
+    /^[A-Za-z]{2,}$/.test(etiquetas[etiquetas.length - 1])
+  );
+}
+
+/** Mensaje de error según lo que la persona parece estar escribiendo (correo o teléfono). */
+function mensajeContactoInvalido(valor) {
+  if (/[@A-Za-z]/.test(valor)) {
+    return 'Escribe un correo válido, por ejemplo nombre@correo.com.';
+  }
+  return 'Escribe los 10 números de tu celular, sin espacios, guiones ni +57. Ejemplo: 3001234567.';
+}
+
+function contarLetras(valor) {
+  return (valor.match(/\p{L}/gu) || []).length;
 }
 
 /** Texto de una sola línea: sin caracteres de control y con espacios normalizados. */
@@ -282,7 +309,7 @@ async function notificarPorCorreo(env, solicitud) {
       ].join('\n'),
     };
     /* Si dejó un correo, "Responder" contesta directo a la familia. */
-    if (REGEX_CORREO.test(solicitud.contacto)) {
+    if (esCorreo(solicitud.contacto)) {
       cuerpo.reply_to = solicitud.contacto;
     }
 

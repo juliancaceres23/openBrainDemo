@@ -130,12 +130,21 @@ test('guarda una solicitud válida con consultas parametrizadas', async () => {
 
 test('un intento de inyección SQL se guarda como texto inofensivo', async () => {
   const bd = crearBD();
-  const ataque = { ...SOLICITUD_VALIDA, nombre_acudiente: "Robert'); DROP TABLE solicitudes;--" };
+  /* El mensaje es texto libre: lo que escriba la persona viaja como parámetro, nunca dentro del SQL. */
+  const ataque = { ...SOLICITUD_VALIDA, mensaje: "Hola'); DROP TABLE solicitudes;-- quiero información" };
   const r = await ejecutar(peticion(ataque), { DB: bd });
   assert.equal(r.estado, 200);
   const insert = bd.llamadas.find((c) => c.sql.startsWith('INSERT'));
   assert.ok(!insert.sql.includes('DROP'), 'el SQL no contiene lo que escribió el usuario');
-  assert.equal(insert.args[1], "Robert'); DROP TABLE solicitudes;--");
+  assert.equal(insert.args[4], "Hola'); DROP TABLE solicitudes;-- quiero información");
+});
+
+test('un nombre con símbolos de inyección ni siquiera llega a la base de datos', async () => {
+  const bd = crearBD();
+  const r = await ejecutar(peticion({ ...SOLICITUD_VALIDA, nombre_acudiente: "Robert'); DROP TABLE solicitudes;--" }), { DB: bd });
+  assert.equal(r.estado, 400);
+  assert.equal(r.json.campo, 'nombre_acudiente');
+  assert.equal(bd.llamadas.length, 0);
 });
 
 test('el campo trampa (honeypot) responde ok pero no guarda nada', async () => {
@@ -162,6 +171,11 @@ test('valida cada campo del formulario', async () => {
     [{ mensaje: 'corto' }, 'mensaje'],
     [{ mensaje: 'x'.repeat(1001) }, 'mensaje'],
     [{ nombre_acudiente: 123 }, 'nombre_acudiente'],
+    [{ nombre_acudiente: 'Ana123' }, 'nombre_acudiente'],
+    [{ nombre_acudiente: '12345' }, 'nombre_acudiente'],
+    [{ nombre_acudiente: '<script>' }, 'nombre_acudiente'],
+    [{ mensaje: '1234567890' }, 'mensaje'],
+    [{ mensaje: '!!!!!!!!!!!!' }, 'mensaje'],
   ];
   for (const [cambio, campo] of casos) {
     const r = await ejecutar(peticion({ ...SOLICITUD_VALIDA, ...cambio }), { DB: crearBD() });
@@ -170,10 +184,57 @@ test('valida cada campo del formulario', async () => {
   }
 });
 
-test('acepta teléfonos con formato colombiano', async () => {
-  for (const telefono of ['3227606978', '+57 322 760 6978', '(607) 574-8805']) {
+test('acepta celulares y fijos colombianos de 10 números', async () => {
+  for (const telefono of ['3227606978', '3001234567', '6075748805']) {
     const r = await ejecutar(peticion({ ...SOLICITUD_VALIDA, telefono_o_correo: telefono }), { DB: crearBD() });
     assert.equal(r.estado, 200, telefono);
+  }
+});
+
+test('rechaza teléfonos que no son de 10 números o no empiezan como en Colombia', async () => {
+  const invalidos = [
+    '322760697',        // 9 números
+    '32276069789',      // 11 números
+    '1234567890',       // no empieza por 3 ni por 60
+    '2227606978',       // no es celular colombiano
+    '+573227606978',    // no se aceptan prefijo ni símbolos
+    '322 760 6978',     // no se aceptan espacios
+    '322-760-6978',     // no se aceptan guiones
+    '(607) 574-8805',   // no se aceptan paréntesis
+    '3227606978a',      // letras mezcladas
+  ];
+  for (const telefono of invalidos) {
+    const r = await ejecutar(peticion({ ...SOLICITUD_VALIDA, telefono_o_correo: telefono }), { DB: crearBD() });
+    assert.equal(r.estado, 400, `debe rechazar ${telefono}`);
+    assert.equal(r.json.campo, 'telefono_o_correo');
+  }
+});
+
+test('el mensaje de error del contacto cambia según parezca teléfono o correo', async () => {
+  const tel = await ejecutar(peticion({ ...SOLICITUD_VALIDA, telefono_o_correo: '12345678' }), { DB: crearBD() });
+  assert.match(tel.json.mensaje, /10 números/);
+  const correo = await ejecutar(peticion({ ...SOLICITUD_VALIDA, telefono_o_correo: 'maria@correo' }), { DB: crearBD() });
+  assert.match(correo.json.mensaje, /correo válido/);
+});
+
+test('valida el formato estricto del correo', async () => {
+  const validos = ['maria@correo.com', 'maria.perez+club@mail.co', 'a_b-c@sub.dominio.com.co'];
+  const invalidos = ['maria@correo', 'maria@.com', 'maria@correo..com', '.maria@correo.com', 'ma..ria@correo.com',
+    'maria@@correo.com', 'maria perez@correo.com', 'maria@correo.c', 'maria@-correo.com', 'maria@correo.123'];
+  for (const correo of validos) {
+    const r = await ejecutar(peticion({ ...SOLICITUD_VALIDA, telefono_o_correo: correo }), { DB: crearBD() });
+    assert.equal(r.estado, 200, `debe aceptar ${correo}`);
+  }
+  for (const correo of invalidos) {
+    const r = await ejecutar(peticion({ ...SOLICITUD_VALIDA, telefono_o_correo: correo }), { DB: crearBD() });
+    assert.equal(r.estado, 400, `debe rechazar ${correo}`);
+  }
+});
+
+test('acepta nombres con tildes, ñ, guion y apóstrofo', async () => {
+  for (const nombre of ['María Fernanda Pérez', 'Ñuflo de Chávez', 'Ana-Lucía Gómez', "Dayana O'Brien"]) {
+    const r = await ejecutar(peticion({ ...SOLICITUD_VALIDA, nombre_acudiente: nombre }), { DB: crearBD() });
+    assert.equal(r.estado, 200, nombre);
   }
 });
 

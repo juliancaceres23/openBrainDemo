@@ -53,7 +53,7 @@ openBrain/                          # Repositorio (lo que se sube a GitHub)
 │   ├── css/                        # estilos.css (importa variables, global y estilos por página)
 │   ├── js/                         # menu.js, formulario.js, animaciones.js
 │   ├── img/                        # Logotipos, ilustraciones y fotografías del sitio
-│   └── assets/                     # Folleto PDF (RF-27) y código QR (RF-26)
+│   └── assets/                     # Folleto PDF (RF-27)
 ├── functions/                      # ← Backend (Pages Functions). Cloudflare lo detecta solo
 │   └── api/
 │       └── contacto.js             # POST /api/contacto: valida, guarda en D1 y avisa por correo
@@ -218,18 +218,7 @@ Todos los archivos del sitio están dentro de `public/`. El contenido va escrito
 
 ---
 
-## 6. Código QR (RF-26)
-
-[`public/assets/qr-openbrain.svg`](public/assets/qr-openbrain.svg) es un QR estático que apunta a la URL de producción del sitio, en los colores de la marca. **Si cambias de dominio, hay que regenerarlo y reimprimir el material que lo use.**
-
-1. Genera uno nuevo con una herramienta gratuita como [QRCode Monkey](https://www.qrcode-monkey.com) (QR **estático**, no "dinámico").
-2. Colores: primer plano `#2F438C` (azul índigo) y fondo `#FFFFFF`. Exporta en SVG.
-3. Reemplaza `public/assets/qr-openbrain.svg`.
-4. Pruébalo con un celular y datos móviles, al tamaño en que lo vayas a imprimir (mínimo 2–3 cm).
-
----
-
-## 7. Despliegue en Cloudflare Pages
+## 6. Despliegue en Cloudflare Pages
 
 > Solo `public/` se publica como sitio estático. `functions/` se compila como backend. `README.md`, `AGENTS.md`, `db/`, `tests/` y las configuraciones quedan en el repositorio pero **fuera** del sitio.
 
@@ -241,7 +230,7 @@ Todos los archivos del sitio están dentro de `public/`. El contenido va escrito
    * **Build output directory:** `public`
 4. **Save and Deploy.** Cloudflare detecta `functions/` en la raíz y publica el backend automáticamente.
 5. Configura la base de datos y las variables (sección 4.1) y vuelve a desplegar.
-6. **Dominio:** la URL de producción aparece en `canonical`, `og:url` y `og:image` de las páginas HTML, en `public/sitemap.xml`, en `public/robots.txt` y en el QR. Si cambia, usa *Buscar y reemplazar en archivos* (`Ctrl+Shift+H`) con la URL anterior y regenera el QR (sección 6).
+6. **Dominio:** la URL de producción aparece en `canonical`, `og:url` y `og:image` de las páginas HTML, en `public/sitemap.xml` y en `public/robots.txt`. Si cambia, usa *Buscar y reemplazar en archivos* (`Ctrl+Shift+H`) con la URL anterior.
 
 **Alternativa sin Git (Direct Upload):** no sirve para este proyecto, porque la subida directa de solo `public/` omite `functions/` y el formulario dejaría de funcionar. Usa la conexión con Git.
 
@@ -254,7 +243,7 @@ Todos los archivos del sitio están dentro de `public/`. El contenido va escrito
 
 ---
 
-## 8. Matriz de Cobertura de Requerimientos (RF-01 a RF-27)
+## 7. Matriz de Cobertura de Requerimientos (RF-01 a RF-27)
 
 Todos los 27 requerimientos funcionales están cubiertos y etiquetados en el código con comentarios `<!-- RF-xx -->`:
 
@@ -285,12 +274,12 @@ Todos los 27 requerimientos funcionales están cubiertos y etiquetados en el có
 | **RF-23** | Contacto | Mensaje para consultar cupos en tiempo real por WhatsApp | `contacto.html` (bloque destacado) |
 | **RF-24** | Contacto | Respuesta automática en pantalla al enviar formulario | `contacto.html`, `js/formulario.js` (`aria-live`; muestra los avisos del servidor) |
 | **RF-25** | Transversal | Enlaces a redes sociales de Open Brain en pie de página | Todas las páginas HTML (footer) |
-| **RF-26** | Transversal | Código QR físico que dirija al sitio web | `assets/qr-openbrain.svg`, todas las páginas HTML |
+| **RF-26** | Transversal | Código QR físico que dirija al sitio web | **Descartado:** se quitó del sitio por no ser útil |
 | **RF-27** | Transversal | Folleto digital descargable | `assets/folleto-open-brain.pdf`, todas las páginas HTML |
 
 ---
 
-## 9. Accesibilidad y Marco Legal
+## 8. Accesibilidad y Marco Legal
 
 * **WCAG 2.1 AA:** Contrastes de color certificados sobre la paleta del moodboard, navegación completa por teclado con `:focus-visible` destacado, atributos `aria-expanded`, `aria-live` y `aria-label`, áreas táctiles mínimas de 44 px (estándar a 48 px) y soporte para `prefers-reduced-motion`.
 * **Protección de Menores (Ley 1581 de 2012 y Ley 1098 de 2006):** Ninguna imagen ni dato personal de menores es solicitado ni publicado en el sitio web. Todos los testimonios cuentan con autorización expresa de representantes legales y protegen la identidad infantil.

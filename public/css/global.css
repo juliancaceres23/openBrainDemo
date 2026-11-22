@@ -435,7 +435,7 @@ figcaption {
   }
 }
 
-/* --- 6. Footer extendido: Redes sociales, QR y Folleto (RF-25, RF-26, RF-27) --- */
+/* --- 6. Footer extendido: Redes sociales y Folleto (RF-25, RF-27) --- */
 .footer__social {
   margin-top: var(--spacing-md);
   display: flex;
@@ -491,86 +491,6 @@ figcaption {
 
 .footer__brochure-link:hover {
   color: var(--color-accent-teal);
-}
-
-.footer__qr {
-  margin-top: var(--spacing-lg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--spacing-sm);
-}
-
-.footer__qr-label {
-  font-size: var(--font-size-sm);
-  color: var(--color-accent-teal);
-  font-weight: 700;
-}
-
-.footer__qr img {
-  width: 100%;
-  max-width: 180px;
-  height: auto;
-  border-radius: var(--radius-sm);
-  background-color: #FFFFFF;
-  padding: 8px;
-}
-
-/* --- 7. Página de apoyo legal (politica-datos.html) --- */
-.legal-content {
-  padding-top: var(--spacing-2xl);
-  padding-bottom: var(--spacing-3xl);
-}
-
-.legal-block {
-  margin-bottom: var(--spacing-xl);
-  padding-bottom: var(--spacing-xl);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.legal-block:last-of-type {
-  border-bottom: none;
-}
-
-.legal-block__title {
-  font-size: var(--font-size-lg);
-  font-weight: 900;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-md);
-}
-
-.legal-block p {
-  font-size: var(--font-size-base);
-  color: var(--color-text);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--spacing-sm);
-}
-
-.legal-block p a {
-  color: var(--color-primary);
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.legal-block__notice {
-  margin-top: var(--spacing-sm);
-}
-
-.legal-list {
-  list-style: disc;
-  padding-left: var(--spacing-xl);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-  font-size: var(--font-size-base);
-  color: var(--color-text);
-  line-height: var(--line-height-relaxed);
-  margin: var(--spacing-sm) 0;
-}
-
-.legal-back {
-  margin-top: var(--spacing-2xl);
 }
 
 /* ==========================================================================

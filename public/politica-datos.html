@@ -10,6 +10,7 @@
   <link rel="canonical" href="https://openbraindemo.pages.dev/politica-datos.html">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/politica.css">
   <script src="js/animaciones.js"></script>
 </head>
 <body>
@@ -47,115 +48,200 @@
 
   <main id="main" class="main-content">
     <!-- Cabecera de la página legal -->
-    <section class="contact-banner">
+    <section class="legal-hero" aria-labelledby="legal-title">
       <div class="container">
-        <h1 class="contact-banner__title">POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES</h1>
-        <p class="contact-banner__text">
-          Open Brain — Club de Aprendizaje | Vigente desde 2026 | Ley 1581 de 2012
+        <h1 id="legal-title" class="legal-hero__title">Política de tratamiento de datos personales</h1>
+        <p class="legal-hero__text">
+          Así cuidamos la información que nos compartes. Open Brain — Club de Aprendizaje · Ley 1581 de 2012 · Vigente desde el 22 de noviembre de 2026.
         </p>
       </div>
     </section>
 
-    <!-- Contenido legal -->
-    <section class="legal-content" aria-label="Política de tratamiento de datos personales">
-      <div class="container container--narrow">
+    <!-- Resumen en lenguaje claro (el detalle legal está debajo) -->
+    <section class="legal-summary" aria-labelledby="resumen-title">
+      <div class="container legal-content__inner">
+        <h2 id="resumen-title" class="legal-summary__title">En pocas palabras</h2>
+        <p class="legal-summary__intro">Lo esencial en un minuto. Si quieres el detalle legal, lo tienes justo debajo.</p>
 
-        <div class="legal-block">
-          <h2 class="legal-block__title">1. Responsable del tratamiento</h2>
-          <p><strong>Nombre:</strong> Open Brain — Club de Aprendizaje</p>
-          <p><strong>Dirección:</strong> CL 2N N.º 14E-102, barrio Villa Prado, Cúcuta, Norte de Santander, Colombia.</p>
-          <p><strong>Correo electrónico: openbrainclub@gmail.com</strong> </p>
-          <p><strong>Teléfono: +57 322 7606978</strong> </p>
+        <div class="legal-summary__grid">
+          <article class="legal-summary__card">
+            <h3 class="legal-summary__card-title">Qué datos pedimos</h3>
+            <p>Tu nombre, un teléfono o correo, el servicio que te interesa y un mensaje. No pedimos datos de menores de edad.</p>
+          </article>
+          <article class="legal-summary__card">
+            <h3 class="legal-summary__card-title">Para qué los usamos</h3>
+            <p>Solo para responderte, orientarte sobre nuestros servicios y coordinar horarios y cupos. No vendemos ni cedemos tus datos.</p>
+          </article>
+          <article class="legal-summary__card">
+            <h3 class="legal-summary__card-title">Cuánto tiempo los guardamos</h3>
+            <p>Hasta 12 meses. Después se eliminan automáticamente, o antes si nos lo pides.</p>
+          </article>
+          <article class="legal-summary__card">
+            <h3 class="legal-summary__card-title">Tus derechos</h3>
+            <p>Puedes conocer, corregir o pedir que borremos tus datos, y retirar tu autorización cuando quieras escribiéndonos a <a href="mailto:openbrainclub@gmail.com">openbrainclub@gmail.com</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenido legal completo, en secciones desplegables -->
+    <section class="legal-detail" aria-labelledby="detalle-title">
+      <div class="container legal-content__inner">
+        <h2 id="detalle-title" class="legal-detail__title">El detalle completo</h2>
+        <p class="legal-detail__intro">Toca cada sección para leerla.</p>
+
+        <div class="legal-accordion">
+
+          <details class="legal-item" open>
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">1</span>
+              <h3 class="legal-item__title">Responsable del tratamiento</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p><strong>Nombre:</strong> Open Brain — Club de Aprendizaje</p>
+              <p><strong>Dirección:</strong> CL 2N N.º 14E-102, barrio Villa Prado, Cúcuta, Norte de Santander, Colombia.</p>
+              <p><strong>Correo electrónico:</strong> <a href="mailto:openbrainclub@gmail.com">openbrainclub@gmail.com</a></p>
+              <p><strong>Teléfono:</strong> <a href="tel:+573227606978">+57 322 7606978</a></p>
+            </div>
+          </details>
+
+          <details class="legal-item">
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">2</span>
+              <h3 class="legal-item__title">Marco legal aplicable</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p>
+                La presente política se rige por la <strong>Ley Estatutaria 1581 de 2012</strong> (Protección de Datos Personales), el <strong>Decreto 1377 de 2013</strong> y las normas complementarias expedidas por la Superintendencia de Industria y Comercio de Colombia.
+              </p>
+            </div>
+          </details>
+
+          <details class="legal-item">
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">3</span>
+              <h3 class="legal-item__title">Datos personales recolectados</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p>Open Brain recolecta, a través del formulario de contacto e inscripción de su plataforma web, únicamente los siguientes datos del acudiente o representante legal:</p>
+              <ul class="legal-list">
+                <li>Nombre completo del acudiente.</li>
+                <li>Número de teléfono o dirección de correo electrónico.</li>
+                <li>Servicio de interés seleccionado.</li>
+                <li>Mensaje descriptivo de la necesidad.</li>
+              </ul>
+              <p>Además, al enviar el formulario se registran de forma automática:</p>
+              <ul class="legal-list">
+                <li>La fecha y hora de la solicitud y la versión de esta política que aceptaste, como constancia de tu autorización.</li>
+                <li>Una huella cifrada e irreversible de tu conexión a internet (no tu dirección IP), usada únicamente para limitar envíos abusivos.</li>
+              </ul>
+              <p><strong>No se recolectan datos de menores de edad</strong> a través de esta plataforma web.</p>
+            </div>
+          </details>
+
+          <details class="legal-item">
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">4</span>
+              <h3 class="legal-item__title">Finalidad del tratamiento</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p>Los datos recolectados se utilizarán exclusivamente para:</p>
+              <ul class="legal-list">
+                <li>Dar respuesta a la solicitud de información o inscripción enviada.</li>
+                <li>Contactar al acudiente para orientarlo sobre los servicios de Open Brain.</li>
+                <li>Coordinar, cuando corresponda, la asignación de horarios y cupos de atención.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="legal-item">
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">5</span>
+              <h3 class="legal-item__title">Transmisión de datos a terceros</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p>
+                Para operar el formulario, Open Brain apoya el tratamiento de los datos en los siguientes proveedores, que actúan como encargados y solo los usan para prestar el servicio:
+              </p>
+              <ul class="legal-list">
+                <li><strong>Cloudflare, Inc.</strong> (<a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">cloudflare.com</a>): aloja el sitio web y la base de datos donde se guardan las solicitudes.</li>
+                <li><strong>Resend</strong> (<a href="https://resend.com" target="_blank" rel="noopener noreferrer">resend.com</a>): envía al correo institucional de Open Brain un aviso cuando llega una solicitud nueva.</li>
+              </ul>
+              <p>
+                Estos proveedores pueden tener sus servidores fuera de Colombia. Open Brain no vende ni cede los datos a otras personas o empresas.
+              </p>
+            </div>
+          </details>
+
+          <details class="legal-item">
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">6</span>
+              <h3 class="legal-item__title">Conservación y seguridad</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p>
+                Las solicitudes se conservan <strong>hasta 12 meses</strong> contados desde su recepción y luego se eliminan de forma automática. Si pides antes la supresión de tus datos, se eliminarán sin esperar ese plazo.
+              </p>
+              <p>
+                La comunicación con el sitio viaja cifrada (HTTPS), el acceso a la base de datos está restringido al equipo autorizado de Open Brain y las consultas se realizan con medidas contra la manipulación de datos.
+              </p>
+            </div>
+          </details>
+
+          <details class="legal-item">
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">7</span>
+              <h3 class="legal-item__title">Derechos del titular</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p>Como titular de los datos personales tienes derecho a:</p>
+              <ul class="legal-list">
+                <li><strong>Conocer, actualizar y rectificar</strong> tus datos personales.</li>
+                <li><strong>Solicitar la supresión</strong> de tus datos cuando no exista obligación legal de conservarlos.</li>
+                <li><strong>Revocar la autorización</strong> otorgada para el tratamiento.</li>
+                <li><strong>Presentar quejas</strong> ante la Superintendencia de Industria y Comercio (SIC).</li>
+              </ul>
+              <p>Para ejercer estos derechos, puedes escribirnos al correo <a href="mailto:openbrainclub@gmail.com">openbrainclub@gmail.com</a>.</p>
+            </div>
+          </details>
+
+          <details class="legal-item">
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">8</span>
+              <h3 class="legal-item__title">Protección de la privacidad infantil</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p>
+                Conforme al Artículo 7 de la Ley 1581 de 2012 y el Código de la Infancia y la Adolescencia (Ley 1098 de 2006), Open Brain no publica imágenes ni datos de menores de edad sin la autorización previa y expresa de sus representantes legales. Los testimonios de familias publicados en la plataforma protegen en todo momento la identidad de los menores atendidos.
+              </p>
+            </div>
+          </details>
+
+          <details class="legal-item">
+            <summary class="legal-item__summary">
+              <span class="legal-item__number" aria-hidden="true">9</span>
+              <h3 class="legal-item__title">Vigencia y modificaciones</h3>
+            </summary>
+            <div class="legal-item__body">
+              <p>
+                Esta política está vigente desde el <strong>22 de noviembre de 2026</strong>. Open Brain se reserva el derecho de actualizarla. Los cambios serán publicados en esta misma página con la fecha de vigencia correspondiente.
+              </p>
+            </div>
+          </details>
+
         </div>
 
-        <div class="legal-block">
-          <h2 class="legal-block__title">2. Marco legal aplicable</h2>
+        <div class="legal-help">
+          <h2 class="legal-help__title">¿Tienes dudas sobre tus datos?</h2>
           <p>
-            La presente política se rige por la <strong>Ley Estatutaria 1581 de 2012</strong> (Protección de Datos Personales), el <strong>Decreto 1377 de 2013</strong> y las normas complementarias expedidas por la Superintendencia de Industria y Comercio de Colombia.
-          </p>
-        </div>
-
-        <div class="legal-block">
-          <h2 class="legal-block__title">3. Datos personales recolectados</h2>
-          <p>Open Brain recolecta, a través del formulario de contacto e inscripción de su plataforma web, únicamente los siguientes datos del acudiente o representante legal:</p>
-          <ul class="legal-list">
-            <li>Nombre completo del acudiente.</li>
-            <li>Número de teléfono o dirección de correo electrónico.</li>
-            <li>Servicio de interés seleccionado.</li>
-            <li>Mensaje descriptivo de la necesidad.</li>
-          </ul>
-          <p>Además, al enviar el formulario se registran de forma automática:</p>
-          <ul class="legal-list">
-            <li>La fecha y hora de la solicitud y la versión de esta política que usted aceptó, como constancia de su autorización.</li>
-            <li>Una huella cifrada e irreversible de su conexión a internet (no su dirección IP), usada únicamente para limitar envíos abusivos.</li>
-          </ul>
-          <p><strong>No se recolectan datos de menores de edad</strong> a través de esta plataforma web.</p>
-        </div>
-
-        <div class="legal-block">
-          <h2 class="legal-block__title">4. Finalidad del tratamiento</h2>
-          <p>Los datos recolectados se utilizarán exclusivamente para:</p>
-          <ul class="legal-list">
-            <li>Dar respuesta a la solicitud de información o inscripción enviada.</li>
-            <li>Contactar al acudiente para orientarlo sobre los servicios de Open Brain.</li>
-            <li>Coordinar, cuando corresponda, la asignación de horarios y cupos de atención.</li>
-          </ul>
-        </div>
-
-        <div class="legal-block">
-          <h2 class="legal-block__title">5. Transmisión de datos a terceros</h2>
-          <p>
-            Para operar el formulario, Open Brain apoya el tratamiento de los datos en los siguientes proveedores, que actúan como encargados y solo los usan para prestar el servicio:
-          </p>
-          <ul class="legal-list">
-            <li><strong>Cloudflare, Inc.</strong> (<a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">cloudflare.com</a>): aloja el sitio web y la base de datos donde se guardan las solicitudes.</li>
-            <li><strong>Resend</strong> (<a href="https://resend.com" target="_blank" rel="noopener noreferrer">resend.com</a>): envía al correo institucional de Open Brain un aviso cuando llega una solicitud nueva.</li>
-          </ul>
-          <p>
-            Estos proveedores pueden tener sus servidores fuera de Colombia. Open Brain no vende ni cede los datos a otras personas o empresas.
-          </p>
-        </div>
-
-        <div class="legal-block">
-          <h2 class="legal-block__title">6. Conservación y seguridad</h2>
-          <p>
-            Las solicitudes se conservan <strong>hasta 12 meses</strong> contados desde su recepción y luego se eliminan de forma automática. Si usted solicita antes la supresión de sus datos, se eliminarán sin esperar ese plazo.
-          </p>
-          <p>
-            La comunicación con el sitio viaja cifrada (HTTPS), el acceso a la base de datos está restringido al equipo autorizado de Open Brain y las consultas se realizan con medidas contra la manipulación de datos.
-          </p>
-        </div>
-
-        <div class="legal-block">
-          <h2 class="legal-block__title">7. Derechos del titular</h2>
-          <p>El titular de los datos personales tiene derecho a:</p>
-          <ul class="legal-list">
-            <li><strong>Conocer, actualizar y rectificar</strong> sus datos personales.</li>
-            <li><strong>Solicitar la supresión</strong> de sus datos cuando no exista obligación legal de conservarlos.</li>
-            <li><strong>Revocar la autorización</strong> otorgada para el tratamiento.</li>
-            <li><strong>Presentar quejas</strong> ante la Superintendencia de Industria y Comercio (SIC).</li>
-          </ul>
-          <p>Para ejercer estos derechos, puede escribirnos al correo: openbrainclub@gmail.com </p>
-        </div>
-
-        <div class="legal-block">
-          <h2 class="legal-block__title">8. Protección de la privacidad infantil</h2>
-          <p>
-            Conforme al Artículo 7 de la Ley 1581 de 2012 y el Código de la Infancia y la Adolescencia (Ley 1098 de 2006), Open Brain no publica imágenes ni datos de menores de edad sin la autorización previa y expresa de sus representantes legales. Los testimonios de familias publicados en la plataforma protegen en todo momento la identidad de los menores atendidos.
-          </p>
-        </div>
-
-        <div class="legal-block">
-          <h2 class="legal-block__title">9. Vigencia y modificaciones</h2>
-          <p>
-            Esta política está vigente desde el <strong>22 de noviembre de 2026</strong>. Open Brain se reserva el derecho de actualizarla. Los cambios serán publicados en esta misma página con la fecha de vigencia correspondiente.
+            Escríbenos a <a href="mailto:openbrainclub@gmail.com">openbrainclub@gmail.com</a> o por
+            <a href="https://wa.me/573227606978" target="_blank" rel="noopener noreferrer">WhatsApp</a> y con gusto te ayudamos.
           </p>
         </div>
 
         <div class="legal-back">
           <a href="contacto.html" class="btn btn--primary">&larr; Volver al formulario de contacto</a>
         </div>
-
       </div>
     </section>
   </main>
