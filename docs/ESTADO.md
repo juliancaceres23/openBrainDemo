@@ -41,7 +41,7 @@
 | **RF-11** | Servicios | Horarios de atención | Fase 3 | ✅ Completado | Lista estructurada en barra lateral y móvil |
 | **RF-12** | Servicios | Tarifas por servicio | Fase 3 | ✅ Completado | Detalle de inversión y marcador `[PENDIENTE: Tarifas]` |
 | **RF-13** | Servicios | Botón para solicitar información | Fase 3 | ✅ Completado | Botón accesible en cada tarjeta hacia `contacto.html` |
-| **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ✅ Completado | Avatares circulares del prototipo con perfiles y marcadores |
+| **RF-14** | Equipo | Presentación del equipo profesional (3 profesores) | Fase 4 | ✅ Completado | Perfiles reales y fotos optimizadas de Catalina López, Jessee Carrero y Jhonatan Villamizar |
 | **RF-15** | Equipo | Testimonios de familias autorizados sin nombres de menores | Fase 4 | ✅ Completado | Tarjetas rosas del prototipo, autorización Ley 1581 |
 | **RF-16** | Equipo | Preguntas frecuentes desplegables | Fase 4 | ✅ Completado | Implementado con `<details>` y `<summary>` nativos sin JS |
 | **RF-17** | Contacto | Formulario: nombre acudiente, teléfono/correo, servicio, mensaje | Fase 5 | ✅ Completado | Labels vinculados, campos obligatorios y semántica accesible |
