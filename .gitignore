@@ -20,11 +20,14 @@ desktop.ini
 .github/instructions/
 
 # --- Variables de entorno y secretos privados (nunca subir) ---
-# Ojo: public/js/config.js NO va aquí: contiene la llave pública de
-# Web3Forms, que el navegador necesita para enviar el formulario.
+# Los secretos del backend (RESEND_API_KEY, IP_SALT) se guardan en el panel de
+# Cloudflare, nunca en el repositorio. Para pruebas locales con wrangler van en
+# .dev.vars, que NO se sube.
 .env
 .env.*
 !.env.example
+.dev.vars
+wrangler.toml
 *.pem
 *.key
 

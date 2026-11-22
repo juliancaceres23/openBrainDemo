@@ -1,0 +1,16 @@
+# =========================================================
+# Plantilla de configuración de Wrangler — SOLO PARA DESARROLLO LOCAL
+#
+# Cópiala como `wrangler.toml` (ese archivo está en .gitignore, no se sube).
+# En producción NO se usa: los bindings y variables se configuran en el panel
+# de Cloudflare (ver README, sección "Backend: formulario y base de datos").
+# =========================================================
+name = "openbrain"
+compatibility_date = "2026-01-01"
+pages_build_output_dir = "public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "open-brain-db"
+# Para pruebas locales basta cualquier valor; en local se usa una copia en .wrangler/
+database_id = "00000000-0000-0000-0000-000000000000"
