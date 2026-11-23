@@ -4,7 +4,7 @@
  * y confirmación visual accesible en pantalla.
  *
  * IMPORTANTE ANTES DE DESPLEGAR:
- * 1. Crea js/config.js a partir de js/config.example.js con tu clave real de https://web3forms.com
+ * 1. Verifica que js/config.js tenga tu llave de https://web3forms.com (llave pública por diseño)
  * 2. Asegúrate de que MODO_SIMULACION esté en false (valor por defecto seguro).
  *
  * Para pruebas locales puedes poner MODO_SIMULACION = true;

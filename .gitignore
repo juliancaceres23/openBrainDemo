@@ -1,4 +1,40 @@
+# ==========================================================
+# .gitignore — Open Brain
+# Nota: .gitignore NO afecta archivos que ya estén en Git.
+# Si agregas una regla para algo ya subido, quítalo del
+# índice con:  git rm -r --cached <ruta>
+# ==========================================================
 
+# --- Editores e IDE (configuración personal) ---
+.idea/
+.vscode/
+*.iml
+*.swp
 
-#Ignore vscode AI rules
-.github\instructions\codacy.instructions.md
+# --- Sistema operativo ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Reglas de IA generadas por extensiones locales (Codacy) ---
+.github/instructions/
+
+# --- Variables de entorno y secretos privados (nunca subir) ---
+# Ojo: public/js/config.js NO va aquí: contiene la llave pública de
+# Web3Forms, que el navegador necesita para enviar el formulario.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- Dependencias, compilados y registros (por si se agregan en el futuro) ---
+node_modules/
+dist/
+.wrangler/
+*.log
+
+# --- Archivos temporales y copias ---
+*.tmp
+*.bak
+*~

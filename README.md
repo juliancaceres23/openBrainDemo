@@ -23,39 +23,26 @@ Sitio web estático puro, sin dependencias complejas ni herramientas de compilac
 ## 2. Estructura del Proyecto
 
 ```text
-openBrain/
-├── index.html              # Módulo 1: Inicio (bienvenida, presentación, sede, accesos directos)
-├── servicios.html          # Módulo 2: Servicios y horarios (catálogo, edades, modalidades, tarifas)
-├── equipo.html             # Módulo 3: Equipo y testimonios (profesionales, testimonios y FAQ)
-├── contacto.html           # Módulo 4: Contacto e inscripción (formulario, mapa, pasos y datos)
-├── politica-datos.html     # Página de soporte legal (Ley 1581 de 2012 y Ley 1098 de 2006)
-├── robots.txt              # Configuración de rastreo e indexación para buscadores (SEO)
-├── sitemap.xml             # Mapa del sitio con las URLs canónicas públicas
-├── css/
-│   └── estilos.css         # Hoja de estilos única, accesible (WCAG 2.1 AA) y responsiva
-├── js/
-│   ├── menu.js             # Menú de navegación móvil accesible (control ARIA, Escape, focus)
-│   └── formulario.js       # Validación, honeypot anti-spam, simulación y envío a Web3Forms
-├── img/
-│   ├── logo-openbrain.svg          # Logotipo versión clara
-│   ├── logo-openbrain-header.svg   # Logotipo optimizado para cabecera azul índigo
-│   ├── mascota-openbrain.svg       # Mascota institucional (cerebro con lentes)
-│   ├── ilustracion-hero.svg        # Gráfico principal del hero fiel al prototipo
-│   └── sede-openbrain.svg          # Ilustración accesible de la sede sin menores
-├── assets/
-│   ├── folleto-open-brain.pdf      # Folleto institucional listo para descarga (RF-27)
-│   └── qr-openbrain.svg            # Código QR vectorial para uso en la sede física (RF-26)
-├── docs/                           # Documentación de requerimientos, marco legal y control
-│   ├── 00-reglas.md
-│   ├── 01-contexto.md
-│   ├── 02-requerimientos-funcionales.md
-│   ├── 03-stack.md
-│   ├── 04-identidad-visual.md
-│   ├── 05-legal.md
-│   ├── 06-contenido.md
-│   ├── PLAN.md                     # Plan maestro de implementación en 7 fases
-│   └── ESTADO.md                   # Matriz de estado y cobertura de los 27 RF
-└── README.md                       # Manual técnico y guía de mantenimiento
+openBrain/                          # Repositorio (lo que se sube a GitHub)
+├── public/                         # ← ÚNICO contenido que se publica en Cloudflare Pages
+│   ├── index.html                  # Módulo 1: Inicio (bienvenida, presentación, sede, accesos directos)
+│   ├── servicios.html              # Módulo 2: Servicios y horarios (catálogo, edades, modalidades, tarifas)
+│   ├── equipo.html                 # Módulo 3: Equipo y testimonios (profesionales, testimonios y FAQ)
+│   ├── contacto.html               # Módulo 4: Contacto e inscripción (formulario, mapa, pasos y datos)
+│   ├── politica-datos.html         # Página de soporte legal (Ley 1581 de 2012 y Ley 1098 de 2006)
+│   ├── robots.txt                  # Indicaciones de rastreo para buscadores (SEO; no es una medida de seguridad)
+│   ├── sitemap.xml                 # Mapa del sitio con las URLs canónicas públicas
+│   ├── _headers                    # Cabeceras de seguridad (CSP, nosniff, etc.) para Cloudflare Pages
+│   ├── css/                        # estilos.css (importa variables, global y estilos por página)
+│   ├── js/                         # menu.js, formulario.js, animaciones.js, config.js (llave pública Web3Forms)
+│   ├── img/                        # Logotipos, ilustraciones y fotografías del sitio
+│   └── assets/                     # Folleto PDF (RF-27) y código QR (RF-26)
+├── docs/                           # Documentación interna (NO se publica)
+├── .github/workflows/              # Automatizaciones (análisis de calidad con Qodana)
+├── .codacy/                        # Configuración de análisis estático
+├── AGENTS.md                       # Reglas del proyecto para asistentes de IA (NO se publica)
+├── .gitignore
+└── README.md                       # Manual técnico y guía de mantenimiento (NO se publica)
 ```
 
 ---
@@ -66,19 +53,20 @@ Al tratarse de código nativo para el navegador, no requiere instalación de `np
 
 ### Método 1: Apertura directa
 1. Abre tu explorador de archivos.
-2. Haz doble clic sobre `index.html` (o clic derecho > *Abrir con* > Tu navegador web favorito: Chrome, Firefox, Edge, Safari).
+2. Entra a la carpeta `public/` y haz doble clic sobre `index.html` (o clic derecho > *Abrir con* > Tu navegador web favorito: Chrome, Firefox, Edge, Safari).
 
 ### Método 2: Servidor local de Python (Recomendado)
 Para probar la carga con protocolo HTTP:
 ```bash
-# Desde la raíz del proyecto:
+# Desde la carpeta public/ del proyecto:
+cd public
 python3 -m http.server 8000
 ```
 Luego ingresa en tu navegador a: **`http://localhost:8000`**
 
 ### Método 3: Extensión Live Server (VS Code)
 1. Abre la carpeta del proyecto en VS Code.
-2. Haz clic derecho sobre `index.html`.
+2. Haz clic derecho sobre `public/index.html`.
 3. Selecciona **«Open with Live Server»**.
 
 ---
@@ -87,7 +75,7 @@ Luego ingresa en tu navegador a: **`http://localhost:8000`**
 
 El formulario de `contacto.html` envía los datos vía `fetch` asíncrono al correo institucional de Open Brain mediante el servicio gratuito **Web3Forms**.
 
-El archivo controlador es [`js/formulario.js`](js/formulario.js):
+El archivo controlador es [`public/js/formulario.js`](public/js/formulario.js):
 
 ### Modo Simulación
 Para garantizar seguridad en el despliegue, el modo de simulación viene **desactivado por defecto**:
@@ -100,10 +88,14 @@ const MODO_SIMULACION = false;
 ### Obtener y configurar la clave de acceso de Web3Forms
 1. Ingresa a [https://web3forms.com](https://web3forms.com).
 2. Escribe el correo oficial de Open Brain donde deben llegar las solicitudes y solicita tu Access Key gratuita.
-3. Copia la clave recibida en tu correo y reemplázala en la línea 24 de `js/formulario.js`:
+3. Copia la clave recibida en tu correo y reemplázala en [`public/js/config.js`](public/js/config.js):
    ```javascript
-   const WEB3FORMS_ACCESS_KEY = 'tu-clave-aqui-12345678-abcd';
+   const CONFIG = {
+     WEB3FORMS_ACCESS_KEY: 'tu-clave-aqui',
+   };
    ```
+
+> **La llave es pública por diseño.** El navegador la necesita para enviar el formulario, así que `config.js` **sí se sube al repositorio** y se publica con el sitio (no la pongas en `.gitignore` o el formulario dejará de funcionar en producción). El riesgo real es el spam que agote los envíos mensuales del plan gratuito: mantén el campo trampa (`botcheck`), activa hCaptcha en el panel de Web3Forms y, si hay abuso, genera una llave nueva y reemplázala en `config.js`.
 
 ---
 
@@ -112,6 +104,8 @@ const MODO_SIMULACION = false;
 Todo dato pendiente de confirmación por Open Brain está identificado visualmente con la etiqueta `.pending-badge` (`[PENDIENTE: ...]`).
 
 ### Guía de reemplazo de datos pendientes:
+
+> Todos los archivos del sitio están dentro de la carpeta `public/` (por ejemplo, `index.html` es `public/index.html`).
 
 | Dato pendiente | ¿En qué archivos actualizarlo? | Instrucción |
 |---|---|---|
@@ -130,7 +124,7 @@ Todo dato pendiente de confirmación por Open Brain está identificado visualmen
 
 ## 6. Cómo Generar el Código QR Definitivo (RF-26)
 
-El archivo [`assets/qr-openbrain.svg`](assets/qr-openbrain.svg) es una versión vectorial vectorial accesible provisional que apunta a `openbrain.pages.dev`.
+El archivo [`public/assets/qr-openbrain.svg`](public/assets/qr-openbrain.svg) es un **marcador provisional: no es un QR real** y no lleva a ningún sitio hasta que lo reemplaces.
 
 Una vez tengas tu dominio o subdominio asignado en Cloudflare Pages:
 1. Ingresa a una herramienta gratuita como [QRCode Monkey](https://www.qrcode-monkey.com) o cualquier generador similar.
@@ -139,23 +133,37 @@ Una vez tengas tu dominio o subdominio asignado en Cloudflare Pages:
    * **Color de primer plano:** `#2F438C` (Azul Índigo).
    * **Color de fondo:** `#FFFFFF` (Blanco).
 4. Descarga el archivo generado en formato SVG o PNG de alta resolución.
-5. Guárdalo en la carpeta `assets/` reemplazando `assets/qr-openbrain.svg` (o actualizando la ruta en el pie de página de los HTML).
+5. Guárdalo en `public/assets/` reemplazando `qr-openbrain.svg` (o actualizando la ruta en el pie de página de los HTML).
+6. Usa un QR **estático** (no uno "dinámico" de prueba que se bloquea después) y pruébalo con un celular, con datos móviles, al tamaño en que lo vayas a imprimir.
 
 ---
 
 ## 7. Despliegue en Cloudflare Pages
 
+> Solo la carpeta `public/` se publica. `docs/`, `AGENTS.md`, `README.md` y las configuraciones de herramientas quedan en el repositorio, pero **fuera** del sitio.
+
 1. Sube este repositorio a tu cuenta de **GitHub**.
 2. Ingresa a tu panel de control de [Cloudflare](https://dash.cloudflare.com).
-3. Dirígete a **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
+3. Dirígete a **Workers & Pages** > **Create application** > **Pages** > **Connect to Git** (los nombres del panel pueden variar con el tiempo).
 4. Selecciona el repositorio `openBrain`.
 5. En los ajustes de compilación (*Build settings*):
    * **Framework preset:** `None` (sitio estático puro).
    * **Build command:** *(dejar vacío)*.
-   * **Build output directory:** `.` o `/` (la raíz del repositorio).
-6. Haz clic en **Save and Deploy**.
-7. En menos de un minuto tu sitio estará publicado y disponible globalmente con certificado SSL (HTTPS) gratuito.
-8. Actualiza las etiquetas de dominio en `robots.txt` y `sitemap.xml` con la URL asignada por Cloudflare.
+   * **Build output directory:** `public`
+6. Haz clic en **Save and Deploy**. En menos de un minuto el sitio queda publicado con HTTPS gratuito.
+7. Reemplaza el marcador de dominio por la URL real (por ejemplo `https://openbrain.pages.dev`). En VS Code usa *Buscar y reemplazar en archivos* (`Ctrl+Shift+H`):
+   * Buscar: `https://[PENDIENTE: dominio].pages.dev`
+   * Reemplazar por: `https://TU-PROYECTO.pages.dev`
+   * Aparece en el `canonical`/`og:url`/`og:image` de las páginas HTML, en `public/sitemap.xml` y en `public/robots.txt`.
+8. Genera el QR definitivo (sección 6) y haz *commit* y *push*: Cloudflare vuelve a publicar solo.
+
+**Alternativa sin Git (Direct Upload):** en Pages elige *Upload assets* y sube únicamente la carpeta `public/`.
+
+### Seguridad y qué se publica
+* **Todo lo que está en `public/` es visible para cualquiera** desde el navegador. Nunca pongas allí claves privadas ni datos personales.
+* `robots.txt` solo orienta a los buscadores; **no oculta nada**. Lo interno se protege no desplegándolo (por eso vive fuera de `public/`).
+* `public/_headers` aplica la política de seguridad de contenido (CSP) y otras cabeceras. Si añades un servicio externo (analítica, otro mapa), permítelo en la CSP o el navegador lo bloqueará.
+* `.gitignore` no afecta archivos que ya estén en Git: para dejar de rastrear algo, usa `git rm -r --cached <ruta>`.
 
 ---
 

@@ -25,19 +25,16 @@ Familia (navegador en celular o PC) → Cloudflare Pages entrega el sitio estát
 ## Estructura de carpetas
 ```
 openBrain/
-├── index.html
-├── servicios.html
-├── equipo.html
-├── contacto.html
-├── politica-datos.html      (página de apoyo, no es un módulo)
-├── css/estilos.css
-├── js/menu.js
-├── js/formulario.js
-├── img/
-├── assets/                  (folleto PDF, código QR)
-├── docs/
-└── README.md
+├── public/                  (lo único que se publica en Cloudflare Pages)
+│   ├── index.html, servicios.html, equipo.html, contacto.html
+│   ├── politica-datos.html  (página de apoyo, no es un módulo)
+│   ├── robots.txt, sitemap.xml, _headers
+│   ├── css/  js/  img/  assets/   (assets: folleto PDF, código QR)
+├── docs/                    (documentación interna, no se publica)
+├── AGENTS.md  README.md     (no se publican)
+└── .gitignore
 ```
+Cloudflare Pages: directorio de salida `public`, sin comando de build.
 
 ## No usar
 Frameworks, librerías de JS o CSS, base de datos, backend propio, login, panel de administración, pagos.
